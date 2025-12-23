@@ -3,21 +3,45 @@
     "$__mpe_code": {
       "filePath": "D:\\Codes\\Python\\SSAL\\assets\\resource\\pipeline\\my_task.json",
       "filename": "my_task",
-      "lastSyncTime": 1766488525331,
+      "lastSyncTime": 1766490183555,
       "prefix": "",
       "savedViewport": {
-        "x": 139.3820399699248,
-        "y": 181.32358223953926,
-        "zoom": 0.7323839806342022
+        "x": -35.48701760205722,
+        "y": -291.8514296031132,
+        "zoom": 0.8246924442330589
       },
       "version": "v0.12.0"
     }
   },
+  "主页": {
+    "$__mpe_code": {
+      "position": {
+        "x": 2100,
+        "y": 1363
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "anchor": [
+      "返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "home.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2
+  },
   "关闭公告": {
     "$__mpe_code": {
       "position": {
-        "x": 300,
-        "y": 29
+        "x": 900,
+        "y": 400
       }
     },
     "action": {
@@ -36,14 +60,17 @@
   "关闭每日签到": {
     "$__mpe_code": {
       "position": {
-        "x": 1500,
-        "y": 568
+        "x": 900,
+        "y": 898
       }
     },
     "action": {
       "param": {},
       "type": "Click"
     },
+    "next": [
+      "判断是否在主页"
+    ],
     "recognition": {
       "param": {
         "template": [
@@ -56,14 +83,17 @@
   "关闭活动": {
     "$__mpe_code": {
       "position": {
-        "x": 1200,
-        "y": 690
+        "x": 1800,
+        "y": 771
       }
     },
     "action": {
       "param": {},
       "type": "Click"
     },
+    "next": [
+      "判断是否在主页"
+    ],
     "recognition": {
       "param": {
         "template": [
@@ -71,14 +101,43 @@
         ]
       },
       "type": "TemplateMatch"
+    }
+  },
+  "判断是否在主页": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1200,
+        "y": 1005
+      }
     },
-    "repeat": 2
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "anchor": [
+      "判断主页"
+    ],
+    "next": [
+      "采购"
+    ],
+    "on_error": [
+      "点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "menu.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 100
   },
   "点击任意区域进入游戏": {
     "$__mpe_code": {
       "position": {
-        "x": 300,
-        "y": 223
+        "x": 900,
+        "y": 594
       }
     },
     "action": {
@@ -98,8 +157,8 @@
   "点击空白处继续": {
     "$__mpe_code": {
       "position": {
-        "x": 900,
-        "y": 507
+        "x": 1500,
+        "y": 726
       }
     },
     "action": {
@@ -116,7 +175,8 @@
       {
         "jump_back": true,
         "name": "关闭活动"
-      }
+      },
+      "判断是否在主页"
     ],
     "recognition": {
       "param": {
@@ -126,14 +186,13 @@
       },
       "type": "OCR"
     },
-    "repeat": 2,
     "timeout": 2000
   },
   "爬塔": {
     "$__mpe_code": {
       "position": {
         "x": 0,
-        "y": 252
+        "y": 366
       }
     },
     "action": {
@@ -151,8 +210,30 @@
   "登录": {
     "$__mpe_code": {
       "position": {
-        "x": 0,
-        "y": 0
+        "x": 300,
+        "y": 216
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "登录悠星账号",
+      "判断是否在主页"
+    ],
+    "post_delay": 0,
+    "pre_delay": 0,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "登录悠星账号": {
+    "$__mpe_code": {
+      "position": {
+        "x": 600,
+        "y": 351
       }
     },
     "action": {
@@ -184,8 +265,8 @@
   "签到": {
     "$__mpe_code": {
       "position": {
-        "x": 300,
-        "y": 507
+        "x": 900,
+        "y": 0
       }
     },
     "action": {
@@ -215,8 +296,8 @@
   "获得道具": {
     "$__mpe_code": {
       "position": {
-        "x": 600,
-        "y": 675
+        "x": 1200,
+        "y": 594
       }
     },
     "action": {
@@ -237,5 +318,54 @@
       "type": "OCR"
     },
     "timeout": 2000
+  },
+  "采购": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1500,
+        "y": 1212
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "anchor": [
+      "前往采购"
+    ],
+    "next": [
+      "领取每日赠礼"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "采购"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "领取每日赠礼": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1800,
+        "y": 1241
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "每日赠礼"
+        ]
+      },
+      "type": "OCR"
+    }
   }
 }
