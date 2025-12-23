@@ -131,7 +131,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: SSAL-${{ matrix.os }}-${{ matrix.arch }}
+          name: StellaSora-Auto-Helper-${{ matrix.os }}-${{ matrix.arch }}
           path: "install"
 
   changelog:
