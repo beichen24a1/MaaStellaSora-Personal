@@ -5,6 +5,16 @@
 
 星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 开发
 
+项目正在开发中
+
+## 功能（待实现）
+
+- [x] 登录游戏
+- [ ] 清理活动
+- [ ] 领取任务
+- [ ] 领取/发送好友干劲
+- [ ] 其他...
+
 ## 鸣谢
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
