@@ -17,12 +17,12 @@
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
     // "mirrorchyan_rid": "MaaXXX",
     "mirrorchyan_multiplatform": false,
-    "agent": {
-        "child_exec": "python",
-        "child_args": [
-            "../agent/main.py"
-        ]
-    },
+    // "agent": {
+    //     "child_exec": "python",
+    //     "child_args": [
+    //         "../agent/main.py"
+    //     ]
+    // },
     "controller": [
         {
             "name": "桌面端",
@@ -65,7 +65,7 @@
         },
         {
             "name": "领取每日奖励",
-            "entry": "领取每日赠礼"
+            "entry": "采购"
         },
         {
             "name": "心链送礼",
