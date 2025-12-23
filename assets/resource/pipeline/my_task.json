@@ -1,11 +1,26 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {},
-    "MyTask4": {
-        "recognition": "Custom",
-        "custom_recognition": "my_reco_222",
-        "action": "Custom",
-        "custom_action": "my_action_111"
+    "登录": {
+        "recognition": "OCR",
+        "expected": "登录",
+        "action": "Click",
+        "next": [
+            "点击任意区域进入游戏"
+        ],
+        "timeout": 10000
+    },
+    "点击任意区域进入游戏": {
+        "recognition": "OCR",
+        "expected": "点击任意区域进入游戏",
+        "action": "Click",
+        "contact": 0,
+        "next": [],
+        "timeout": 10000
+    },
+    "爬塔": {
+        "recognition": "OCR",
+        "expected": "爬塔",
+        "action": "Click",
+        "next": [],
+        "timeout": 1000
     }
 }
