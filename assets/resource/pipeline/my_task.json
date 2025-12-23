@@ -8,10 +8,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "领取任务"
       }
     ],
     "recognition": {
@@ -91,9 +87,6 @@
       "param": {},
       "type": "Click"
     },
-    "next": [
-      "打开活动"
-    ],
     "pre_delay": 1000,
     "recognition": {
       "param": {
@@ -148,10 +141,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "前往好友页"
       }
     ],
     "recognition": {
@@ -255,10 +244,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "委托"
       }
     ],
     "recognition": {
@@ -315,12 +300,6 @@
     "next": [
       "点击活动战斗关卡"
     ],
-    "on_error": [
-      {
-        "jump_back": true,
-        "name": "关闭心链"
-      }
-    ],
     "recognition": {
       "param": {
         "template": [
@@ -366,10 +345,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "打开心链"
       }
     ],
     "recognition": {
@@ -498,19 +473,6 @@
       "type": "OCR"
     }
   },
-  "爬塔": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "recognition": {
-      "param": {
-        "expected": "爬塔"
-      },
-      "type": "OCR"
-    },
-    "timeout": 1000
-  },
   "登录": {
     "action": {
       "param": {},
@@ -563,10 +525,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "委托"
       }
     ],
     "recognition": {
@@ -702,10 +660,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "打开邮箱"
       }
     ],
     "recognition": {
@@ -726,10 +680,6 @@
       {
         "jump_back": true,
         "name": "主页"
-      },
-      {
-        "jump_back": true,
-        "name": "打开心链"
       }
     ],
     "recognition": {
