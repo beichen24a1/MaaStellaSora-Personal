@@ -94,6 +94,7 @@
     "next": [
       "打开活动"
     ],
+    "pre_delay": 1000,
     "recognition": {
       "param": {
         "template": [
@@ -101,7 +102,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "repeat": 4
   },
   "关闭每日签到": {
     "action": {
@@ -313,6 +315,12 @@
     "next": [
       "点击活动战斗关卡"
     ],
+    "on_error": [
+      {
+        "jump_back": true,
+        "name": "关闭心链"
+      }
+    ],
     "recognition": {
       "param": {
         "template": [
@@ -345,6 +353,34 @@
       },
       "type": "TemplateMatch"
     }
+  },
+  "是否已领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "检测到每日赠礼已领取，将跳过"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "主页"
+      },
+      {
+        "jump_back": true,
+        "name": "打开心链"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "已领取"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 2000
   },
   "每周事务": {
     "action": {
@@ -633,7 +669,8 @@
       "前往采购"
     ],
     "next": [
-      "领取每日赠礼"
+      "领取每日赠礼",
+      "是否已领取"
     ],
     "recognition": {
       "param": {
@@ -702,7 +739,8 @@
         ]
       },
       "type": "OCR"
-    }
+    },
+    "timeout": 2000
   },
   "魔王养成": {
     "action": {
