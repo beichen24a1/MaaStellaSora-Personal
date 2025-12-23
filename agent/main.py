@@ -3,6 +3,9 @@ import sys
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 
+import action
+import reco
+
 
 def main():
     Toolkit.init_option("./")

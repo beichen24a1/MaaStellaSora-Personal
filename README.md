@@ -3,7 +3,7 @@
 
 </div>
 
-星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 开发
+星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动
 
 项目正在开发中
 
