@@ -25,7 +25,7 @@
     // },
     "controller": [
         {
-            "name": "桌面端",
+            "name": "桌面端（后台）",
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
@@ -35,6 +35,19 @@
                 "screencap": "FramePool", // 截图方式
                 "mouse": "SendMessageWithCursorPos", // 鼠标控制方式
                 "keyboard": "SendMessageWithCursorPos" // 键盘控制方式
+            }
+        },
+        {
+            "name": "桌面端（前台）",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "xtlr",
+                // 截图及控制方式，请根据项目实际情况修改
+                // 文档: https://maafw.xyz/docs/2.4-ControlMethods
+                "screencap": "FramePool", // 截图方式
+                "mouse": "Seize", // 鼠标控制方式
+                "keyboard": "Seize" // 键盘控制方式
             }
         },
         {
