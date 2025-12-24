@@ -3,12 +3,12 @@
     "$__mpe_code": {
       "filePath": "D:\\Codes\\Python\\StellaSora-Auto-Helper\\assets\\resource\\pipeline\\main.json",
       "filename": "新建Pipeline3",
-      "lastSyncTime": 1766546686260,
+      "lastSyncTime": 1766547029357,
       "prefix": "",
       "savedViewport": {
-        "x": 605.304406435951,
-        "y": 20.445216524791874,
-        "zoom": 0.2
+        "x": -1956.2252377360142,
+        "y": -1500.2867479632587,
+        "zoom": 1.2125732532083198
       },
       "version": "v0.12.0"
     }
@@ -115,7 +115,8 @@
       },
       "type": "TemplateMatch"
     },
-    "repeat": 2
+    "repeat": 2,
+    "timeout": 1000
   },
   "关闭公告": {
     "$__mpe_code": {
