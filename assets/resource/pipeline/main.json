@@ -42,20 +42,17 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Failed": "没有找到一键领取按钮！",
-      "Node.Recognition.Starting": "正在尝试点击一键领取"
+      "Node.Recognition.Starting": "正在尝试一键领取"
     },
-    "next": [
-      "领取任务额外奖励"
-    ],
     "recognition": {
       "param": {
-        "template": [
-          "onekey_claim.png"
+        "expected": [
+          "一键领取"
         ]
       },
-      "type": "TemplateMatch"
-    }
+      "type": "OCR"
+    },
+    "timeout": 1000
   },
   "主页": {
     "action": {
@@ -393,7 +390,7 @@
       "type": "Click"
     },
     "next": [
-      "一键领取"
+      "进行任务一键领取"
     ],
     "recognition": {
       "param": {
@@ -412,7 +409,7 @@
     "next": [
       {
         "jump_back": true,
-        "name": "一键领取"
+        "name": "进行任务一键领取"
       }
     ],
     "recognition": {
@@ -676,6 +673,27 @@
       "type": "OCR"
     }
   },
+  "进行任务一键领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到一键领取按钮！",
+      "Node.Recognition.Starting": "正在尝试点击一键领取"
+    },
+    "next": [
+      "领取任务额外奖励"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "onekey_claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
   "选择活动第一关": {
     "action": {
       "param": {},
@@ -828,7 +846,7 @@
       "type": "Click"
     },
     "next": [
-      "一键领取"
+      "进行任务一键领取"
     ],
     "recognition": {
       "param": {
