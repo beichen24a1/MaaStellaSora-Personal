@@ -109,7 +109,7 @@
     "recognition": {
       "param": {
         "template": [
-          "close_1.png"
+          "close_variant_1.png"
         ]
       },
       "type": "TemplateMatch"
@@ -126,7 +126,7 @@
     "recognition": {
       "param": {
         "template": [
-          "close_2.png"
+          "close_variant_2.png"
         ]
       },
       "type": "TemplateMatch"
@@ -612,7 +612,7 @@
     "recognition": {
       "param": {
         "template": [
-          "good_gift.png"
+          "gift_good.png"
         ]
       },
       "type": "TemplateMatch"
