@@ -699,7 +699,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "timeout": 1000
   },
   "选择活动第一关": {
     "action": {
