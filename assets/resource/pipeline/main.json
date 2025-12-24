@@ -3,12 +3,12 @@
     "$__mpe_code": {
       "filePath": "D:\\Codes\\Python\\StellaSora-Auto-Helper\\assets\\resource\\pipeline\\main.json",
       "filename": "新建Pipeline3",
-      "lastSyncTime": 1766546070998,
+      "lastSyncTime": 1766546686260,
       "prefix": "",
       "savedViewport": {
-        "x": 10.273547387200551,
-        "y": 143.24370637209609,
-        "zoom": 0.6597539553864484
+        "x": 605.304406435951,
+        "y": 20.445216524791874,
+        "zoom": 0.2
       },
       "version": "v0.12.0"
     }
@@ -17,7 +17,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 452
+        "y": 685
       }
     },
     "action": {
@@ -43,7 +43,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 452
+        "y": 685
       }
     },
     "action": {
@@ -56,7 +56,7 @@
     "recognition": {
       "param": {
         "expected": [
-          ""
+          "一键赠送"
         ]
       },
       "type": "OCR"
@@ -66,13 +66,20 @@
     "$__mpe_code": {
       "position": {
         "x": 2100,
-        "y": 3066
+        "y": 3914
       }
     },
     "action": {
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到一键领取按钮！",
+      "Node.Recognition.Starting": "正在尝试点击一键领取"
+    },
+    "next": [
+      "领取任务额外奖励"
+    ],
     "recognition": {
       "param": {
         "expected": [
@@ -86,7 +93,7 @@
     "$__mpe_code": {
       "position": {
         "x": 2100,
-        "y": 1079
+        "y": 1421
       }
     },
     "action": {
@@ -96,6 +103,10 @@
     "anchor": [
       "返回主页"
     ],
+    "focus": {
+      "Node.Recognition.Starting": "正在返回主页",
+      "Node.Recognition.Succeeded": ""
+    },
     "recognition": {
       "param": {
         "template": [
@@ -110,7 +121,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 1619
+        "y": 2073
       }
     },
     "action": {
@@ -130,7 +141,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1200,
-        "y": 136
+        "y": 1473
       }
     },
     "action": {
@@ -155,7 +166,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 2656
+        "y": 3599
       }
     },
     "action": {
@@ -178,7 +189,7 @@
     "$__mpe_code": {
       "position": {
         "x": 2400,
-        "y": 2504
+        "y": 3300
       }
     },
     "action": {
@@ -201,7 +212,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 646
+        "y": 879
       }
     },
     "action": {
@@ -227,7 +238,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 2763
+        "y": 3539
       }
     },
     "action": {
@@ -237,6 +248,9 @@
     "anchor": [
       "判断主页"
     ],
+    "focus": {
+      "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步"
+    },
     "on_error": [
       "点击空白处继续"
     ],
@@ -254,7 +268,7 @@
     "$__mpe_code": {
       "position": {
         "x": 900,
-        "y": 452
+        "y": 0
       }
     },
     "action": {
@@ -277,7 +291,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1200,
-        "y": 452
+        "y": 685
       }
     },
     "action": {
@@ -300,12 +314,15 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 2097
+        "y": 2583
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击委托"
     },
     "next": [
       {
@@ -330,7 +347,7 @@
     "$__mpe_code": {
       "position": {
         "x": 900,
-        "y": 753
+        "y": 194
       }
     },
     "action": {
@@ -357,12 +374,15 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 921
+        "y": 1157
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击开始战斗"
     },
     "next": [
       "确认"
@@ -380,7 +400,7 @@
     "$__mpe_code": {
       "position": {
         "x": 0,
-        "y": 0
+        "y": 417
       }
     },
     "action": {
@@ -409,7 +429,7 @@
     "$__mpe_code": {
       "position": {
         "x": 0,
-        "y": 724
+        "y": 165
       }
     },
     "action": {
@@ -435,12 +455,15 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 1993
+        "y": 3003
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开邮箱"
     },
     "next": [
       {
@@ -465,7 +488,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 1099
+        "y": 1473
       }
     },
     "action": {
@@ -473,7 +496,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Succeeded": "检测到每日赠礼已领取，将跳过"
+      "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过"
     },
     "next": [
       {
@@ -495,7 +518,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 3066
+        "y": 3959
       }
     },
     "action": {
@@ -518,7 +541,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1200,
-        "y": 860
+        "y": 1093
       }
     },
     "action": {
@@ -526,7 +549,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步"
+      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
+      "Node.Recognition.Starting": "正在添加战斗次数"
     },
     "next": [
       "开始战斗"
@@ -540,13 +564,14 @@
       "type": "TemplateMatch"
     },
     "repeat": 6,
+    "repeat_delay": 200,
     "timeout": 1000
   },
   "点击任意区域进入游戏": {
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 1813
+        "y": 2267
       }
     },
     "action": {
@@ -554,6 +579,9 @@
         "contact": 0
       },
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在尝试进入游戏"
     },
     "recognition": {
       "param": {
@@ -567,7 +595,7 @@
     "$__mpe_code": {
       "position": {
         "x": 300,
-        "y": 753
+        "y": 194
       }
     },
     "action": {
@@ -590,7 +618,7 @@
     "$__mpe_code": {
       "position": {
         "x": 2100,
-        "y": 2459
+        "y": 3255
       }
     },
     "action": {
@@ -624,7 +652,7 @@
     "$__mpe_code": {
       "position": {
         "x": 300,
-        "y": 0
+        "y": 417
       }
     },
     "action": {
@@ -650,7 +678,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1200,
-        "y": 1368
+        "y": 1789
       }
     },
     "action": {
@@ -687,12 +715,16 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 1367
+        "y": 1757
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "已登录账号",
+      "Node.Recognition.Starting": "正在尝试登录悠星账号"
     },
     "recognition": {
       "param": {
@@ -708,12 +740,15 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 1779
+        "y": 2427
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "正在点击确认"
     },
     "next": [
       {
@@ -734,7 +769,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 2291
+        "y": 2835
       }
     },
     "action": {
@@ -765,7 +800,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 2459
+        "y": 3255
       }
     },
     "action": {
@@ -791,7 +826,7 @@
     "$__mpe_code": {
       "position": {
         "x": 900,
-        "y": 0
+        "y": 417
       }
     },
     "action": {
@@ -824,7 +859,7 @@
     "$__mpe_code": {
       "position": {
         "x": 600,
-        "y": 753
+        "y": 194
       }
     },
     "action": {
@@ -847,7 +882,7 @@
     "$__mpe_code": {
       "position": {
         "x": 600,
-        "y": 0
+        "y": 417
       }
     },
     "action": {
@@ -876,7 +911,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 1115
+        "y": 1473
       }
     },
     "action": {
@@ -886,6 +921,9 @@
     "anchor": [
       "前往采购"
     ],
+    "focus": {
+      "Node.Recognition.Starting": "正在前往采购"
+    },
     "next": [
       "领取每日赠礼",
       "是否已领取"
@@ -903,12 +941,15 @@
     "$__mpe_code": {
       "position": {
         "x": 1500,
-        "y": 3066
+        "y": 3930
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在尝试领取任务奖励"
     },
     "next": [
       {
@@ -937,16 +978,44 @@
       "type": "OCR"
     }
   },
-  "领取每日赠礼": {
+  "领取任务额外奖励": {
     "$__mpe_code": {
       "position": {
-        "x": 1800,
-        "y": 2187
+        "x": 2400,
+        "y": 3898
       }
     },
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到领取按钮",
+      "Node.Recognition.Starting": "正在尝试领取任务额外的奖励"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "领取每日赠礼": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1800,
+        "y": 2699
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在领取每日赠礼"
     },
     "next": [
       {
@@ -972,7 +1041,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 3280
+        "y": 4173
       }
     },
     "action": {
@@ -985,7 +1054,7 @@
     "recognition": {
       "param": {
         "expected": [
-          "等级奖励"
+          "魔王养成"
         ]
       },
       "type": "OCR"
@@ -994,8 +1063,8 @@
   "默契提升": {
     "$__mpe_code": {
       "position": {
-        "x": 1500,
-        "y": 0
+        "x": 1200,
+        "y": 401
       }
     },
     "action": {
