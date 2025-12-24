@@ -444,10 +444,7 @@
         ]
       },
       "type": "TemplateMatch"
-    },
-    "repeat": 6,
-    "repeat_delay": 200,
-    "timeout": 1000
+    }
   },
   "点击任意区域进入游戏": {
     "action": {
@@ -473,7 +470,7 @@
       "type": "Click"
     },
     "next": [
-      "选择活动第一关"
+      "选择活动关卡"
     ],
     "recognition": {
       "param": {
@@ -707,7 +704,7 @@
     },
     "timeout": 1000
   },
-  "选择活动第一关": {
+  "选择活动关卡": {
     "action": {
       "param": {},
       "type": "Click"

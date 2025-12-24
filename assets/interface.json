@@ -11,7 +11,7 @@
     "welcome": "首次使用！欢迎使用 StellaSora Auto Helper",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/SodaCodeSave/StellaSora-Auto-Helper",
-    "version": "0.2.6",
+    "version": "0.3.0",
     "custom_title": "StellaSora Auto Helper",
     // Mirror酱为第三方分发服务，新项目默认关闭
     // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
@@ -74,35 +74,191 @@
     "task": [
         {
             "name": "登录游戏",
-            "entry": "登录"
+            "entry": "登录",
+            "description": "自动登录游戏，并且关闭活动弹窗以及签到弹窗"
         },
         {
             "name": "领取每日奖励",
-            "entry": "采购"
+            "entry": "采购",
+            "description": "自动领取采购中的每日奖励"
         },
         {
             "name": "心链送礼",
-            "entry": "打开心链"
+            "entry": "打开心链",
+            "description": "自动打开心链页面，并且为心链顶置旅人赠送礼物"
         },
         {
-            "name": "活动清理",
-            "entry": "打开活动"
+            "name": "活动快速战斗",
+            "entry": "打开活动",
+            "description": "自动打开活动页面，并且对活动第一关进行快速战斗",
+            "repeatable": true,
+            "repeat_count": 1
         },
         {
             "name": "领取并重新派遣委托",
-            "entry": "委托"
+            "entry": "委托",
+            "description": "自动领取并重新派遣委托"
         },
         {
             "name": "领取与赠送干劲",
-            "entry": "前往好友页"
+            "entry": "前往好友页",
+            "description": "自动前往好友页面，并且领取与赠送好友干劲"
         },
         {
             "name": "领取任务奖励",
-            "entry": "领取任务"
+            "entry": "领取任务",
+            "description": "自动前往任务页面，并且领取任务奖励"
         },
         {
             "name": "领取邮箱奖励",
-            "entry": "打开邮箱"
+            "entry": "打开邮箱",
+            "description": "自动打开邮箱页面，并且领取邮箱奖励"
         }
-    ]
+    ],
+    "option": {
+        "作战关卡": {
+            "type": "select",
+            "label": "$选择活动关卡",
+            "description": "选择要快速战斗的活动关卡",
+            "default_case": "1.雪愿夜的奇境冒险I",
+            "cases": [
+                {
+                    "name": "1.雪愿夜的奇境冒险I",
+                    "label": "$1.雪愿夜的奇境冒险I",
+                    "description": "12-23更新 活动普通第一关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_1.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "2.雪愿夜的奇境冒险II",
+                    "label": "$2.雪愿夜的奇境冒险II",
+                    "description": "12-23更新 活动普通第二关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_2.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "3.雪愿夜的奇境冒险III",
+                    "label": "$3.雪愿夜的奇境冒险III",
+                    "description": "12-23更新 活动普通第三关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_3.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "4.出逃的礼物车I",
+                    "label": "$4.出逃的礼物车I",
+                    "description": "12-23更新 活动普通第四关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_4.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "5.雪愿夜的奇境冒险IV",
+                    "label": "$5.雪愿夜的奇境冒险IV",
+                    "description": "12-23更新 活动普通第五关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_5.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "6.雪愿夜的奇境冒险V",
+                    "label": "$6.雪愿夜的奇境冒险V",
+                    "description": "12-23更新 活动普通第六关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_6.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "7.雪愿夜的奇境冒险VI",
+                    "label": "$7.雪愿夜的奇境冒险VI",
+                    "description": "12-23更新 活动普通第七关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_7.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "8.雪夜颂歌与怪诞暖炉I",
+                    "label": "$8.雪夜颂歌与怪诞暖炉I",
+                    "description": "12-23更新 活动普通第八关",
+                    "pipeline_override": {
+                        "选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_8.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+            ]
+        }
+    }
 }
