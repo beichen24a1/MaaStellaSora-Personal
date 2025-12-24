@@ -2,9 +2,12 @@
 <div align="center">
     <img src="assets/logo.svg" alt="StellaSora-Auto-Helper" width="200" />
     <h1>StellaSora-Auto-Helper</h1>
+    <p>星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动</p>
 </div>
 
-星塔助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动
+遇到问题请去Issues反馈，或前往QQ交流群进行反馈
+
+QQ交流群：**1063132902**  密码：**星塔旅人**
 
 > 项目正在积极开发中，欢迎参与贡献！
 
