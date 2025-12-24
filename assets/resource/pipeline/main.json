@@ -3,12 +3,12 @@
     "$__mpe_code": {
       "filePath": "D:\\Codes\\Python\\StellaSora-Auto-Helper\\assets\\resource\\pipeline\\main.json",
       "filename": "新建Pipeline3",
-      "lastSyncTime": 1766547475726,
+      "lastSyncTime": 1766547620030,
       "prefix": "",
       "savedViewport": {
-        "x": -2272.0478715502613,
-        "y": -5174.354279767375,
-        "zoom": 1.3928809012738008
+        "x": -1063.6739806686794,
+        "y": -2701.8658435850016,
+        "zoom": 1.392880901273801
       },
       "version": "v0.12.0"
     }
@@ -65,8 +65,8 @@
   "一键领取": {
     "$__mpe_code": {
       "position": {
-        "x": 2145,
-        "y": 3901
+        "x": 2100,
+        "y": 3914
       }
     },
     "action": {
@@ -93,7 +93,7 @@
     "$__mpe_code": {
       "position": {
         "x": 2100,
-        "y": 1421
+        "y": 1405
       }
     },
     "action": {
@@ -538,6 +538,32 @@
       "type": "OCR"
     }
   },
+  "每日事务": {
+    "$__mpe_code": {
+      "position": {
+        "x": 1800,
+        "y": 4347
+      }
+    },
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "一键领取"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "每日事务"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
   "添加战斗次数": {
     "$__mpe_code": {
       "position": {
@@ -955,10 +981,6 @@
     "next": [
       {
         "jump_back": true,
-        "name": "一键领取"
-      },
-      {
-        "jump_back": true,
         "name": "每周事务"
       },
       {
@@ -968,6 +990,10 @@
       {
         "jump_back": true,
         "name": "主页"
+      },
+      {
+        "jump_back": true,
+        "name": "每日事务"
       }
     ],
     "recognition": {
@@ -1042,7 +1068,7 @@
     "$__mpe_code": {
       "position": {
         "x": 1800,
-        "y": 4173
+        "y": 4153
       }
     },
     "action": {
