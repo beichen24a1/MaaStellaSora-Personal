@@ -44,6 +44,9 @@
     "focus": {
       "Node.Recognition.Starting": "正在尝试一键领取"
     },
+    "next": [
+      "点击空白处继续"
+    ],
     "recognition": {
       "param": {
         "expected": [
@@ -52,11 +55,6 @@
       },
       "type": "OCR"
     },
-    "next": [
-      {
-        "name": "点击空白处继续"
-      }
-    ],
     "timeout": 1000
   },
   "主页": {
@@ -524,6 +522,7 @@
     "next": [
       "选择礼物"
     ],
+    "pre_wait_freezes": 1000,
     "recognition": {
       "param": {
         "expected": [
