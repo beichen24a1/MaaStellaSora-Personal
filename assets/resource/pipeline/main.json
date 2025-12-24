@@ -1,25 +1,5 @@
 {
-  "$__mpe_config_新建Pipeline3": {
-    "$__mpe_code": {
-      "filePath": "D:\\Codes\\Python\\StellaSora-Auto-Helper\\assets\\resource\\pipeline\\main.json",
-      "filename": "新建Pipeline3",
-      "lastSyncTime": 1766547620030,
-      "prefix": "",
-      "savedViewport": {
-        "x": -1063.6739806686794,
-        "y": -2701.8658435850016,
-        "zoom": 1.392880901273801
-      },
-      "version": "v0.12.0"
-    }
-  },
   "一键获取": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 685
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -40,12 +20,6 @@
     }
   },
   "一键赠送": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 685
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -63,12 +37,6 @@
     }
   },
   "一键领取": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2100,
-        "y": 3914
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -90,12 +58,6 @@
     }
   },
   "主页": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2100,
-        "y": 1405
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -119,12 +81,6 @@
     "timeout": 1000
   },
   "关闭公告": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 2073
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -139,12 +95,6 @@
     }
   },
   "关闭心链": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 1473
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -164,12 +114,6 @@
     "repeat": 4
   },
   "关闭每日签到": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 3599
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -187,12 +131,6 @@
     }
   },
   "关闭活动": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2400,
-        "y": 3300
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -210,12 +148,6 @@
     }
   },
   "再次派遣": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 879
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -236,12 +168,6 @@
     }
   },
   "判断是否在主页": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 3539
-      }
-    },
     "action": {
       "param": {},
       "type": "DoNothing"
@@ -266,12 +192,6 @@
     "timeout": 100
   },
   "前往好友页": {
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 0
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -289,12 +209,6 @@
     }
   },
   "好友列表": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 685
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -312,12 +226,6 @@
     }
   },
   "委托": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 2583
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -345,12 +253,6 @@
     }
   },
   "开启快速战斗": {
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 194
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -372,12 +274,6 @@
     }
   },
   "开始战斗": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 1157
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -398,12 +294,6 @@
     }
   },
   "打开心链": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 417
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -427,12 +317,6 @@
     }
   },
   "打开活动": {
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 165
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -453,12 +337,6 @@
     }
   },
   "打开邮箱": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 3003
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -486,12 +364,6 @@
     }
   },
   "是否已领取": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 1473
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -516,12 +388,6 @@
     "timeout": 2000
   },
   "每周事务": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 3959
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -539,12 +405,6 @@
     }
   },
   "每日事务": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 4347
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -565,12 +425,6 @@
     }
   },
   "添加战斗次数": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 1093
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -595,12 +449,6 @@
     "timeout": 1000
   },
   "点击任意区域进入游戏": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 2267
-      }
-    },
     "action": {
       "param": {
         "contact": 0
@@ -619,12 +467,6 @@
     "timeout": 10000
   },
   "点击活动战斗关卡": {
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 194
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -642,12 +484,6 @@
     }
   },
   "点击空白处继续": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2100,
-        "y": 3255
-      }
-    },
     "action": {
       "param": {
         "contact": 0
@@ -676,12 +512,6 @@
     "timeout": 2000
   },
   "点击邮寄": {
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 417
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -702,12 +532,6 @@
     }
   },
   "登录": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 1789
-      }
-    },
     "action": {
       "param": {},
       "type": "DoNothing"
@@ -739,12 +563,6 @@
     }
   },
   "登录悠星账号": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 1757
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -764,12 +582,6 @@
     "timeout": 10000
   },
   "确认": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 2427
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -793,12 +605,6 @@
     }
   },
   "签到": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 2835
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -824,12 +630,6 @@
     "timeout": 1000
   },
   "获得道具": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 3255
-      }
-    },
     "action": {
       "param": {
         "contact": 0
@@ -850,12 +650,6 @@
     "timeout": 2000
   },
   "赠送礼物": {
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 417
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -883,12 +677,6 @@
     }
   },
   "选择活动第一关": {
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 194
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -906,12 +694,6 @@
     }
   },
   "选择礼物": {
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 417
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -935,12 +717,6 @@
     }
   },
   "采购": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 1473
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -965,12 +741,6 @@
     }
   },
   "领取任务": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 3930
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -1006,12 +776,6 @@
     }
   },
   "领取任务额外奖励": {
-    "$__mpe_code": {
-      "position": {
-        "x": 2400,
-        "y": 3898
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -1031,12 +795,6 @@
     "timeout": 1000
   },
   "领取每日赠礼": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 2699
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -1065,12 +823,6 @@
     "timeout": 2000
   },
   "魔王养成": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1800,
-        "y": 4153
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
@@ -1088,12 +840,6 @@
     }
   },
   "默契提升": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 401
-      }
-    },
     "action": {
       "param": {},
       "type": "Click"
