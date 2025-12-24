@@ -111,7 +111,8 @@
       },
       "type": "TemplateMatch"
     },
-    "repeat": 4
+    "repeat": 4,
+    "timeout": 3000
   },
   "关闭每日签到": {
     "action": {
@@ -885,6 +886,7 @@
         ]
       },
       "type": "OCR"
-    }
+    },
+    "timeout": 5000
   }
 }
