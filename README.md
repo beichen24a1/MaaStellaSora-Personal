@@ -24,7 +24,7 @@
 
 1. 前往[Github Release](https://github.com/SodaCodeSave/StellaSora-Auto-Helper/releases) 下载最新版本对应的压缩包
 2. 解压压缩包到任意目录
-3. 运行 `MFAAvalonia.exe`
+3. 如果需要操控Windows版星塔旅人，使用管理员权限运行 `MFAAvalonia.exe`（使用ADB直接启动即可）
 
 ## 鸣谢
 
