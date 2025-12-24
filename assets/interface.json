@@ -13,10 +13,8 @@
     "github": "https://github.com/SodaCodeSave/StellaSora-Auto-Helper",
     "version": "0.3.0",
     "custom_title": "StellaSora Auto Helper",
-    // Mirror酱为第三方分发服务，新项目默认关闭
-    // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
-    // "mirrorchyan_rid": "MaaXXX",
-    "mirrorchyan_multiplatform": false,
+    "mirrorchyan_rid": "SSAH",
+    "mirrorchyan_multiplatform": true,
     // "agent": {
     //     "child_exec": "python",
     //     "child_args": [
