@@ -4,13 +4,17 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到一键获取按钮",
+      "Node.Recognition.Starting": "正在尝试点击一键获取"
+    },
     "next": [
       "主页"
     ],
     "recognition": {
       "param": {
         "expected": [
-          "一键获取"
+          "键获取"
         ]
       },
       "type": "OCR"
@@ -21,13 +25,17 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到一键赠送按钮",
+      "Node.Recognition.Starting": "正在尝试点击一键赠送"
+    },
     "next": [
       "一键获取"
     ],
     "recognition": {
       "param": {
         "expected": [
-          "一键赠送"
+          "键赠送"
         ]
       },
       "type": "OCR"
@@ -211,6 +219,9 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "正在前往好友页"
+    },
     "next": [
       "好友列表"
     ],
@@ -227,6 +238,9 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在前往好友列表"
     },
     "next": [
       "一键赠送"
