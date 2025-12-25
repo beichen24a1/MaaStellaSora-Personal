@@ -787,11 +787,10 @@
       },
       {
         "jump_back": true,
-        "name": "主页"
+        "name": "每日事务"
       },
       {
-        "jump_back": true,
-        "name": "每日事务"
+        "name": "主页"
       }
     ],
     "recognition": {
