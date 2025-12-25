@@ -261,8 +261,9 @@
       },
       {
         "jump_back": true,
-        "name": "再次派遣"
-      }
+        "name": "跳过 "
+      },
+      "再次派遣"
     ],
     "recognition": {
       "param": {
@@ -658,6 +659,23 @@
       "param": {
         "expected": [
           "赠送礼物"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "跳过 ": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "跳过"
         ]
       },
       "type": "OCR"
