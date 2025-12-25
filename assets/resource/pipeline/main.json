@@ -80,6 +80,27 @@
     "repeat": 2,
     "timeout": 1000
   },
+  "今日事务": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "进行任务一键领取"
+      },
+      "主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "今日事务"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
   "关闭公告": {
     "action": {
       "param": {},
@@ -394,32 +415,16 @@
       "type": "Click"
     },
     "next": [
-      "进行任务一键领取"
+      {
+        "jump_back": true,
+        "name": "进行任务一键领取"
+      },
+      "魔王养成"
     ],
     "recognition": {
       "param": {
         "expected": [
           "每周事务"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "每日事务": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "进行任务一键领取"
-      }
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "每日事务"
         ]
       },
       "type": "OCR"
@@ -692,7 +697,8 @@
       {
         "jump_back": true,
         "name": "领取任务额外奖励"
-      }
+      },
+      "主页"
     ],
     "recognition": {
       "param": {
@@ -777,21 +783,7 @@
       "Node.Recognition.Starting": "正在尝试领取任务奖励"
     },
     "next": [
-      {
-        "jump_back": true,
-        "name": "每周事务"
-      },
-      {
-        "jump_back": true,
-        "name": "魔王养成"
-      },
-      {
-        "jump_back": true,
-        "name": "每日事务"
-      },
-      {
-        "name": "主页"
-      }
+      "每周事务"
     ],
     "recognition": {
       "param": {
@@ -811,6 +803,9 @@
       "Node.Recognition.Failed": "没有找到领取按钮",
       "Node.Recognition.Starting": "正在尝试领取任务额外的奖励"
     },
+    "next": [
+      "点击空白处继续"
+    ],
     "recognition": {
       "param": {
         "template": [
@@ -855,7 +850,11 @@
       "type": "Click"
     },
     "next": [
-      "进行任务一键领取"
+      {
+        "jump_back": true,
+        "name": "进行任务一键领取"
+      },
+      "今日事务"
     ],
     "recognition": {
       "param": {
