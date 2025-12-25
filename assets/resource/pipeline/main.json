@@ -1,5 +1,140 @@
 {
-  "一键获取": {
+  "任务_一键领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到一键领取按钮！",
+      "Node.Recognition.Starting": "正在尝试点击一键领取"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_点击空白处继续"
+      },
+      {
+        "jump_back": true,
+        "name": "任务_领取额外奖励"
+      },
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "onekey_claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "任务_今日事务": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "今日事务"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "任务_每周事务": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "任务_魔王养成"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "每周事务"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "任务_领取任务": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在尝试领取任务奖励"
+    },
+    "next": [
+      "任务_每周事务"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "任务"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "任务_领取额外奖励": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到领取按钮",
+      "Node.Recognition.Starting": "正在尝试领取任务额外的奖励"
+    },
+    "next": [
+      "通用_点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "任务_魔王养成": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "任务_今日事务"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "魔王养成"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "好友_一键获取": {
     "action": {
       "param": {},
       "type": "Click"
@@ -9,7 +144,7 @@
       "Node.Recognition.Starting": "正在尝试点击一键获取"
     },
     "next": [
-      "主页"
+      "通用_返回主页"
     ],
     "recognition": {
       "param": {
@@ -20,7 +155,7 @@
       "type": "OCR"
     }
   },
-  "一键赠送": {
+  "好友_一键赠送": {
     "action": {
       "param": {},
       "type": "Click"
@@ -30,7 +165,7 @@
       "Node.Recognition.Starting": "正在尝试点击一键赠送"
     },
     "next": [
-      "一键获取"
+      "好友_一键获取"
     ],
     "recognition": {
       "param": {
@@ -41,7 +176,528 @@
       "type": "OCR"
     }
   },
-  "一键领取": {
+  "好友_前往好友页": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在前往好友页"
+    },
+    "next": [
+      "好友_好友列表"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "friends.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "好友_好友列表": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在前往好友列表"
+    },
+    "next": [
+      "好友_一键赠送"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "好友列表"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "委托_再次派遣": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "再次派遣"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "委托_前往委托": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击委托"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_一键领取"
+      },
+      {
+        "jump_back": true,
+        "name": "委托_跳过 "
+      },
+      "委托_再次派遣"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "entrust.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "委托_跳过 ": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "通用_点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "跳过"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "心链_关闭心链": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在关闭心链"
+    },
+    "pre_delay": 1000,
+    "recognition": {
+      "param": {
+        "template": [
+          "chat_shutdown.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 3000
+  },
+  "心链_打开心链": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开心链"
+    },
+    "next": [
+      "心链_点击邮寄"
+    ],
+    "post_wait_freezes": 2000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "心链"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "心链_点击邮寄": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击邮寄按钮"
+    },
+    "next": [
+      "心链_选择礼物"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "邮寄"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "心链_赠送礼物": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在赠送礼物"
+    },
+    "next": [
+      "心链_默契提升"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "赠送礼物"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "心链_选择礼物": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过",
+      "Node.Recognition.Starting": "正在选择礼物"
+    },
+    "next": [
+      "心链_赠送礼物"
+    ],
+    "on_error": [
+      "心链_关闭心链"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "gift_good.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "心链_默契提升": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在关闭弹窗"
+    },
+    "next": [
+      "心链_关闭心链"
+    ],
+    "pre_wait_freezes": 1000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "默契提升"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_开启快速战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_添加战斗次数",
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速战斗"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_开始战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击开始战斗"
+    },
+    "next": [
+      "活动_确认"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "开始战斗"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_打开活动": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开活动"
+    },
+    "next": [
+      "活动_点击活动战斗关卡"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "activity.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "活动_添加战斗次数": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
+      "Node.Recognition.Starting": "正在添加战斗次数"
+    },
+    "next": [
+      "活动_开始战斗"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "add.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "活动_点击活动战斗关卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_选择活动关卡"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "战斗关卡"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_确认": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "正在点击确认"
+    },
+    "next": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "确认"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_选择活动关卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_开启快速战斗"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "activity_fight_1.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "登录_关闭公告": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "close.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "登录_关闭每日签到": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "通用_判断是否在主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "close_variant_1.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "登录_关闭活动": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "通用_判断是否在主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "close_variant_2.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "登录_点击任意区域进入游戏": {
+    "action": {
+      "param": {
+        "contact": 0
+      },
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在尝试进入游戏"
+    },
+    "recognition": {
+      "param": {
+        "expected": "点击任意区域进入游戏"
+      },
+      "type": "OCR"
+    },
+    "timeout": 10000
+  },
+  "登录_登录": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "通用_判断是否在主页",
+      {
+        "jump_back": true,
+        "name": "登录_登录悠星账号"
+      },
+      {
+        "jump_back": true,
+        "name": "登录_关闭公告"
+      },
+      {
+        "jump_back": true,
+        "name": "登录_点击任意区域进入游戏"
+      },
+      {
+        "jump_back": true,
+        "name": "登录_签到"
+      }
+    ],
+    "post_delay": 0,
+    "pre_delay": 0,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "登录_登录悠星账号": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "已登录账号",
+      "Node.Recognition.Starting": "正在尝试登录悠星账号"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "login.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 10000
+  },
+  "登录_签到": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_点击空白处继续"
+      },
+      {
+        "jump_back": true,
+        "name": "登录_签到_2"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": "可领取"
+      },
+      "type": "OCR"
+    },
+    "repeat": 3,
+    "repeat_delay": 1000,
+    "timeout": 1000
+  },
+  "登录_签到_2": {
+    "action": {
+      "param": {
+        "contact": 0
+      },
+      "type": "Click"
+    },
+    "next": [
+      "通用_点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "获得道具"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 2000
+  },
+  "通用_一键领取": {
     "action": {
       "param": {},
       "type": "Click"
@@ -50,7 +706,7 @@
       "Node.Recognition.Starting": "正在尝试一键领取"
     },
     "next": [
-      "点击空白处继续"
+      "通用_点击空白处继续"
     ],
     "recognition": {
       "param": {
@@ -62,7 +718,59 @@
     },
     "timeout": 1000
   },
-  "主页": {
+  "通用_判断是否在主页": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "anchor": [
+      "判断主页"
+    ],
+    "focus": {
+      "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步"
+    },
+    "on_error": [
+      "通用_点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "menu.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 100
+  },
+  "通用_点击空白处继续": {
+    "action": {
+      "param": {
+        "contact": 0
+      },
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "登录_关闭每日签到"
+      },
+      {
+        "jump_back": true,
+        "name": "登录_关闭活动"
+      },
+      "通用_判断是否在主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "点击空白处继续"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 2000
+  },
+  "通用_返回主页": {
     "action": {
       "param": {},
       "type": "Click"
@@ -85,283 +793,7 @@
     "repeat": 2,
     "timeout": 1000
   },
-  "今日事务": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "进行任务一键领取"
-      },
-      "主页"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "今日事务"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "关闭公告": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "recognition": {
-      "param": {
-        "template": [
-          "close.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "关闭心链": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在关闭心链"
-    },
-    "pre_delay": 1000,
-    "recognition": {
-      "param": {
-        "template": [
-          "chat_shutdown.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 3000
-  },
-  "关闭每日签到": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "判断是否在主页"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "close_variant_1.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "关闭活动": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "判断是否在主页"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "close_variant_2.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "再次派遣": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "主页"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "再次派遣"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "判断是否在主页": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "anchor": [
-      "判断主页"
-    ],
-    "focus": {
-      "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步"
-    },
-    "on_error": [
-      "点击空白处继续"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "menu.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 100
-  },
-  "前往好友页": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在前往好友页"
-    },
-    "next": [
-      "好友列表"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "friends.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "好友列表": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在前往好友列表"
-    },
-    "next": [
-      "一键赠送"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "好友列表"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "委托": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在点击委托"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "一键领取"
-      },
-      {
-        "jump_back": true,
-        "name": "跳过 "
-      },
-      "再次派遣"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "entrust.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "开启快速战斗": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "添加战斗次数",
-      "主页"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "快速战斗"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "开始战斗": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在点击开始战斗"
-    },
-    "next": [
-      "确认"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "开始战斗"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "打开心链": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在打开心链"
-    },
-    "next": [
-      "点击邮寄"
-    ],
-    "post_wait_freezes": 2000,
-    "recognition": {
-      "param": {
-        "expected": [
-          "心链"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "打开活动": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在打开活动"
-    },
-    "next": [
-      "点击活动战斗关卡"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "activity.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "打开邮箱": {
+  "邮箱_打开邮箱": {
     "action": {
       "param": {},
       "type": "Click"
@@ -372,11 +804,11 @@
     "next": [
       {
         "jump_back": true,
-        "name": "一键领取"
+        "name": "通用_一键领取"
       },
       {
         "jump_back": true,
-        "name": "主页"
+        "name": "通用_返回主页"
       }
     ],
     "recognition": {
@@ -388,7 +820,7 @@
       "type": "TemplateMatch"
     }
   },
-  "是否已领取": {
+  "采购_判断是否已领取": {
     "action": {
       "param": {},
       "type": "Click"
@@ -399,7 +831,7 @@
     "next": [
       {
         "jump_back": true,
-        "name": "主页"
+        "name": "通用_返回主页"
       }
     ],
     "recognition": {
@@ -412,355 +844,7 @@
     },
     "timeout": 2000
   },
-  "每周事务": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "进行任务一键领取"
-      },
-      "魔王养成"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "每周事务"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "添加战斗次数": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
-      "Node.Recognition.Starting": "正在添加战斗次数"
-    },
-    "next": [
-      "开始战斗"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "add.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "点击任意区域进入游戏": {
-    "action": {
-      "param": {
-        "contact": 0
-      },
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在尝试进入游戏"
-    },
-    "recognition": {
-      "param": {
-        "expected": "点击任意区域进入游戏"
-      },
-      "type": "OCR"
-    },
-    "timeout": 10000
-  },
-  "点击活动战斗关卡": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "选择活动关卡"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "战斗关卡"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "点击空白处继续": {
-    "action": {
-      "param": {
-        "contact": 0
-      },
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "关闭每日签到"
-      },
-      {
-        "jump_back": true,
-        "name": "关闭活动"
-      },
-      "判断是否在主页"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "点击空白处继续"
-        ]
-      },
-      "type": "OCR"
-    },
-    "timeout": 2000
-  },
-  "点击邮寄": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在点击邮寄按钮"
-    },
-    "next": [
-      "选择礼物"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "邮寄"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "登录": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "next": [
-      "判断是否在主页",
-      {
-        "jump_back": true,
-        "name": "登录悠星账号"
-      },
-      {
-        "jump_back": true,
-        "name": "关闭公告"
-      },
-      {
-        "jump_back": true,
-        "name": "点击任意区域进入游戏"
-      },
-      {
-        "jump_back": true,
-        "name": "签到"
-      }
-    ],
-    "post_delay": 0,
-    "pre_delay": 0,
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
-  "登录悠星账号": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "已登录账号",
-      "Node.Recognition.Starting": "正在尝试登录悠星账号"
-    },
-    "recognition": {
-      "param": {
-        "template": [
-          "login.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 10000
-  },
-  "确认": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Succeeded": "正在点击确认"
-    },
-    "next": [
-      "主页"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "确认"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "签到": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "点击空白处继续"
-      },
-      {
-        "jump_back": true,
-        "name": "获得道具"
-      }
-    ],
-    "recognition": {
-      "param": {
-        "expected": "可领取"
-      },
-      "type": "OCR"
-    },
-    "repeat": 3,
-    "repeat_delay": 1000,
-    "timeout": 1000
-  },
-  "获得道具": {
-    "action": {
-      "param": {
-        "contact": 0
-      },
-      "type": "Click"
-    },
-    "next": [
-      "点击空白处继续"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "获得道具"
-        ]
-      },
-      "type": "OCR"
-    },
-    "timeout": 2000
-  },
-  "赠送礼物": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在赠送礼物"
-    },
-    "next": [
-      "默契提升"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "赠送礼物"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "跳过 ": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "点击空白处继续"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "跳过"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "进行任务一键领取": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Failed": "没有找到一键领取按钮！",
-      "Node.Recognition.Starting": "正在尝试点击一键领取"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "点击空白处继续"
-      },
-      {
-        "jump_back": true,
-        "name": "领取任务额外奖励"
-      },
-      "主页"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "onekey_claim.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 1000
-  },
-  "选择活动关卡": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "开启快速战斗"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "activity_fight_1.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "选择礼物": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过",
-      "Node.Recognition.Starting": "正在选择礼物"
-    },
-    "next": [
-      "赠送礼物"
-    ],
-    "on_error": [
-      "关闭心链"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "gift_good.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "采购": {
+  "采购_前往采购": {
     "action": {
       "param": {},
       "type": "Click"
@@ -772,8 +856,8 @@
       "Node.Recognition.Starting": "正在前往采购"
     },
     "next": [
-      "领取每日赠礼",
-      "是否已领取"
+      "采购_领取每日赠礼",
+      "采购_判断是否已领取"
     ],
     "recognition": {
       "param": {
@@ -784,49 +868,7 @@
       "type": "OCR"
     }
   },
-  "领取任务": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在尝试领取任务奖励"
-    },
-    "next": [
-      "每周事务"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "任务"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "领取任务额外奖励": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Failed": "没有找到领取按钮",
-      "Node.Recognition.Starting": "正在尝试领取任务额外的奖励"
-    },
-    "next": [
-      "点击空白处继续"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "claim.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 1000
-  },
-  "领取每日赠礼": {
+  "采购_领取每日赠礼": {
     "action": {
       "param": {},
       "type": "Click"
@@ -837,11 +879,11 @@
     "next": [
       {
         "jump_back": true,
-        "name": "主页"
+        "name": "通用_返回主页"
       },
       {
         "jump_back": true,
-        "name": "点击空白处继续"
+        "name": "通用_点击空白处继续"
       }
     ],
     "recognition": {
@@ -853,47 +895,5 @@
       "type": "OCR"
     },
     "timeout": 2000
-  },
-  "魔王养成": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "进行任务一键领取"
-      },
-      "今日事务"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "魔王养成"
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "默契提升": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在关闭弹窗"
-    },
-    "next": [
-      "关闭心链"
-    ],
-    "pre_wait_freezes": 1000,
-    "recognition": {
-      "param": {
-        "expected": [
-          "默契提升"
-        ]
-      },
-      "type": "OCR"
-    }
   }
 }

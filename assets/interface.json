@@ -72,44 +72,44 @@
     "task": [
         {
             "name": "登录游戏",
-            "entry": "登录",
+            "entry": "登录_登录",
             "description": "自动登录游戏，并且关闭活动弹窗以及签到弹窗"
         },
         {
             "name": "领取每日奖励",
-            "entry": "采购",
+            "entry": "采购_前往采购",
             "description": "自动领取采购中的每日奖励"
         },
         {
             "name": "心链送礼",
-            "entry": "打开心链",
+            "entry": "心链_打开心链",
             "description": "自动打开心链页面，并且为心链顶置旅人赠送礼物"
         },
         {
             "name": "活动快速战斗",
-            "entry": "打开活动",
+            "entry": "活动_打开活动",
             "description": "自动打开活动页面，并且对活动第一关进行快速战斗",
             "repeatable": true,
             "repeat_count": 1
         },
         {
             "name": "领取并重新派遣委托",
-            "entry": "委托",
+            "entry": "委托_前往委托",
             "description": "自动领取并重新派遣委托"
         },
         {
             "name": "领取与赠送干劲",
-            "entry": "前往好友页",
+            "entry": "好友_前往好友页",
             "description": "自动前往好友页面，并且领取与赠送好友干劲"
         },
         {
             "name": "领取任务奖励",
-            "entry": "领取任务",
+            "entry": "任务_一键领取",
             "description": "自动前往任务页面，并且领取任务奖励"
         },
         {
             "name": "领取邮箱奖励",
-            "entry": "打开邮箱",
+            "entry": "邮箱_打开邮箱",
             "description": "自动打开邮箱页面，并且领取邮箱奖励"
         }
     ],
