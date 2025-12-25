@@ -97,7 +97,10 @@
             "entry": "活动_打开活动",
             "description": "自动打开活动页面，并且对活动第一关进行快速战斗",
             "repeatable": true,
-            "repeat_count": 1
+            "repeat_count": 1,
+            "option": [
+                "作战关卡"
+            ]
         },
         {
             "name": "领取并重新派遣委托",
