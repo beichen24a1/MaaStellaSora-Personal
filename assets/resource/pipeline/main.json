@@ -280,10 +280,7 @@
     },
     "next": [
       "添加战斗次数",
-      {
-        "jump_back": true,
-        "name": "主页"
-      }
+      "主页"
     ],
     "recognition": {
       "param": {
@@ -590,10 +587,7 @@
       "Node.Recognition.Succeeded": "正在点击确认"
     },
     "next": [
-      {
-        "jump_back": true,
-        "name": "主页"
-      }
+      "主页"
     ],
     "recognition": {
       "param": {
