@@ -565,7 +565,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "timeout": 1000
   },
   "登录_关闭活动": {
     "action": {
@@ -582,7 +583,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "timeout": 1000
   },
   "登录_点击任意区域进入游戏": {
     "action": {
@@ -658,22 +660,10 @@
       "type": "Click"
     },
     "next": [
-      {
-        "jump_back": true,
-        "name": "通用_点击空白处继续"
-      },
-      {
-        "jump_back": true,
-        "name": "登录_签到_2"
-      },
-      {
-        "jump_back": true,
-        "name": "登录_关闭活动"
-      },
-      {
-        "jump_back": true,
-        "name": "登录_关闭每日签到"
-      }
+      "登录_关闭每日签到",
+      "登录_关闭活动",
+      "通用_点击空白处继续",
+      "登录_签到_2"
     ],
     "recognition": {
       "param": {
@@ -768,7 +758,7 @@
       },
       "type": "OCR"
     },
-    "timeout": 2000
+    "timeout": 1000
   },
   "通用_返回主页": {
     "action": {
