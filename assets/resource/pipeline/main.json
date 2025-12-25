@@ -706,13 +706,16 @@
     "next": [
       "通用_点击空白处继续"
     ],
+    "on_error": [
+      "通用_返回主页"
+    ],
     "recognition": {
       "param": {
-        "expected": [
-          "一键领取"
+        "template": [
+          "onekey_claim.png"
         ]
       },
-      "type": "OCR"
+      "type": "TemplateMatch"
     },
     "timeout": 1000
   },
