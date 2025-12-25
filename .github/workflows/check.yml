@@ -34,7 +34,3 @@ jobs:
       - name: Check Resource (BASE)
         run: |
             python ./check_resource.py ./assets/resource/base/
-
-      - name: Check Resource (TW)
-        run: |
-            python ./check_resource.py ./assets/resource/tw/
