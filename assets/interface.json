@@ -15,12 +15,12 @@
     "custom_title": "StellaSora Auto Helper",
     "mirrorchyan_rid": "SSAH",
     "mirrorchyan_multiplatform": true,
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "../agent/main.py"
-    //     ]
-    // },
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "../agent/main.py"
+        ]
+    },
     "controller": [
         {
             "name": "桌面端",
@@ -133,6 +133,11 @@
             "name": "领取邮箱奖励",
             "entry": "邮箱_打开邮箱",
             "description": "自动打开邮箱页面，并且领取邮箱奖励"
+        },
+        {
+            "name": "按优先级选择卡牌（刷记录、抄作业Beta）",
+            "entry": "自动刷记录",
+            "description": "自动根据优先级选择卡牌"
         }
     ],
     "option": {
@@ -573,6 +578,28 @@
             "pipeline_override": {
                 "活动_添加战斗次数": {
                     "repeat": "${次数}"
+                }
+            }
+        },
+        "自定义卡牌优先级": {
+            "type": "input",
+            "label": "自定义卡牌优先级",
+            "description": "抄作业.png",
+            "inputs": [
+                {
+                    "name": "作业",
+                    "label": "作业",
+                    "description": "作业字典，格式为{\"优先级\": [\"卡牌名称\"]}",
+                    "default": "{\"3\": [\"卡牌\"]}",
+                    "pipeline_type": "string",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "自动刷记录": {
+                    "custom_recognition_param": {
+                        "work": "{作业}"
+                    }
                 }
             }
         }

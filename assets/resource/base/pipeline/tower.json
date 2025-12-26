@@ -1,0 +1,7 @@
+{
+    "自动刷记录": {
+        "recognition": "Custom",
+        "custom_recognition": "auto_tower",
+        "action": "Click"
+    }
+}
