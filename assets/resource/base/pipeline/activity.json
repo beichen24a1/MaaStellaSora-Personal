@@ -76,7 +76,9 @@
                 ]
             },
             "type": "TemplateMatch"
-        }
+        },
+        "repeat": 1,
+        "repeat_delay": 1000
     },
     "活动_点击活动战斗关卡": {
         "action": {

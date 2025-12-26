@@ -99,7 +99,8 @@
             "repeatable": true,
             "repeat_count": 1,
             "option": [
-                "作战关卡"
+                "作战关卡",
+                "自定义快速作战次数"
             ]
         },
         {
@@ -109,7 +110,8 @@
             "repeatable": true,
             "repeat_count": 1,
             "option": [
-                "悬赏试炼关卡"
+                "悬赏试炼关卡",
+                "自定义快速作战次数"
             ]
         },
         {
@@ -554,6 +556,25 @@
                     }
                 }
             ]
+        },
+        "自定义快速作战次数": {
+            "type": "input",
+            "label": "自定义快速作战次数",
+            "inputs": [
+                {
+                    "name": "次数",
+                    "label": "次数",
+                    "description": "快速作战次数，实际作战次数应为输入值 + 1",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "活动_添加战斗次数": {
+                    "repeat": "${次数}"
+                }
+            }
         }
     }
 }
