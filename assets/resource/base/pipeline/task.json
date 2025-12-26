@@ -22,7 +22,7 @@
         "recognition": {
             "param": {
                 "template": [
-                    "onekey_claim.png"
+                    "quick_claim.png"
                 ]
             },
             "type": "TemplateMatch"
