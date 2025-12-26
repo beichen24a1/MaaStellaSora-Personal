@@ -1,1 +1,126 @@
-{}
+{
+  "战斗_出发": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "战斗_悬赏试炼"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "出发"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_快速战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "anchor": true,
+        "name": "活动_添加战斗次数"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速战斗"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_悬赏试炼": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "战斗_选择试炼"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "悬赏试炼"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_试炼出发": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "战斗_选择试炼子菜单"
+      },
+      "战斗_选择难度"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "出发"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_选择试炼": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "战斗_试炼出发"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "基础试炼"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_选择试炼子菜单": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "enabled": false,
+    "recognition": {
+      "param": {
+        "expected": [
+          ""
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗_选择难度": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "战斗_快速战斗"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "难度 1"
+        ]
+      },
+      "type": "OCR"
+    }
+  }
+}

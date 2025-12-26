@@ -11,7 +11,7 @@
     "welcome": "首次使用！欢迎使用 StellaSora Auto Helper",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/SodaCodeSave/StellaSora-Auto-Helper",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "custom_title": "StellaSora Auto Helper",
     "mirrorchyan_rid": "SSAH",
     "mirrorchyan_multiplatform": true,
@@ -100,6 +100,16 @@
             "repeat_count": 1,
             "option": [
                 "作战关卡"
+            ]
+        },
+        {
+            "name": "快速战斗指定关卡",
+            "entry": "战斗_出发",
+            "description": "自动前往悬赏试炼页面，并且对指定关卡进行快速战斗",
+            "repeatable": true,
+            "repeat_count": 1,
+            "option": [
+                "悬赏试炼关卡"
             ]
         },
         {
@@ -262,6 +272,283 @@
                                     ]
                                 },
                                 "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "悬赏试炼关卡": {
+            "type": "select",
+            "label": "选择悬赏试炼类型",
+            "description": "选择要快速战斗的悬赏试炼关卡",
+            "default_case": "基础试炼",
+            "cases": [
+                {
+                    "name": "基础试炼",
+                    "label": "基础试炼",
+                    "description": "获取经验素材及朵拉",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "基础试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-怪诞舞者",
+                    "label": "晋升试炼-怪诞舞者",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "晋升试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "怪诞舞者"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-终宵萤辉",
+                    "label": "晋升试炼-终宵萤辉",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "晋升试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "终宵萤辉"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-热嘟噜噗男爵",
+                    "label": "晋升试炼-热嘟噜噗男爵",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "晋升试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "热嘟噜噗男爵"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-节奏游戏卡带",
+                    "label": "技巧试炼-节奏游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "技巧试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "节奏游戏卡带"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-射击游戏卡带",
+                    "label": "技巧试炼-射击游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "技巧试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "射击游戏卡带"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-格斗游戏卡带",
+                    "label": "技巧试炼-格斗游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "技巧试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "格斗游戏卡带"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-好市民点数",
+                    "label": "纹章试炼-好市民点数",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "纹章试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "好市民点数"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-协会贡献证",
+                    "label": "纹章试炼-协会贡献证",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "纹章试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "协会贡献证"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-恩赐消费券",
+                    "label": "纹章试炼-恩赐消费券",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "纹章试炼"
+                                    ]
+                                },
+                                "type": "OCR"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "恩赐消费券"
+                                    ]
+                                },
+                                "type": "OCR"
                             }
                         }
                     }
