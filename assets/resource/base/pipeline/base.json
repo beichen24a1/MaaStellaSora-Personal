@@ -1,0 +1,196 @@
+{
+  "通用_一键领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在尝试一键领取"
+    },
+    "next": [
+      "通用_点击空白处继续"
+    ],
+    "on_error": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "onekey_claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_判断是否在主页": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "anchor": [
+      "判断主页"
+    ],
+    "focus": {
+      "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步"
+    },
+    "on_error": [
+      "通用_点击空白处继续"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "menu.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 100
+  },
+  "通用_点击空白处继续": {
+    "action": {
+      "param": {
+        "contact": 0
+      },
+      "type": "Click"
+    },
+    "next": [
+      "通用_判断是否在主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "点击空白处继续"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 1000
+  },
+  "通用_返回主页": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "anchor": [
+      "返回主页"
+    ],
+    "focus": {
+      "Node.Recognition.Starting": "正在返回主页",
+      "Node.Recognition.Succeeded": ""
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "home.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2,
+    "timeout": 1000
+  },
+  "邮箱_打开邮箱": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开邮箱"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_一键领取"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "email.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "采购_判断是否已领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "已领取"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 2000
+  },
+  "采购_前往采购": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "anchor": [
+      "前往采购"
+    ],
+    "focus": {
+      "Node.Recognition.Starting": "正在前往采购"
+    },
+    "next": [
+      "采购_领取每日赠礼",
+      "采购_判断是否已领取"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "采购"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "采购_领取每日赠礼": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在领取每日赠礼"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_点击空白处继续"
+      }
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "每日赠礼"
+        ]
+      },
+      "type": "OCR"
+    },
+    "timeout": 2000
+  }
+}
