@@ -18,8 +18,10 @@
     "agent": {
         "child_exec": "python",
         "child_args": [
-            "../agent/main.py"
-        ]
+            "-u",
+            "./agent/main.py"
+        ],
+        "timeout": -1
     },
     "controller": [
         {
