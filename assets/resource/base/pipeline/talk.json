@@ -94,6 +94,7 @@
         "on_error": [
             "心链_关闭心链"
         ],
+        "timeout": 3000,
         "recognition": {
             "param": {
                 "template": [
