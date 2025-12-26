@@ -1,0 +1,29 @@
+{
+    "邮箱_打开邮箱": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "focus": {
+            "Node.Recognition.Starting": "正在打开邮箱"
+        },
+        "next": [
+            {
+                "jump_back": true,
+                "name": "通用_一键领取"
+            },
+            {
+                "jump_back": true,
+                "name": "通用_返回主页"
+            }
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "email.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    }
+}
