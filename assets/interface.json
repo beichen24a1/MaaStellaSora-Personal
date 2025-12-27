@@ -137,6 +137,14 @@
             "description": "自动打开邮箱页面，并且领取邮箱奖励"
         },
         {
+            "name": "爬塔",
+            "entry": "星塔_入口",
+            "option": [
+                "属性塔",
+                "音符购买"
+            ]
+        },
+        {
             "name": "按优先级选择卡牌（刷记录、抄作业Beta）",
             "entry": "自动刷记录",
             "description": "自动根据优先级选择卡牌",
@@ -585,6 +593,77 @@
                     "repeat": "${次数}"
                 }
             }
+        },
+        "属性塔": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "光土",
+                    "label": "光土",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_光土__387_137_124_45__337_87_224_145.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "水风",
+                    "label": "水风",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_水风__384_271_129_39__334_221_229_139.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "火暗",
+                    "label": "火暗",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_火暗__381_404_129_39__331_354_229_139.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "音符购买": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "激活协奏且折扣",
+                    "label": "激活协奏且折扣",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "激活协奏",
+                    "label": "激活协奏",
+                    "pipeline_override": {
+                        "星塔_节点_商店_购物_格子_音符_激活": {
+                            "next": [
+                                "星塔_节点_商店_购物_格子_购买"
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         "自定义卡牌优先级": {
             "type": "input",
