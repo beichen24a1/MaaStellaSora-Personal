@@ -122,76 +122,47 @@ def install_chores():
     )
 
 
-def create_venv():
-    """创建Python虚拟环境并安装依赖"""
-    venv_path = install_path / "venv"
-
-    # 创建虚拟环境
-    subprocess.run([sys.executable, "-m", "venv", str(venv_path)], check=True)
-
-    # 确定pip路径和python路径
-    # 直接使用sys.executable创建的venv，应该使用与sys.executable相同的路径结构
-    # 例如，如果sys.executable是/usr/bin/python3，那么venv中的python应该在venv/bin/python
-    # 如果sys.executable是C:\Python39\python.exe，那么venv中的python应该在venv/Scripts/python.exe
-
-    # 获取sys.executable的父目录名，判断是Scripts还是bin
-    if sys.platform == "win32":
-        # Windows平台，使用Scripts目录
-        scripts_dir = "Scripts"
-        python_ext = ".exe"
-    else:
-        # Linux/macOS平台，使用bin目录
-        scripts_dir = "bin"
-        python_ext = ""
-
-    pip_path = venv_path / scripts_dir / f"pip{python_ext}"
-    python_path = venv_path / scripts_dir / f"python{python_ext}"
-
-    # 确保python_path存在
-    if not python_path.exists():
-        # 如果不存在，尝试另一种目录结构（可能是交叉编译环境）
-        alt_scripts_dir = "bin" if scripts_dir == "Scripts" else "Scripts"
-        alt_python_ext = "" if python_ext == ".exe" else ".exe"
-
-        pip_path = venv_path / alt_scripts_dir / f"pip{alt_python_ext}"
-        python_path = venv_path / alt_scripts_dir / f"python{alt_python_ext}"
-
-    if not python_path.exists():
-        # 遍历venv目录，寻找python可执行文件
-        for root, dirs, files in os.walk(venv_path):
-            for file in files:
-                if file == "python" or file == "python.exe":
-                    python_path = Path(root) / file
-                    pip_path = Path(root) / ("pip" + os.path.splitext(file)[1])
-                    break
-            if python_path.exists():
-                break
-
-    if not python_path.exists():
-        # 如果还是找不到，列出venv目录结构，方便调试
-        print(f"Error: Python executable not found in {venv_path}")
-        print("venv目录结构:")
-        for root, dirs, files in os.walk(venv_path):
-            level = root.replace(str(venv_path), "").count(os.sep)
-            indent = " " * 2 * level
-            print(f"{indent}{os.path.basename(root)}/")
-            subindent = " " * 2 * (level + 1)
-            for file in files:
-                print(f"{subindent}{file}")
+def create_embed_python():
+    """安装嵌入式Python环境并安装依赖"""
+    # 运行setup_embed_python.py脚本安装嵌入式Python
+    setup_script = working_dir / "agent" / "setup_embed_python.py"
+    if not setup_script.exists():
         raise FileNotFoundError(
-            f"Python executable not found in virtual environment at {venv_path}"
+            f"setup_embed_python.py script not found at {setup_script}"
         )
 
-    # 升级pip
+    # 运行setup_embed_python.py脚本
     subprocess.run(
-        [str(python_path), "-m", "pip", "install", "--upgrade", "pip"], check=True
+        [sys.executable, str(setup_script)], check=True, cwd=str(working_dir)
     )
 
+    # 确定Python可执行文件路径
+    python_install_dir = working_dir / "install" / "python"
+
+    # 根据目标平台确定Python可执行文件路径
+    if os_name == "win":
+        python_path = python_install_dir / "python.exe"
+    elif os_name == "macos":
+        python_path = python_install_dir / "bin" / "python3"
+        if not python_path.exists():
+            python_path = python_install_dir / "bin" / "python"
+    elif os_name == "linux":
+        python_path = python_install_dir / "bin" / "python3"
+        if not python_path.exists():
+            python_path = python_install_dir / "bin" / "python"
+    else:
+        raise ValueError(f"Unsupported OS: {os_name}")
+
+    # 确保Python可执行文件存在
+    if not python_path.exists():
+        raise FileNotFoundError(f"Python executable not found at {python_path}")
+
     # 安装agent所需的依赖
-    # 首先检查是否存在agent/requirements.txt文件
     agent_req = working_dir / "agent" / "requirements.txt"
     if agent_req.exists():
-        subprocess.run([str(pip_path), "install", "-r", str(agent_req)], check=True)
+        subprocess.run(
+            [str(python_path), "-m", "pip", "install", "-r", str(agent_req)], check=True
+        )
 
     return python_path
 
@@ -210,8 +181,8 @@ if __name__ == "__main__":
     install_chores()
     install_agent()
 
-    # 创建虚拟环境
-    python_path = create_venv()
+    # 安装嵌入式Python环境
+    python_path = create_embed_python()
 
     # 更新interface.json中的agent配置，使用虚拟环境中的Python
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
