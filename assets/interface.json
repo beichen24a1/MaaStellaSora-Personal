@@ -590,7 +590,7 @@
             ],
             "pipeline_override": {
                 "活动_添加战斗次数": {
-                    "repeat": "${次数}"
+                    "repeat": "{次数}"
                 }
             }
         },
