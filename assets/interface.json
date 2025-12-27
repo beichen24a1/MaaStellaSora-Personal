@@ -15,14 +15,14 @@
     "custom_title": "StellaSora Auto Helper",
     "mirrorchyan_rid": "SSAH",
     "mirrorchyan_multiplatform": true,
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "-u",
-    //         "./agent/main.py"
-    //     ],
-    //     "timeout": -1
-    // },
+    "agent": {
+        "child_exec": "./venv/Scripts/python.exe",
+        "child_args": [
+            "-u",
+            "./agent/main.py"
+        ],
+        "timeout": -1
+    },
     "controller": [
         {
             "name": "桌面端",

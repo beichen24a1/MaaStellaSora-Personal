@@ -1,7 +1,9 @@
 from pathlib import Path
 
+import os
 import shutil
 import sys
+import subprocess
 
 try:
     import jsonc
@@ -120,6 +122,38 @@ def install_chores():
     )
 
 
+def create_venv():
+    """创建Python虚拟环境并安装依赖"""
+    venv_path = install_path / "venv"
+
+    # 创建虚拟环境
+    subprocess.run([sys.executable, "-m", "venv", str(venv_path)], check=True)
+
+    # 确定pip路径
+    if os_name == "win":
+        pip_path = venv_path / "Scripts" / "pip.exe"
+        python_path = venv_path / "Scripts" / "python.exe"
+    else:
+        pip_path = venv_path / "bin" / "pip"
+        python_path = venv_path / "bin" / "python"
+
+    # 升级pip
+    subprocess.run(
+        [str(python_path), "-m", "pip", "install", "--upgrade", "pip"], check=True
+    )
+
+    # 安装agent所需的依赖
+    # 首先检查是否存在agent/requirements.txt文件
+    agent_req = working_dir / "agent" / "requirements.txt"
+    if agent_req.exists():
+        subprocess.run([str(pip_path), "install", "-r", str(agent_req)], check=True)
+
+    # 安装Maa相关依赖
+    subprocess.run([str(pip_path), "install", "maa-python"], check=True)
+
+    return python_path
+
+
 def install_agent():
     shutil.copytree(
         working_dir / "agent",
@@ -133,5 +167,23 @@ if __name__ == "__main__":
     install_resource()
     install_chores()
     install_agent()
+
+    # 创建虚拟环境
+    python_path = create_venv()
+
+    # 更新interface.json中的agent配置，使用虚拟环境中的Python
+    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
+        interface = jsonc.load(f)
+
+    # 根据操作系统设置相对路径
+    if os_name == "win":
+        relative_python_path = "./venv/Scripts/python.exe"
+    else:
+        relative_python_path = "./venv/bin/python"
+
+    interface["agent"]["child_exec"] = relative_python_path
+
+    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
+        jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
     print(f"Install to {install_path} successfully.")
