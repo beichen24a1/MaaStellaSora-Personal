@@ -1,1 +1,1 @@
-MaaFw
+maa-python

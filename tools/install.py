@@ -129,13 +129,58 @@ def create_venv():
     # 创建虚拟环境
     subprocess.run([sys.executable, "-m", "venv", str(venv_path)], check=True)
 
-    # 确定pip路径
-    if os_name == "win":
-        pip_path = venv_path / "Scripts" / "pip.exe"
-        python_path = venv_path / "Scripts" / "python.exe"
+    # 确定pip路径和python路径
+    # 直接使用sys.executable创建的venv，应该使用与sys.executable相同的路径结构
+    # 例如，如果sys.executable是/usr/bin/python3，那么venv中的python应该在venv/bin/python
+    # 如果sys.executable是C:\Python39\python.exe，那么venv中的python应该在venv/Scripts/python.exe
+
+    # 获取sys.executable的父目录名，判断是Scripts还是bin
+    if sys.platform == "win32":
+        # Windows平台，使用Scripts目录
+        scripts_dir = "Scripts"
+        python_ext = ".exe"
     else:
-        pip_path = venv_path / "bin" / "pip"
-        python_path = venv_path / "bin" / "python"
+        # Linux/macOS平台，使用bin目录
+        scripts_dir = "bin"
+        python_ext = ""
+
+    pip_path = venv_path / scripts_dir / f"pip{python_ext}"
+    python_path = venv_path / scripts_dir / f"python{python_ext}"
+
+    # 确保python_path存在
+    if not python_path.exists():
+        # 如果不存在，尝试另一种目录结构（可能是交叉编译环境）
+        alt_scripts_dir = "bin" if scripts_dir == "Scripts" else "Scripts"
+        alt_python_ext = "" if python_ext == ".exe" else ".exe"
+
+        pip_path = venv_path / alt_scripts_dir / f"pip{alt_python_ext}"
+        python_path = venv_path / alt_scripts_dir / f"python{alt_python_ext}"
+
+    if not python_path.exists():
+        # 遍历venv目录，寻找python可执行文件
+        for root, dirs, files in os.walk(venv_path):
+            for file in files:
+                if file == "python" or file == "python.exe":
+                    python_path = Path(root) / file
+                    pip_path = Path(root) / ("pip" + os.path.splitext(file)[1])
+                    break
+            if python_path.exists():
+                break
+
+    if not python_path.exists():
+        # 如果还是找不到，列出venv目录结构，方便调试
+        print(f"Error: Python executable not found in {venv_path}")
+        print("venv目录结构:")
+        for root, dirs, files in os.walk(venv_path):
+            level = root.replace(str(venv_path), "").count(os.sep)
+            indent = " " * 2 * level
+            print(f"{indent}{os.path.basename(root)}/")
+            subindent = " " * 2 * (level + 1)
+            for file in files:
+                print(f"{subindent}{file}")
+        raise FileNotFoundError(
+            f"Python executable not found in virtual environment at {venv_path}"
+        )
 
     # 升级pip
     subprocess.run(
