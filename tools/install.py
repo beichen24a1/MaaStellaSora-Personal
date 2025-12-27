@@ -193,11 +193,6 @@ def create_venv():
     if agent_req.exists():
         subprocess.run([str(pip_path), "install", "-r", str(agent_req)], check=True)
 
-    # 安装Maa相关依赖
-    subprocess.run([str(pip_path), "install", "maa-python"], check=True)
-
-    return python_path
-
 
 def install_agent():
     shutil.copytree(
