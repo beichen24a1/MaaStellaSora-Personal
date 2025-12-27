@@ -215,11 +215,14 @@ if __name__ == "__main__":
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
-    # 根据操作系统设置相对路径
-    if os_name == "win":
-        relative_python_path = "./venv/Scripts/python.exe"
-    else:
-        relative_python_path = "./venv/bin/python"
+    # 检查虚拟环境的实际结构，确定相对路径
+    # 实际python_path是例如：/home/runner/.../install/venv/bin/python
+    # 我们需要的相对路径是：./venv/bin/python
+    # 从python_path中提取相对路径
+    # 首先获取python_path相对于install_path的路径
+    relative_python_path = str(python_path.relative_to(install_path))
+    # 将路径分隔符统一为/，确保跨平台兼容
+    relative_python_path = "./" + relative_python_path.replace("\\", "/")
 
     interface["agent"]["child_exec"] = relative_python_path
 
