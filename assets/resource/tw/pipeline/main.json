@@ -455,11 +455,11 @@
     ],
     "recognition": {
       "param": {
-        "expected": [
-          "採購"
+        "template": [
+          "procurement.png"
         ]
       },
-      "type": "OCR"
+      "type": "TemplateMatch"
     }
   },
   "采购_领取每日赠礼": {
