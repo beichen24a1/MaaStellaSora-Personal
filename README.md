@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
-    <img src="assets/logo.svg" alt="StellaSora-Auto-Helper" width="200" />
+    <img src="assets/logo.png" alt="StellaSora-Auto-Helper" width="200" />
     <h1>StellaSora-Auto-Helper</h1>
     <p>星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动</p>
 </div>
