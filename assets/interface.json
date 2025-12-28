@@ -138,7 +138,7 @@
                     "label": "1.雪愿夜的奇境冒险I",
                     "description": "12-23更新 活动普通第一关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -155,7 +155,7 @@
                     "label": "2.雪愿夜的奇境冒险II",
                     "description": "12-23更新 活动普通第二关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -172,7 +172,7 @@
                     "label": "3.雪愿夜的奇境冒险III",
                     "description": "12-23更新 活动普通第三关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -189,7 +189,7 @@
                     "label": "4.出逃的礼物车I",
                     "description": "12-23更新 活动普通第四关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -206,7 +206,7 @@
                     "label": "5.雪愿夜的奇境冒险IV",
                     "description": "12-23更新 活动普通第五关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -223,7 +223,7 @@
                     "label": "6.雪愿夜的奇境冒险V",
                     "description": "12-23更新 活动普通第六关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -240,7 +240,7 @@
                     "label": "7.雪愿夜的奇境冒险VI",
                     "description": "12-23更新 活动普通第七关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
@@ -257,7 +257,7 @@
                     "label": "8.雪夜颂歌与怪诞暖炉I",
                     "description": "12-23更新 活动普通第八关",
                     "pipeline_override": {
-                        "选择活动关卡": {
+                        "活动_选择活动关卡": {
                             "recognition": {
                                 "param": {
                                     "template": [
