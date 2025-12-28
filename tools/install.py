@@ -1,9 +1,7 @@
 from pathlib import Path
 
-import os
 import shutil
 import sys
-import subprocess
 
 try:
     import jsonc
@@ -122,51 +120,6 @@ def install_chores():
     )
 
 
-def create_embed_python():
-    """安装嵌入式Python环境并安装依赖"""
-    # 运行setup_embed_python.py脚本安装嵌入式Python
-    setup_script = working_dir / "agent" / "setup_embed_python.py"
-    if not setup_script.exists():
-        raise FileNotFoundError(
-            f"setup_embed_python.py script not found at {setup_script}"
-        )
-
-    # 运行setup_embed_python.py脚本
-    subprocess.run(
-        [sys.executable, str(setup_script)], check=True, cwd=str(working_dir)
-    )
-
-    # 确定Python可执行文件路径
-    python_install_dir = working_dir / "install" / "python"
-
-    # 根据目标平台确定Python可执行文件路径
-    if os_name == "win":
-        python_path = python_install_dir / "python.exe"
-    elif os_name == "macos":
-        python_path = python_install_dir / "bin" / "python3"
-        if not python_path.exists():
-            python_path = python_install_dir / "bin" / "python"
-    elif os_name == "linux":
-        python_path = python_install_dir / "bin" / "python3"
-        if not python_path.exists():
-            python_path = python_install_dir / "bin" / "python"
-    else:
-        raise ValueError(f"Unsupported OS: {os_name}")
-
-    # 确保Python可执行文件存在
-    if not python_path.exists():
-        raise FileNotFoundError(f"Python executable not found at {python_path}")
-
-    # 安装agent所需的依赖
-    agent_req = working_dir / "agent" / "requirements.txt"
-    if agent_req.exists():
-        subprocess.run(
-            [str(python_path), "-m", "pip", "install", "-r", str(agent_req)], check=True
-        )
-
-    return python_path
-
-
 def install_agent():
     shutil.copytree(
         working_dir / "agent",
@@ -180,26 +133,5 @@ if __name__ == "__main__":
     install_resource()
     install_chores()
     install_agent()
-
-    # 安装嵌入式Python环境
-    python_path = create_embed_python()
-
-    # 更新interface.json中的agent配置，使用虚拟环境中的Python
-    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
-        interface = jsonc.load(f)
-
-    # 检查虚拟环境的实际结构，确定相对路径
-    # 实际python_path是例如：/home/runner/.../install/venv/bin/python
-    # 我们需要的相对路径是：./venv/bin/python
-    # 从python_path中提取相对路径
-    # 首先获取python_path相对于install_path的路径
-    relative_python_path = str(python_path.relative_to(install_path))
-    # 将路径分隔符统一为/，确保跨平台兼容
-    relative_python_path = "./" + relative_python_path.replace("\\", "/")
-
-    interface["agent"]["child_exec"] = relative_python_path
-
-    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
-        jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
     print(f"Install to {install_path} successfully.")
