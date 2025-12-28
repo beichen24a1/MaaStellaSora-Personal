@@ -26,11 +26,10 @@ QQ交流群：**1063132902**  密码：**星塔旅人**
 
 ## 安装与使用
 
-> 项目正在开发中，我们仍不建议您现在使用本项目
-
-1. 前往[Github Release](https://github.com/SodaCodeSave/StellaSora-Auto-Helper/releases) 下载最新版本对应的压缩包
-2. 解压压缩包到任意目录
-3. 如果需要操控Windows版星塔旅人，使用管理员权限运行 `MFAAvalonia.exe`（使用ADB直接启动即可）
+1. 请选择带有Latest标签的版本 也可以选择带有rc、beta后缀的版本 不要选择带有Nightly、Alpha等后缀的版本
+2. 前往[Github Release](https://github.com/SodaCodeSave/StellaSora-Auto-Helper/releases) 下载对应系统的压缩包 如果不知道是什么就选 SSAH-win-x86_64-vx.x.x.zip
+3. 解压压缩包到任意目录
+4. 如果需要操控Windows版星塔旅人，使用管理员权限运行 `MFAAvalonia.exe`（使用ADB的话直接启动即可）
 
 ## 鸣谢
 
