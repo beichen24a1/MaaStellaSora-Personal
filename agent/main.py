@@ -73,7 +73,7 @@ class TowerRecongition(CustomRecognition):
                         box = reco_detail.best_result.box
                         print(f"找到目标 {target}，位置: {box}")
                         return CustomRecognition.AnalyzeResult(
-                            box=(box.x, box.y, box.width, box.height),
+                            box=box,
                             detail=f"Found {target} with priority {priority}",
                         )
         except Exception as e:
