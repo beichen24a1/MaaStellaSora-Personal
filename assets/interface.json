@@ -836,7 +836,7 @@
                     "default": "冬香",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
-                },
+                }
             ],
             "pipeline_override": {
                 "邀约_1号": {
