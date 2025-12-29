@@ -114,12 +114,140 @@
             "entry": "星塔_入口",
             "option": [
                 "属性塔",
-                "音符购买",
+                "音符购买"
+            ]
+        },
+        {
+            "name": "自定义爬塔",
+            "entry": "星塔_入口",
+            "description": "自定义爬塔 Beta 不保证可用",
+            "option": [
+                "是否开启自定义爬塔",
                 "自定义卡牌优先级"
             ]
         }
     ],
     "option": {
+        "是否开启自定义爬塔": {
+            "type": "select",
+            "label": "是否开启自定义爬塔",
+            "description": "是否开启自定义爬塔",
+            "default_case": "关闭",
+            "cases": [
+                {
+                    "name": "开启",
+                    "label": "开启",
+                    "description": "开启自定义爬塔",
+                    "pipeline_override": {
+                        "星塔_爬塔流程": {
+                            "next": [
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_点击空白处关闭"
+                                },
+                                "星塔_保存记录",
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_默契提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_结束爬塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_等级提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_选择buff_推荐_自定义"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_最终商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话选项"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话忽略"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "关闭",
+                    "label": "关闭",
+                    "description": "关闭自定义爬塔",
+                    "pipeline_override": {
+                        "星塔_爬塔流程": {
+                            "next": [
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_点击空白处关闭"
+                                },
+                                "星塔_保存记录",
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_默契提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_结束爬塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_等级提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_选择buff_推荐"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_最终商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话选项"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话忽略"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "作战关卡": {
             "type": "select",
             "label": "选择活动关卡",
