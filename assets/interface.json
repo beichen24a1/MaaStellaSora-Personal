@@ -114,14 +114,7 @@
             "entry": "星塔_入口",
             "option": [
                 "属性塔",
-                "音符购买"
-            ]
-        },
-        {
-            "name": "开发中的功能（刷记录）",
-            "entry": "自动刷记录",
-            "description": "自动根据优先级选择卡牌",
-            "option": [
+                "音符购买",
                 "自定义卡牌优先级"
             ]
         }
@@ -640,21 +633,25 @@
         },
         "自定义卡牌优先级": {
             "type": "input",
-            "label": "自定义卡牌优先级",
+            "label": "自定义卡牌优先级（Nightly）",
             "description": "抄作业.png",
             "inputs": [
                 {
                     "name": "作业",
                     "label": "作业",
                     "description": "作业字典，格式为{\"优先级\": [\"卡牌名称\"]}",
-                    "default": "{\"3\": [\"卡牌\"]}",
+                    "default": "",
                     "pipeline_type": "string"
                 }
             ],
             "pipeline_override": {
-                "自动刷记录": {
-                    "custom_recognition_param": {
-                        "work": "{作业}"
+                "星塔_节点_选择buff_推荐": {
+                    "recognition": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_recognition": "auto_tower",
+                            "custom_recognition_param": "{作业}"
+                        }
                     }
                 }
             }

@@ -20,8 +20,9 @@ class TowerRecongition(CustomRecognition):
     ) -> CustomRecognition.AnalyzeResult:
 
         config = argv.custom_recognition_param
-        priority_dict = json.loads(config.get("work", "default_value"))
-
+        print(config)
+        priority_dict = json.loads(config)
+        print(priority_dict)
         # priority_dict = {
         #     "3": [
         #         "花海·叠浪",
@@ -45,37 +46,38 @@ class TowerRecongition(CustomRecognition):
         #         "弱点解析",
         #     ],
         # }
+        try:
+            sorted_priorities = sorted(priority_dict.keys(), key=int, reverse=True)
 
-        sorted_priorities = sorted(priority_dict.keys(), key=int, reverse=True)
+            for priority in sorted_priorities:
+                targets = priority_dict[priority]
 
-        for priority in sorted_priorities:
-            targets = priority_dict[priority]
+                for target in targets:
+                    print(f"正在识别优先级 {priority} 的目标: {target}")
 
-            for target in targets:
-                print(f"正在识别优先级 {priority} 的目标: {target}")
-
-                reco_detail = context.run_recognition(
-                    "OCR",
-                    argv.image,
-                    {
-                        "OCR": {
-                            "recognition": "OCR",
-                            "expected": target,
-                            "action": "DoNothing",
-                        }
-                    },
-                )
-
-                print(f"识别结果: {reco_detail}")
-
-                if reco_detail and reco_detail.hit:
-                    box = reco_detail.best_result.box
-                    print(f"找到目标 {target}，位置: {box}")
-                    return CustomRecognition.AnalyzeResult(
-                        box=(box.x, box.y, box.width, box.height),
-                        detail=f"Found {target} with priority {priority}",
+                    reco_detail = context.run_recognition(
+                        "OCR",
+                        argv.image,
+                        {
+                            "OCR": {
+                                "recognition": "OCR",
+                                "expected": target,
+                                "action": "DoNothing",
+                            }
+                        },
                     )
 
+                    print(f"识别结果: {reco_detail}")
+
+                    if reco_detail and reco_detail.hit:
+                        box = reco_detail.best_result.box
+                        print(f"找到目标 {target}，位置: {box}")
+                        return CustomRecognition.AnalyzeResult(
+                            box=box,
+                            detail=f"Found {target} with priority {priority}",
+                        )
+        except Exception as e:
+            print(f"发生错误: {e}")
         print("未找到任何目标")
         reco_detail = context.run_recognition(
             "OCR",
@@ -83,14 +85,18 @@ class TowerRecongition(CustomRecognition):
             {
                 "OCR": {
                     "recognition": "TemplateMatch",
-                    "template": ["recommend_card.png"],
+                    "template": [
+                        "ClimbTower/爬塔_buff推荐图标1__146_389_43_44__96_339_143_144.png"
+                    ],
+                    "green_mask": True,
                     "action": "DoNothing",
+                    "threshold": 0.6,
                 }
             },
         )
         box = reco_detail.best_result.box
         return CustomRecognition.AnalyzeResult(
-            box=(box.x, box.y, box.width, box.height),
+            box=box,
             detail=f"use recommend card",
         )
 
