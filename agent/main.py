@@ -83,8 +83,12 @@ class TowerRecongition(CustomRecognition):
             {
                 "OCR": {
                     "recognition": "TemplateMatch",
-                    "template": ["recommend_card.png"],
+                    "template": [
+                        "ClimbTower/爬塔_buff推荐图标1__146_389_43_44__96_339_143_144.png"
+                    ],
+                    "green_mask": True,
                     "action": "DoNothing",
+                    "threshold": 0.6,
                 }
             },
         )
