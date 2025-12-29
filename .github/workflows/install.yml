@@ -410,7 +410,14 @@ jobs:
       - name: Trigger MirrorChyanUploading
         shell: bash
         run: |
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release.yml -f tag=${{ needs.meta.outputs.tag }}
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ needs.meta.outputs.tag }}
+          is_prerelease=false
+          if [[ $tag =~ .*-nightly.* ]]; then
+            is_prerelease=true
+            echo "This is a pre-release version"
+          fi
+          if [[ $is_prerelease == false ]]
+            gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release.yml -f tag=${{ needs.meta.outputs.tag }}
+            gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ needs.meta.outputs.tag }}
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
