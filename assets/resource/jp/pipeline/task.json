@@ -1,0 +1,38 @@
+{
+  "任务_今日事务": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "日課"
+        ]
+      }
+    }
+  },
+  "任务_每周事务": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "週間課題"
+        ]
+      }
+    }
+  },
+  "任务_领取任务": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "任務"
+        ]
+      }
+    }
+  },
+  "任务_魔王养成": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "魔王育成"
+        ]
+      }
+    }
+  }
+}

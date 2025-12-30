@@ -1,0 +1,9 @@
+{
+    "登录_点击任意区域进入游戏": {
+        "recognition": {
+            "param": {
+                "expected": "TAP TO START"
+            }
+        }
+    }
+}

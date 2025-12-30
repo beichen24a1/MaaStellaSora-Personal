@@ -1,0 +1,38 @@
+{
+  "活动_开启快速战斗": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "掃討"
+        ]
+      }
+    }
+  },
+  "活动_开始战斗": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "戦闘開始"
+        ]
+      }
+    }
+  },
+  "活动_点击活动战斗关卡": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "バトル"
+        ]
+      }
+    }
+  },
+  "活动_确认": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "確認"
+        ]
+      }
+    }
+  }
+}

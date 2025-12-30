@@ -70,6 +70,7 @@
       "param": {},
       "type": "Click"
     },
+    "post_wait_freezes": 500,
     "next": [
       "战斗_选择试炼"
     ],
@@ -109,11 +110,11 @@
     ],
     "recognition": {
       "param": {
-        "expected": [
-          "基础试炼"
+        "template": [
+          "fight/basic_trial.png"
         ]
       },
-      "type": "OCR"
+      "type": "TemplateMatch"
     }
   },
   "战斗_选择试炼子菜单": {
@@ -142,7 +143,7 @@
     "recognition": {
       "param": {
         "expected": [
-          "难度 1"
+          "(难度|難度|難易度|Difficulty)\\s*1(?!\\d)"
         ]
       },
       "type": "OCR"
