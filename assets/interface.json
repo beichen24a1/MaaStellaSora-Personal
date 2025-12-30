@@ -135,6 +135,8 @@
         {
             "name": "爬塔",
             "entry": "星塔_入口",
+            "repeatable": true,
+            "repeat_count": 1,
             "option": [
                 "属性塔",
                 "音符购买"
