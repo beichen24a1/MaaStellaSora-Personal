@@ -7,6 +7,9 @@
     "focus": {
       "Node.Recognition.Starting": "开始邀约"
     },
+    "next": [
+      "邀约_点击确认按钮"
+    ],
     "recognition": {
       "param": {
         "roi": [
@@ -31,10 +34,6 @@
       "Node.Recognition.Starting": "未邀约"
     },
     "next": [
-      {
-        "jump_back": true,
-        "name": "邀约_点击确认按钮"
-      },
       "邀约流程"
     ],
     "recognition": {
