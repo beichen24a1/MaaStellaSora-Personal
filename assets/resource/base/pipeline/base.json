@@ -44,8 +44,21 @@
     },
     "timeout": 100
   },
+  "通用_异常处理空节点": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "post_delay": 0,
+    "pre_delay": 0,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
   "通用_点击空白处继续": {
     "action": {
+      "param": {},
       "type": "Click"
     },
     "recognition": {
