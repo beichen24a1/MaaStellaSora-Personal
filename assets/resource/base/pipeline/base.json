@@ -46,6 +46,7 @@
   },
   "通用_点击空白处继续": {
     "action": {
+      "param": {},
       "type": "Click"
     },
     "recognition": {
