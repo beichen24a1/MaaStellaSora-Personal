@@ -4,13 +4,6 @@
       "param": {},
       "type": "DoNothing"
     },
-    "focus": {
-      "Node.Recognition.Starting": "正在检测活动入口",
-      "Node.Recognition.Succeeded": "已找到活动入口",
-      "Node.Recognition.Failed": "未找到活动入口",
-      "Node.Action.Starting": "开始处理活动入口",
-      "Node.Action.Succeeded": "活动入口处理完成"
-    },
     "next": [
       "活动_打开活动",
       "通用_返回主页"
@@ -24,13 +17,6 @@
     "action": {
       "param": {},
       "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在检测快速战斗按钮",
-      "Node.Recognition.Succeeded": "已找到快速战斗按钮",
-      "Node.Recognition.Failed": "未找到快速战斗按钮",
-      "Node.Action.Starting": "正在点击快速战斗按钮",
-      "Node.Action.Succeeded": "已点击快速战斗按钮"
     },
     "next": [
       "活动_添加战斗次数",
@@ -51,11 +37,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在检测开始战斗按钮",
-      "Node.Recognition.Succeeded": "已找到开始战斗按钮",
-      "Node.Recognition.Failed": "未找到开始战斗按钮",
-      "Node.Action.Starting": "正在点击开始战斗按钮",
-      "Node.Action.Succeeded": "已点击开始战斗按钮"
+      "Node.Action.Starting": "点击开始战斗"
     },
     "next": [
       "活动_确认"
@@ -75,11 +57,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在检测活动图标",
-      "Node.Recognition.Succeeded": "已找到活动图标",
-      "Node.Recognition.Failed": "未找到活动图标",
-      "Node.Action.Starting": "正在点击活动图标",
-      "Node.Action.Succeeded": "已点击活动图标"
+      "Node.Action.Starting": "正在打开活动"
     },
     "next": [
       "活动_点击活动战斗关卡"
@@ -99,11 +77,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在检测添加战斗次数按钮",
-      "Node.Recognition.Succeeded": "已找到添加战斗次数按钮",
-      "Node.Recognition.Failed": "检测到没有通关活动关卡，继续下一步",
-      "Node.Action.Starting": "正在点击添加战斗次数按钮",
-      "Node.Action.Succeeded": "已点击添加战斗次数按钮"
+      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
+      "Node.Action.Starting": "正在添加战斗次数"
     },
     "next": [
       "活动_开始战斗"
@@ -127,13 +102,6 @@
       "param": {},
       "type": "Click"
     },
-    "focus": {
-      "Node.Recognition.Starting": "正在检测战斗关卡选项",
-      "Node.Recognition.Succeeded": "已找到战斗关卡选项",
-      "Node.Recognition.Failed": "未找到战斗关卡选项",
-      "Node.Action.Starting": "正在点击战斗关卡选项",
-      "Node.Action.Succeeded": "已点击战斗关卡选项"
-    },
     "next": [
       "活动_选择活动关卡"
     ],
@@ -152,11 +120,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在检测确认按钮",
-      "Node.Recognition.Succeeded": "已找到确认按钮",
-      "Node.Recognition.Failed": "未找到确认按钮",
-      "Node.Action.Starting": "正在点击确认按钮",
-      "Node.Action.Succeeded": "已点击确认按钮"
+      "Node.Action.Succeeded": "正在点击确认"
     },
     "next": [
       "通用_返回主页"
@@ -174,13 +138,6 @@
     "action": {
       "param": {},
       "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在检测具体活动关卡",
-      "Node.Recognition.Succeeded": "已找到具体活动关卡",
-      "Node.Recognition.Failed": "未找到具体活动关卡",
-      "Node.Action.Starting": "正在点击具体活动关卡",
-      "Node.Action.Succeeded": "已点击具体活动关卡"
     },
     "next": [
       "活动_开启快速战斗"

@@ -161,7 +161,7 @@
       "type": "OCR"
     }
   },
-  "委托_跳过 ": {
+  "委托_跳过": {
     "action": {
       "param": {},
       "type": "Click"
