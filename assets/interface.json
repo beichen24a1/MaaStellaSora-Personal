@@ -49,6 +49,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/tw"
             ]
+        },
+        {
+            "name": "国际服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/en"
+            ]
         }
     ],
     "task": [
