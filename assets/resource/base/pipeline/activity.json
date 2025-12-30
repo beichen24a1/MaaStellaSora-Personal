@@ -1,137 +1,154 @@
 {
-    "活动_开启快速战斗": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "next": [
-            "活动_添加战斗次数",
-            "通用_返回主页"
-        ],
-        "recognition": {
-            "param": {
-                "expected": [
-                    "快速战斗"
-                ]
-            },
-            "type": "OCR"
-        }
+  "活动_入口": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
     },
-    "活动_开始战斗": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在点击开始战斗"
-        },
-        "next": [
-            "活动_确认"
-        ],
-        "recognition": {
-            "param": {
-                "expected": [
-                    "开始战斗"
-                ]
-            },
-            "type": "OCR"
-        }
-    },
-    "活动_打开活动": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在打开活动"
-        },
-        "next": [
-            "活动_点击活动战斗关卡"
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "activity.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        }
-    },
-    "活动_添加战斗次数": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
-            "Node.Recognition.Starting": "正在添加战斗次数"
-        },
-        "next": [
-            "活动_开始战斗"
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "add.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        },
-        "repeat": 1,
-        "repeat_delay": 1000
-    },
-    "活动_点击活动战斗关卡": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "next": [
-            "活动_选择活动关卡"
-        ],
-        "recognition": {
-            "param": {
-                "expected": [
-                    "战斗关卡"
-                ]
-            },
-            "type": "OCR"
-        }
-    },
-    "活动_确认": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Succeeded": "正在点击确认"
-        },
-        "next": [
-            "通用_返回主页"
-        ],
-        "recognition": {
-            "param": {
-                "expected": [
-                    "确认"
-                ]
-            },
-            "type": "OCR"
-        }
-    },
-    "活动_选择活动关卡": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "next": [
-            "活动_开启快速战斗"
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "activity_fight_1.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        }
+    "next": [
+      "活动_打开活动",
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
     }
+  },
+  "活动_开启快速战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_添加战斗次数",
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速战斗"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_开始战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在点击开始战斗"
+    },
+    "next": [
+      "活动_确认"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "开始战斗"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_打开活动": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开活动"
+    },
+    "next": [
+      "活动_点击活动战斗关卡"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "activity.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "活动_添加战斗次数": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Failed": "检测到没有通关活动关卡 继续下一步",
+      "Node.Recognition.Starting": "正在添加战斗次数"
+    },
+    "next": [
+      "活动_开始战斗"
+    ],
+    "on_error": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "add.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 1,
+    "repeat_delay": 1000
+  },
+  "活动_点击活动战斗关卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_选择活动关卡"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "战斗关卡"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_确认": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Succeeded": "正在点击确认"
+    },
+    "next": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "确认"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动_选择活动关卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_开启快速战斗"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "activity_fight_1.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  }
 }

@@ -82,7 +82,8 @@
     "recognition": {
       "param": {
         "template": [
-          "home.png"
+          "home.png",
+          "chat_shutdown.png"
         ]
       },
       "type": "TemplateMatch"
