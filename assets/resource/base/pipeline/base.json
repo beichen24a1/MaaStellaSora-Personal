@@ -87,6 +87,12 @@
     ],
     "recognition": {
       "param": {
+        "roi": [
+          0,
+          0,
+          1280,
+          94
+        ],
         "template": [
           "home.png",
           "chat_shutdown.png"
