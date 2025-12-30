@@ -18,8 +18,7 @@
         ]
       },
       "type": "TemplateMatch"
-    },
-    "timeout": 1000
+    }
   },
   "通用_判断是否在主页": {
     "action": {
