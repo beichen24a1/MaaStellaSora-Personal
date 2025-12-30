@@ -12,12 +12,6 @@
       "type": "Click",
       "param": {}
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 153
-      }
-    },
     "next": [
       {
         "name": "任务_一键领取",
@@ -38,12 +32,6 @@
     "action": {
       "type": "Click",
       "param": {}
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 29
-      }
     },
     "next": [
       {
@@ -69,12 +57,6 @@
     "focus": {
       "Node.Recognition.Starting": "正在尝试领取任务奖励"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 0
-      }
-    },
     "next": [
       "任务_每周事务"
     ]
@@ -91,12 +73,6 @@
     "action": {
       "type": "Click",
       "param": {}
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 153
-      }
     },
     "next": [
       {
@@ -123,12 +99,6 @@
       "Node.Recognition.Failed": "没有找到一键获取按钮",
       "Node.Recognition.Starting": "正在尝试点击一键获取"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 788
-      }
-    },
     "next": [
       "通用_返回主页"
     ]
@@ -150,12 +120,6 @@
       "Node.Recognition.Failed": "没有找到一键赠送按钮",
       "Node.Recognition.Starting": "正在尝试点击一键赠送"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 788
-      }
-    },
     "next": [
       "好友_一键获取"
     ]
@@ -176,12 +140,6 @@
     "focus": {
       "Node.Recognition.Starting": "正在前往好友列表"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 804
-      }
-    },
     "next": [
       "好友_一键赠送"
     ]
@@ -198,12 +156,6 @@
     "action": {
       "type": "Click",
       "param": {}
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 1072
-      }
     },
     "next": [
       "通用_返回主页"
@@ -222,14 +174,29 @@
       "type": "Click",
       "param": {}
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 2118
-      }
-    },
     "next": [
       "通用_点击空白处继续"
+    ]
+  },
+  "心链_打开心链": {
+    "recognition": {
+      "type": "OCR",
+      "param": {
+        "expected": [
+          "Heartlink"
+        ]
+      }
+    },
+    "action": {
+      "type": "Click",
+      "param": {}
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开心链"
+    },
+    "post_wait_freezes": 2000,
+    "next": [
+      "心链_点击邮寄"
     ]
   },
   "心链_点击邮寄": {
@@ -247,12 +214,6 @@
     },
     "focus": {
       "Node.Recognition.Starting": "正在点击邮寄按钮"
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 268
-      }
     },
     "next": [
       "心链_选择礼物"
@@ -273,12 +234,6 @@
     },
     "focus": {
       "Node.Recognition.Starting": "正在赠送礼物"
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 536
-      }
     },
     "next": [
       "心链_默契提升"
@@ -301,12 +256,6 @@
       "Node.Recognition.Starting": "正在关闭弹窗"
     },
     "pre_wait_freezes": 1000,
-    "$__mpe_code": {
-      "position": {
-        "x": 300,
-        "y": 520
-      }
-    },
     "next": [
       "心链_关闭心链"
     ]
@@ -323,12 +272,6 @@
     "action": {
       "type": "Click",
       "param": {}
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 2313
-      }
     },
     "next": [
       "活动_添加战斗次数",
@@ -351,12 +294,6 @@
     "focus": {
       "Node.Recognition.Starting": "正在点击开始战斗"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 1266
-      }
-    },
     "next": [
       "活动_确认"
     ]
@@ -373,12 +310,6 @@
     "action": {
       "type": "Click",
       "param": {}
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 999
-      }
     },
     "next": [
       "活动_选择活动关卡"
@@ -399,12 +330,6 @@
     },
     "focus": {
       "Node.Recognition.Succeeded": "正在点击确认"
-    },
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 1266
-      }
     },
     "next": [
       "通用_返回主页"
@@ -428,13 +353,7 @@
     "focus": {
       "Node.Recognition.Starting": "正在尝试进入游戏"
     },
-    "timeout": 10000,
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 1208
-      }
-    }
+    "timeout": 10000
   },
   "登录_签到": {
     "recognition": {
@@ -452,12 +371,6 @@
     "repeat": 3,
     "repeat_delay": 1000,
     "timeout": 1000,
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 1518
-      }
-    },
     "next": [
       "登录_关闭每日签到",
       "登录_关闭活动",
@@ -481,12 +394,6 @@
       }
     },
     "timeout": 2000,
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 2810
-      }
-    },
     "next": [
       "通用_点击空白处继续"
     ]
@@ -507,12 +414,6 @@
       }
     },
     "timeout": 1000,
-    "$__mpe_code": {
-      "position": {
-        "x": 1200,
-        "y": 2658
-      }
-    },
     "next": [
       "通用_判断是否在主页"
     ]
@@ -534,12 +435,6 @@
       "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过"
     },
     "timeout": 2000,
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 1834
-      }
-    },
     "next": [
       {
         "name": "通用_返回主页",
@@ -566,12 +461,6 @@
     "focus": {
       "Node.Recognition.Starting": "正在前往采购"
     },
-    "$__mpe_code": {
-      "position": {
-        "x": 600,
-        "y": 1834
-      }
-    },
     "next": [
       "采购_领取每日赠礼",
       "采购_判断是否已领取"
@@ -594,12 +483,6 @@
       "Node.Recognition.Starting": "正在领取每日赠礼"
     },
     "timeout": 2000,
-    "$__mpe_code": {
-      "position": {
-        "x": 900,
-        "y": 2506
-      }
-    },
     "next": [
       {
         "name": "通用_返回主页",
@@ -610,104 +493,5 @@
         "jump_back": true
       }
     ]
-  },
-  "心链_打开心链": {
-    "recognition": {
-      "type": "OCR",
-      "param": {
-        "expected": [
-          "Heartlink"
-        ]
-      }
-    },
-    "action": {
-      "type": "Click",
-      "param": {}
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在打开心链"
-    },
-    "post_wait_freezes": 2000,
-    "$__mpe_code": {
-      "position": {
-        "x": 0,
-        "y": 252
-      }
-    },
-    "next": [
-      "心链_点击邮寄"
-    ]
-  },
-  "$__mpe_external_任务_一键领取_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1205,
-        "y": 79
-      }
-    }
-  },
-  "$__mpe_external_通用_返回主页_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1205,
-        "y": 2362
-      }
-    }
-  },
-  "$__mpe_external_心链_选择礼物_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 605,
-        "y": 347
-      }
-    }
-  },
-  "$__mpe_external_心链_关闭心链_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 605,
-        "y": 615
-      }
-    }
-  },
-  "$__mpe_external_活动_添加战斗次数_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1205,
-        "y": 2945
-      }
-    }
-  },
-  "$__mpe_external_活动_选择活动关卡_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 305,
-        "y": 1056
-      }
-    }
-  },
-  "$__mpe_external_登录_关闭每日签到_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 905,
-        "y": 1629
-      }
-    }
-  },
-  "$__mpe_external_登录_关闭活动_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 905,
-        "y": 1739
-      }
-    }
-  },
-  "$__mpe_external_通用_判断是否在主页_en": {
-    "$__mpe_code": {
-      "position": {
-        "x": 1500,
-        "y": 2753
-      }
-    }
   }
 }
