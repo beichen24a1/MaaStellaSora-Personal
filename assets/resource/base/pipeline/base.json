@@ -8,9 +8,7 @@
       "Node.Recognition.Starting": "正在尝试一键领取"
     },
     "next": [
-      "通用_点击空白处继续"
-    ],
-    "on_error": [
+      "通用_点击空白处继续",
       "通用_返回主页"
     ],
     "recognition": {
@@ -35,7 +33,7 @@
       "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步"
     },
     "on_error": [
-      "通用_点击空白处继续"
+      "通用_返回主页"
     ],
     "recognition": {
       "param": {
@@ -54,9 +52,6 @@
       },
       "type": "Click"
     },
-    "next": [
-      "通用_判断是否在主页"
-    ],
     "recognition": {
       "param": {
         "expected": [
@@ -79,10 +74,14 @@
       "Node.Recognition.Starting": "正在返回主页",
       "Node.Recognition.Succeeded": ""
     },
+    "next": [
+      "通用_判断是否在主页"
+    ],
     "recognition": {
       "param": {
         "template": [
-          "home.png"
+          "home.png",
+          "chat_shutdown.png"
         ]
       },
       "type": "TemplateMatch"

@@ -100,7 +100,8 @@ jobs:
         with:
           repository: SweetSmellFox/MFAAvalonia
           fileName: "MFAAvalonia-*-win-${{ matrix.arch == 'x86_64' && 'x64' || 'arm64' }}*"
-          tag: "v2.2.7"
+          # tag: "v2.2.7"
+          latest: true
           out-file-path: "MFA"
           extract: true
 
@@ -177,7 +178,8 @@ jobs:
         with:
           repository: SweetSmellFox/MFAAvalonia
           fileName: "MFAAvalonia-*-linux-${{ matrix.arch == 'x86_64' && 'x64' || 'arm64' }}*"
-          tag: "v2.2.7"
+          # tag: "v2.2.7"
+          latest: true
           out-file-path: "MFA"
           extract: true
 
@@ -414,8 +416,10 @@ jobs:
           if [[ $tag =~ .*-nightly.* ]]; then
             is_prerelease=true
             echo "This is a pre-release version"
+          fi
           if [[ $is_prerelease == false ]]; then
             gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release.yml -f tag=${{ needs.meta.outputs.tag }}
             gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ needs.meta.outputs.tag }}
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
