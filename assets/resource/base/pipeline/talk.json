@@ -4,6 +4,11 @@
       "param": {},
       "type": "DoNothing"
     },
+    "focus": {
+      "Node.Recognition.Starting": "正在进入心链入口",
+      "Node.Recognition.Succeeded": "成功识别到心链入口",
+      "Node.Recognition.Failed": "未能识别到心链入口"
+    },
     "next": [
       {
         "jump_back": true,
@@ -28,7 +33,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在打开心链"
+      "Node.Recognition.Starting": "正在打开心链",
+      "Node.Recognition.Succeeded": "成功识别到心链文本",
+      "Node.Recognition.Failed": "未能识别到心链文本",
+      "Node.Action.Starting": "开始点击心链区域",
+      "Node.Action.Succeeded": "成功点击心链区域",
+      "Node.Action.Failed": "点击心链区域失败"
     },
     "post_wait_freezes": 2000,
     "recognition": {
@@ -46,7 +56,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在点击邮寄按钮"
+      "Node.Recognition.Starting": "正在点击邮寄按钮",
+      "Node.Recognition.Succeeded": "成功识别到邮寄按钮",
+      "Node.Recognition.Failed": "未能识别到邮寄按钮",
+      "Node.Action.Starting": "开始点击邮寄按钮",
+      "Node.Action.Succeeded": "成功点击邮寄按钮",
+      "Node.Action.Failed": "点击邮寄按钮失败"
     },
     "next": [
       "心链_选择礼物"
@@ -66,7 +81,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在赠送礼物"
+      "Node.Recognition.Starting": "正在赠送礼物",
+      "Node.Recognition.Succeeded": "成功识别到赠送礼物按钮",
+      "Node.Recognition.Failed": "未能识别到赠送礼物按钮",
+      "Node.Action.Starting": "开始点击赠送礼物按钮",
+      "Node.Action.Succeeded": "成功点击赠送礼物按钮",
+      "Node.Action.Failed": "点击赠送礼物按钮失败"
     },
     "next": [
       "心链_默契提升",
@@ -91,8 +111,12 @@
       "type": "Click"
     },
     "focus": {
+      "Node.Recognition.Starting": "正在选择礼物",
+      "Node.Recognition.Succeeded": "成功识别到礼物图标",
       "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过",
-      "Node.Recognition.Starting": "正在选择礼物"
+      "Node.Action.Starting": "开始点击礼物图标",
+      "Node.Action.Succeeded": "成功点击礼物图标",
+      "Node.Action.Failed": "点击礼物图标失败"
     },
     "next": [
       "心链_赠送礼物"
@@ -113,7 +137,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在关闭弹窗"
+      "Node.Recognition.Starting": "正在关闭弹窗",
+      "Node.Recognition.Succeeded": "成功识别到默契提升弹窗",
+      "Node.Recognition.Failed": "未能识别到默契提升弹窗",
+      "Node.Action.Starting": "开始点击默契提升弹窗",
+      "Node.Action.Succeeded": "成功点击默契提升弹窗",
+      "Node.Action.Failed": "点击默契提升弹窗失败"
     },
     "next": [
       {

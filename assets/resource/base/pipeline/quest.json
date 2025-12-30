@@ -4,6 +4,11 @@
       "param": {},
       "type": "DoNothing"
     },
+    "focus": {
+      "Node.Recognition.Starting": "正在进入委托入口",
+      "Node.Recognition.Succeeded": "成功识别到委托入口",
+      "Node.Recognition.Failed": "未能识别到委托入口"
+    },
     "next": [
       "委托_前往委托",
       "通用_返回主页"
@@ -19,6 +24,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在识别再次派遣按钮",
+      "Node.Recognition.Succeeded": "成功识别到再次派遣按钮",
+      "Node.Recognition.Failed": "未能识别到再次派遣按钮",
+      "Node.Action.Starting": "开始点击再次派遣按钮",
+      "Node.Action.Succeeded": "成功点击再次派遣按钮",
+      "Node.Action.Failed": "点击再次派遣按钮失败"
     },
     "next": [
       "通用_返回主页"
@@ -38,7 +51,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在前往委托"
+      "Node.Recognition.Starting": "正在前往委托",
+      "Node.Recognition.Succeeded": "成功识别到委托图标",
+      "Node.Recognition.Failed": "未能识别到委托图标",
+      "Node.Action.Starting": "开始点击委托图标",
+      "Node.Action.Succeeded": "成功点击委托图标",
+      "Node.Action.Failed": "点击委托图标失败"
     },
     "next": [
       {
@@ -68,6 +86,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在识别跳过按钮",
+      "Node.Recognition.Succeeded": "成功识别到跳过按钮",
+      "Node.Recognition.Failed": "未能识别到跳过按钮",
+      "Node.Action.Starting": "开始点击跳过按钮",
+      "Node.Action.Succeeded": "成功点击跳过按钮",
+      "Node.Action.Failed": "点击跳过按钮失败"
     },
     "next": [
       "通用_点击空白处继续"
