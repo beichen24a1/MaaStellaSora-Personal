@@ -4,6 +4,14 @@
       "param": {},
       "type": "DoNothing"
     },
+    "focus": {
+      "Node.Recognition.Starting": "开始执行战斗入口逻辑",
+      "Node.Recognition.Succeeded": "战斗入口逻辑执行成功",
+      "Node.Recognition.Failed": "战斗入口逻辑执行失败",
+      "Node.Action.Starting": "开始执行战斗入口动作",
+      "Node.Action.Succeeded": "战斗入口动作执行成功",
+      "Node.Action.Failed": "战斗入口动作执行失败"
+    },
     "next": [
       {
         "jump_back": true,
@@ -26,6 +34,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别出发按钮",
+      "Node.Recognition.Succeeded": "成功识别出发按钮",
+      "Node.Recognition.Failed": "未能识别出发按钮",
+      "Node.Action.Starting": "开始点击出发按钮",
+      "Node.Action.Succeeded": "成功点击出发按钮",
+      "Node.Action.Failed": "点击出发按钮失败"
     },
     "next": [
       "战斗_悬赏试炼"
@@ -50,6 +66,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别快速战斗按钮",
+      "Node.Recognition.Succeeded": "成功识别快速战斗按钮",
+      "Node.Recognition.Failed": "未能识别快速战斗按钮",
+      "Node.Action.Starting": "开始点击快速战斗按钮",
+      "Node.Action.Succeeded": "成功点击快速战斗按钮",
+      "Node.Action.Failed": "点击快速战斗按钮失败"
+    },
     "next": [
       {
         "anchor": true,
@@ -70,6 +94,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别悬赏试炼按钮",
+      "Node.Recognition.Succeeded": "成功识别悬赏试炼按钮",
+      "Node.Recognition.Failed": "未能识别悬赏试炼按钮",
+      "Node.Action.Starting": "开始点击悬赏试炼按钮",
+      "Node.Action.Succeeded": "成功点击悬赏试炼按钮",
+      "Node.Action.Failed": "点击悬赏试炼按钮失败"
+    },
     "next": [
       "战斗_选择试炼"
     ],
@@ -87,6 +119,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别试炼出发按钮",
+      "Node.Recognition.Succeeded": "成功识别试炼出发按钮",
+      "Node.Recognition.Failed": "未能识别试炼出发按钮",
+      "Node.Action.Starting": "开始点击试炼出发按钮",
+      "Node.Action.Succeeded": "成功点击试炼出发按钮",
+      "Node.Action.Failed": "点击试炼出发按钮失败"
+    },
     "next": [
       "战斗_选择试炼子菜单"
     ],
@@ -103,6 +143,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别基础试炼按钮",
+      "Node.Recognition.Succeeded": "成功识别基础试炼按钮",
+      "Node.Recognition.Failed": "未能识别基础试炼按钮",
+      "Node.Action.Starting": "开始点击基础试炼按钮",
+      "Node.Action.Succeeded": "成功点击基础试炼按钮",
+      "Node.Action.Failed": "点击基础试炼按钮失败"
     },
     "next": [
       "战斗_试炼出发"
@@ -122,6 +170,14 @@
       "type": "Click"
     },
     "enabled": false,
+    "focus": {
+      "Node.Recognition.Starting": "开始识别试炼子菜单",
+      "Node.Recognition.Succeeded": "成功识别试炼子菜单",
+      "Node.Recognition.Failed": "未能识别试炼子菜单",
+      "Node.Action.Starting": "开始执行试炼子菜单操作",
+      "Node.Action.Succeeded": "试炼子菜单操作执行成功",
+      "Node.Action.Failed": "试炼子菜单操作执行失败"
+    },
     "recognition": {
       "param": {
         "expected": [
@@ -135,6 +191,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "开始识别难度1按钮",
+      "Node.Recognition.Succeeded": "成功识别难度1按钮",
+      "Node.Recognition.Failed": "未能识别难度1按钮",
+      "Node.Action.Starting": "开始点击难度1按钮",
+      "Node.Action.Succeeded": "成功点击难度1按钮",
+      "Node.Action.Failed": "点击难度1按钮失败"
     },
     "next": [
       "战斗_快速战斗"

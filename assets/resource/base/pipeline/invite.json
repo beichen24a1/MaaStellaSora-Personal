@@ -5,7 +5,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "开始邀约"
+      "Node.Recognition.Starting": "开始邀约",
+      "Node.Recognition.Succeeded": "成功识别到邀约按钮",
+      "Node.Recognition.Failed": "未能识别到邀约按钮",
+      "Node.Action.Starting": "开始点击邀约按钮",
+      "Node.Action.Succeeded": "成功点击邀约按钮",
+      "Node.Action.Failed": "点击邀约按钮失败"
     },
     "next": [
       "邀约_点击确认按钮"
@@ -31,7 +36,9 @@
       "type": "DoNothing"
     },
     "focus": {
-      "Node.Recognition.Starting": "未邀约"
+      "Node.Recognition.Starting": "未邀约",
+      "Node.Recognition.Succeeded": "成功识别到未邀约状态",
+      "Node.Recognition.Failed": "未能识别到未邀约状态"
     },
     "next": [
       "邀约流程"
@@ -56,6 +63,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "选择1号角色",
+      "Node.Recognition.Succeeded": "成功识别到1号角色",
+      "Node.Recognition.Failed": "未能识别到1号角色",
+      "Node.Action.Starting": "开始点击1号角色",
+      "Node.Action.Succeeded": "成功点击1号角色",
+      "Node.Action.Failed": "点击1号角色失败"
+    },
     "max_hit": 2,
     "recognition": {
       "param": {
@@ -76,6 +91,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "选择2号角色",
+      "Node.Recognition.Succeeded": "成功识别到2号角色",
+      "Node.Recognition.Failed": "未能识别到2号角色",
+      "Node.Action.Starting": "开始点击2号角色",
+      "Node.Action.Succeeded": "成功点击2号角色",
+      "Node.Action.Failed": "点击2号角色失败"
     },
     "max_hit": 2,
     "recognition": {
@@ -98,6 +121,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "选择3号角色",
+      "Node.Recognition.Succeeded": "成功识别到3号角色",
+      "Node.Recognition.Failed": "未能识别到3号角色",
+      "Node.Action.Starting": "开始点击3号角色",
+      "Node.Action.Succeeded": "成功点击3号角色",
+      "Node.Action.Failed": "点击3号角色失败"
+    },
     "max_hit": 2,
     "recognition": {
       "param": {
@@ -119,6 +150,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "选择4号角色",
+      "Node.Recognition.Succeeded": "成功识别到4号角色",
+      "Node.Recognition.Failed": "未能识别到4号角色",
+      "Node.Action.Starting": "开始点击4号角色",
+      "Node.Action.Succeeded": "成功点击4号角色",
+      "Node.Action.Failed": "点击4号角色失败"
+    },
     "max_hit": 2,
     "recognition": {
       "param": {
@@ -139,6 +178,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "选择5号角色",
+      "Node.Recognition.Succeeded": "成功识别到5号角色",
+      "Node.Recognition.Failed": "未能识别到5号角色",
+      "Node.Action.Starting": "开始点击5号角色",
+      "Node.Action.Succeeded": "成功点击5号角色",
+      "Node.Action.Failed": "点击5号角色失败"
     },
     "max_hit": 2,
     "recognition": {
@@ -162,7 +209,9 @@
       "type": "DoNothing"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_主界面"
+      "Node.Recognition.Starting": "邀约_主界面",
+      "Node.Recognition.Succeeded": "成功识别到邀约主界面",
+      "Node.Recognition.Failed": "未能识别到邀约主界面"
     },
     "next": [
       "邀约_总循环"
@@ -188,7 +237,9 @@
       "type": "DoNothing"
     },
     "focus": {
-      "Node.Recognition.Starting": "执行邀约"
+      "Node.Recognition.Starting": "执行邀约",
+      "Node.Recognition.Succeeded": "成功进入邀约流程",
+      "Node.Recognition.Failed": "未能进入邀约流程"
     },
     "next": [
       "心链_打开心链",
@@ -208,7 +259,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_前往邀约"
+      "Node.Recognition.Starting": "邀约_前往邀约",
+      "Node.Recognition.Succeeded": "成功识别到前往邀约按钮",
+      "Node.Recognition.Failed": "未能识别到前往邀约按钮",
+      "Node.Action.Starting": "开始点击前往邀约按钮",
+      "Node.Action.Succeeded": "成功点击前往邀约按钮",
+      "Node.Action.Failed": "点击前往邀约按钮失败"
     },
     "next": [
       "邀约_主界面"
@@ -234,7 +290,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_地点"
+      "Node.Recognition.Starting": "邀约_地点",
+      "Node.Recognition.Succeeded": "成功识别到选择地点按钮",
+      "Node.Recognition.Failed": "未能识别到选择地点按钮",
+      "Node.Action.Starting": "开始点击选择地点按钮",
+      "Node.Action.Succeeded": "成功点击选择地点按钮",
+      "Node.Action.Failed": "点击选择地点按钮失败"
     },
     "recognition": {
       "param": {
@@ -255,6 +316,11 @@
     "action": {
       "param": {},
       "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "邀约_总循环",
+      "Node.Recognition.Succeeded": "开始邀约循环检查",
+      "Node.Recognition.Failed": "邀约循环检查失败"
     },
     "next": [
       "邀约_达上限",
@@ -302,7 +368,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Action.Starting": "点击邀约确认按钮"
+      "Node.Recognition.Starting": "点击邀约确认按钮",
+      "Node.Recognition.Succeeded": "成功识别到确认按钮",
+      "Node.Recognition.Failed": "未能识别到确认按钮",
+      "Node.Action.Starting": "开始点击确认按钮",
+      "Node.Action.Succeeded": "成功点击确认按钮",
+      "Node.Action.Failed": "点击确认按钮失败"
     },
     "recognition": {
       "param": {
@@ -323,6 +394,14 @@
     "action": {
       "param": {},
       "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "邀约_点击空白",
+      "Node.Recognition.Succeeded": "成功识别到点击空白区域",
+      "Node.Recognition.Failed": "未能识别到点击空白区域",
+      "Node.Action.Starting": "开始点击空白区域",
+      "Node.Action.Succeeded": "成功点击空白区域",
+      "Node.Action.Failed": "点击空白区域失败"
     },
     "recognition": {
       "param": {
@@ -346,7 +425,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在跳过邀约"
+      "Node.Recognition.Starting": "正在跳过邀约",
+      "Node.Recognition.Succeeded": "成功识别到跳过按钮",
+      "Node.Recognition.Failed": "未能识别到跳过按钮",
+      "Node.Action.Starting": "开始点击跳过按钮",
+      "Node.Action.Succeeded": "成功点击跳过按钮",
+      "Node.Action.Failed": "点击跳过按钮失败"
     },
     "recognition": {
       "param": {
@@ -369,7 +453,9 @@
       "type": "DoNothing"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_达上限"
+      "Node.Recognition.Starting": "邀约_达上限",
+      "Node.Recognition.Succeeded": "成功识别到邀约已达上限",
+      "Node.Recognition.Failed": "未能识别到邀约已达上限"
     },
     "next": [
       {
@@ -399,7 +485,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "还是算了"
+      "Node.Recognition.Starting": "还是算了",
+      "Node.Recognition.Succeeded": "成功识别到还是算了按钮",
+      "Node.Recognition.Failed": "未能识别到还是算了按钮",
+      "Node.Action.Starting": "开始点击还是算了按钮",
+      "Node.Action.Succeeded": "成功点击还是算了按钮",
+      "Node.Action.Failed": "点击还是算了按钮失败"
     },
     "recognition": {
       "param": {
@@ -422,7 +513,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_送出礼物"
+      "Node.Recognition.Starting": "邀约_送出礼物",
+      "Node.Recognition.Succeeded": "成功识别到送出礼物按钮",
+      "Node.Recognition.Failed": "未能识别到送出礼物按钮",
+      "Node.Action.Starting": "开始点击送出礼物按钮",
+      "Node.Action.Succeeded": "成功点击送出礼物按钮",
+      "Node.Action.Failed": "点击送出礼物按钮失败"
     },
     "recognition": {
       "param": {
@@ -445,7 +541,12 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在送礼"
+      "Node.Recognition.Starting": "正在送礼",
+      "Node.Recognition.Succeeded": "成功识别到送礼选项",
+      "Node.Recognition.Failed": "未能识别到送礼选项",
+      "Node.Action.Starting": "开始点击送礼选项",
+      "Node.Action.Succeeded": "成功点击送礼选项",
+      "Node.Action.Failed": "点击送礼选项失败"
     },
     "next": [
       "邀约_送礼流程"
@@ -471,8 +572,9 @@
       "type": "DoNothing"
     },
     "focus": {
-      "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过",
-      "Node.Recognition.Starting": "正在选择礼物"
+      "Node.Recognition.Starting": "正在选择礼物",
+      "Node.Recognition.Succeeded": "成功进入送礼流程",
+      "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过"
     },
     "next": [
       "邀约_选择礼物成功",
@@ -494,6 +596,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "选择礼物",
+      "Node.Recognition.Succeeded": "成功识别到礼物图标",
+      "Node.Recognition.Failed": "未能识别到礼物图标",
+      "Node.Action.Starting": "开始点击礼物图标",
+      "Node.Action.Succeeded": "成功点击礼物图标",
+      "Node.Action.Failed": "点击礼物图标失败"
+    },
     "recognition": {
       "param": {
         "roi": [
@@ -513,6 +623,11 @@
     "action": {
       "param": {},
       "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "选择礼物成功",
+      "Node.Recognition.Succeeded": "成功识别到礼物选择成功",
+      "Node.Recognition.Failed": "未能识别到礼物选择成功"
     },
     "next": [
       "邀约_送出礼物"
@@ -537,6 +652,14 @@
       "param": {},
       "type": "Click"
     },
+    "focus": {
+      "Node.Recognition.Starting": "默契提升",
+      "Node.Recognition.Succeeded": "成功识别到默契提升按钮",
+      "Node.Recognition.Failed": "未能识别到默契提升按钮",
+      "Node.Action.Starting": "开始点击默契提升按钮",
+      "Node.Action.Succeeded": "成功点击默契提升按钮",
+      "Node.Action.Failed": "点击默契提升按钮失败"
+    },
     "recognition": {
       "param": {
         "expected": [
@@ -557,6 +680,11 @@
     "action": {
       "param": {},
       "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "邀约流程",
+      "Node.Recognition.Succeeded": "成功进入邀约流程",
+      "Node.Recognition.Failed": "未能进入邀约流程"
     },
     "next": [
       "邀约_点击空白",
