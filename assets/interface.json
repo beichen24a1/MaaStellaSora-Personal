@@ -94,13 +94,14 @@
             ]
         },
         {
-            "name": "快速战斗指定关卡",
+            "name": "悬赏试炼快速战斗",
             "entry": "战斗_入口",
             "description": "自动前往悬赏试炼页面，并且对指定关卡进行快速战斗",
             "repeatable": true,
             "repeat_count": 1,
             "option": [
                 "悬赏试炼关卡",
+                "选择悬赏试炼难度",
                 "自定义快速作战次数"
             ]
         },
@@ -897,6 +898,32 @@
                     },
                     "focus": {
                         "Node.Recognition.Starting": "尝试邀约_{5号}"
+                    }
+                }
+            }
+        },
+        "选择悬赏试炼难度": {
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "难度",
+                    "pipeline_type": "int",
+                    "default": "1",
+                    "pattern_msg": "请输入难度",
+                    "description": "请输入难度"
+                }
+            ],
+            "pipeline_override": {
+                "战斗_选择难度": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "难度 {难度}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试选择难度_{难度}"
                     }
                 }
             }
