@@ -43,13 +43,16 @@
     "next": [
       {
         "jump_back": true,
-        "name": "委托_跳过 "
+        "name": "通用_一键领取"
       },
       {
         "jump_back": true,
-        "name": "通用_一键领取"
+        "name": "委托_跳过 "
       },
       "委托_再次派遣"
+    ],
+    "on_error": [
+      "通用_返回主页"
     ],
     "recognition": {
       "param": {
@@ -58,7 +61,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "timeout": 5000
   },
   "委托_跳过 ": {
     "action": {
