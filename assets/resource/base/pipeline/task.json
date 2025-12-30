@@ -13,7 +13,10 @@
         "jump_back": true,
         "name": "通用_点击空白处继续"
       },
-      "任务_领取额外奖励"
+      {
+        "jump_back": true,
+        "name": "任务_领取额外奖励"
+      }
     ],
     "recognition": {
       "param": {
@@ -31,7 +34,11 @@
       "type": "Click"
     },
     "next": [
-      "任务_一键领取"
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "通用_返回主页"
     ],
     "recognition": {
       "param": {
@@ -42,44 +49,17 @@
       "type": "OCR"
     }
   },
-  "任务_入口": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "next": [
-      {
-        "jump_back": true,
-        "name": "任务_领取任务"
-      },
-      {
-        "jump_back": true,
-        "name": "任务_每周事务"
-      },
-      {
-        "jump_back": true,
-        "name": "任务_魔王养成"
-      },
-      {
-        "jump_back": true,
-        "name": "任务_今日事务"
-      },
-      "通用_返回主页"
-    ],
-    "post_delay": 0,
-    "pre_delay": 0,
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
   "任务_每周事务": {
     "action": {
       "param": {},
       "type": "Click"
     },
     "next": [
-      "任务_一键领取"
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "任务_魔王养成"
     ],
     "recognition": {
       "param": {
@@ -99,7 +79,7 @@
       "Node.Recognition.Starting": "正在尝试领取任务奖励"
     },
     "next": [
-      "任务_一键领取"
+      "任务_每周事务"
     ],
     "recognition": {
       "param": {
@@ -138,7 +118,11 @@
       "type": "Click"
     },
     "next": [
-      "任务_一键领取"
+      {
+        "jump_back": true,
+        "name": "任务_一键领取"
+      },
+      "任务_今日事务"
     ],
     "recognition": {
       "param": {
