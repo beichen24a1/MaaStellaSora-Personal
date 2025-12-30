@@ -1,29 +1,41 @@
 {
-    "邮箱_打开邮箱": {
-        "action": {
-            "param": {},
-            "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在打开邮箱"
-        },
-        "next": [
-            {
-                "jump_back": true,
-                "name": "通用_一键领取"
-            },
-            {
-                "jump_back": true,
-                "name": "通用_返回主页"
-            }
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "email.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        }
+  "邮箱_入口": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "邮箱_打开邮箱"
+      },
+      "通用_返回主页"
+    ],
+    "post_delay": 0,
+    "pre_delay": 0,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
     }
+  },
+  "邮箱_打开邮箱": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Recognition.Starting": "正在打开邮箱"
+    },
+    "next": [
+      "通用_一键领取"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "email.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  }
 }

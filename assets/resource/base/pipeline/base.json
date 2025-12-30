@@ -8,8 +8,7 @@
       "Node.Recognition.Starting": "正在尝试一键领取"
     },
     "next": [
-      "通用_点击空白处继续",
-      "通用_返回主页"
+      "通用_点击空白处继续"
     ],
     "recognition": {
       "param": {
@@ -18,7 +17,8 @@
         ]
       },
       "type": "TemplateMatch"
-    }
+    },
+    "timeout": 2000
   },
   "通用_判断是否在主页": {
     "action": {
@@ -46,9 +46,6 @@
   },
   "通用_点击空白处继续": {
     "action": {
-      "param": {
-        "contact": 0
-      },
       "type": "Click"
     },
     "recognition": {
@@ -58,8 +55,7 @@
         ]
       },
       "type": "OCR"
-    },
-    "timeout": 1000
+    }
   },
   "通用_返回主页": {
     "action": {
