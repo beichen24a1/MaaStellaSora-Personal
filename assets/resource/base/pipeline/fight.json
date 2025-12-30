@@ -1,4 +1,27 @@
 {
+  "战斗_入口": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      {
+        "jump_back": true,
+        "name": "战斗_出发"
+      },
+      "战斗_选择难度",
+      {
+        "anchor": true,
+        "name": "通用_返回主页"
+      }
+    ],
+    "post_delay": 0,
+    "pre_delay": 0,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
   "战斗_出发": {
     "action": {
       "param": {},
@@ -11,6 +34,12 @@
       "param": {
         "expected": [
           "出发"
+        ],
+        "roi": [
+          1112,
+          652,
+          83,
+          39
         ]
       },
       "type": "OCR"
@@ -59,11 +88,7 @@
       "type": "Click"
     },
     "next": [
-      {
-        "jump_back": true,
-        "name": "战斗_选择试炼子菜单"
-      },
-      "战斗_选择难度"
+      "战斗_选择试炼子菜单"
     ],
     "recognition": {
       "param": {

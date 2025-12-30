@@ -95,7 +95,7 @@
         },
         {
             "name": "快速战斗指定关卡",
-            "entry": "战斗_出发",
+            "entry": "战斗_入口",
             "description": "自动前往悬赏试炼页面，并且对指定关卡进行快速战斗",
             "repeatable": true,
             "repeat_count": 1,
