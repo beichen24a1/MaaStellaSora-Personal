@@ -5,12 +5,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试点击一键领取",
-      "Node.Recognition.Succeeded": "成功识别到一键领取按钮",
       "Node.Recognition.Failed": "没有找到一键领取按钮！",
-      "Node.Action.Starting": "开始点击一键领取按钮",
-      "Node.Action.Succeeded": "成功点击一键领取按钮",
-      "Node.Action.Failed": "点击一键领取按钮失败"
+      "Node.Action.Starting": "正在尝试点击一键领取"
     },
     "next": [
       {
@@ -37,14 +33,6 @@
       "param": {},
       "type": "Click"
     },
-    "focus": {
-      "Node.Recognition.Starting": "正在识别今日事务按钮",
-      "Node.Recognition.Succeeded": "成功识别到今日事务按钮",
-      "Node.Recognition.Failed": "未能识别到今日事务按钮",
-      "Node.Action.Starting": "开始点击今日事务按钮",
-      "Node.Action.Succeeded": "成功点击今日事务按钮",
-      "Node.Action.Failed": "点击今日事务按钮失败"
-    },
     "next": [
       {
         "jump_back": true,
@@ -65,14 +53,6 @@
     "action": {
       "param": {},
       "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在识别每周事务按钮",
-      "Node.Recognition.Succeeded": "成功识别到每周事务按钮",
-      "Node.Recognition.Failed": "未能识别到每周事务按钮",
-      "Node.Action.Starting": "开始点击每周事务按钮",
-      "Node.Action.Succeeded": "成功点击每周事务按钮",
-      "Node.Action.Failed": "点击每周事务按钮失败"
     },
     "next": [
       {
@@ -96,12 +76,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试领取任务奖励",
-      "Node.Recognition.Succeeded": "成功识别到任务按钮",
-      "Node.Recognition.Failed": "未能识别到任务按钮",
-      "Node.Action.Starting": "开始点击任务按钮",
-      "Node.Action.Succeeded": "成功点击任务按钮",
-      "Node.Action.Failed": "点击任务按钮失败"
+      "Node.Action.Starting": "正在尝试领取任务奖励"
     },
     "next": [
       "任务_每周事务"
@@ -121,12 +96,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试领取任务额外的奖励",
-      "Node.Recognition.Succeeded": "成功识别到领取额外奖励按钮",
       "Node.Recognition.Failed": "没有找到领取按钮",
-      "Node.Action.Starting": "开始点击领取额外奖励按钮",
-      "Node.Action.Succeeded": "成功点击领取额外奖励按钮",
-      "Node.Action.Failed": "点击领取额外奖励按钮失败"
+      "Node.Action.Starting": "正在尝试领取任务额外的奖励"
     },
     "next": [
       "通用_点击空白处继续"
@@ -145,14 +116,6 @@
     "action": {
       "param": {},
       "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "正在识别魔王养成按钮",
-      "Node.Recognition.Succeeded": "成功识别到魔王养成按钮",
-      "Node.Recognition.Failed": "未能识别到魔王养成按钮",
-      "Node.Action.Starting": "开始点击魔王养成按钮",
-      "Node.Action.Succeeded": "成功点击魔王养成按钮",
-      "Node.Action.Failed": "点击魔王养成按钮失败"
     },
     "next": [
       {

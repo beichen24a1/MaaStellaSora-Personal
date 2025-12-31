@@ -4,11 +4,6 @@
       "param": {},
       "type": "DoNothing"
     },
-    "focus": {
-      "Node.Recognition.Starting": "正在进入邮箱入口",
-      "Node.Recognition.Succeeded": "成功识别到邮箱入口",
-      "Node.Recognition.Failed": "未能识别到邮箱入口"
-    },
     "next": [
       {
         "jump_back": true,
@@ -29,12 +24,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在打开邮箱",
-      "Node.Recognition.Succeeded": "成功识别到邮箱图标",
-      "Node.Recognition.Failed": "未能识别到邮箱图标",
-      "Node.Action.Starting": "开始点击邮箱图标",
-      "Node.Action.Succeeded": "成功点击邮箱图标",
-      "Node.Action.Failed": "点击邮箱图标失败"
+      "Node.Action.Starting": "正在打开邮箱"
     },
     "next": [
       "通用_一键领取"

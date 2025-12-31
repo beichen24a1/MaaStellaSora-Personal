@@ -5,12 +5,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试一键领取",
-      "Node.Recognition.Succeeded": "成功识别到一键领取按钮",
-      "Node.Recognition.Failed": "未能识别到一键领取按钮",
-      "Node.Action.Starting": "开始点击一键领取按钮",
-      "Node.Action.Succeeded": "成功点击一键领取按钮",
-      "Node.Action.Failed": "点击一键领取按钮失败"
+      "Node.Action.Starting": "正在尝试一键领取"
     },
     "next": [
       "通用_点击空白处继续"
@@ -30,16 +25,8 @@
       "param": {},
       "type": "DoNothing"
     },
-    "anchor": [
-      "判断主页"
-    ],
     "focus": {
-      "Node.Recognition.Starting": "开始检查是否在主页",
-      "Node.Recognition.Succeeded": "识别到已经在主页了 进行下一步",
-      "Node.Recognition.Failed": "未识别到主页，需要返回主页",
-      "Node.Action.Starting": "执行判断主页操作",
-      "Node.Action.Succeeded": "判断主页操作完成",
-      "Node.Action.Failed": "判断主页操作失败"
+      "Node.Recognition.Succeeded": "已位于主页 进行下一步"
     },
     "on_error": [
       "通用_返回主页"
@@ -59,14 +46,6 @@
       "param": {},
       "type": "DoNothing"
     },
-    "focus": {
-      "Node.Recognition.Starting": "开始异常处理空节点",
-      "Node.Recognition.Succeeded": "异常处理空节点执行成功",
-      "Node.Recognition.Failed": "异常处理空节点执行失败",
-      "Node.Action.Starting": "执行空节点操作",
-      "Node.Action.Succeeded": "空节点操作完成",
-      "Node.Action.Failed": "空节点操作失败"
-    },
     "post_delay": 0,
     "pre_delay": 0,
     "recognition": {
@@ -78,14 +57,6 @@
     "action": {
       "param": {},
       "type": "Click"
-    },
-    "focus": {
-      "Node.Recognition.Starting": "开始识别点击空白处继续文本",
-      "Node.Recognition.Succeeded": "成功识别到点击空白处继续文本",
-      "Node.Recognition.Failed": "未能识别到点击空白处继续文本",
-      "Node.Action.Starting": "开始点击空白处继续",
-      "Node.Action.Succeeded": "成功点击空白处继续",
-      "Node.Action.Failed": "点击空白处继续失败"
     },
     "recognition": {
       "param": {
@@ -99,21 +70,14 @@
   "通用_返回主页": {
     "action": {
       "param": {},
-      "type": "Click"
-    },
-    "anchor": [
-      "返回主页"
-    ],
-    "focus": {
-      "Node.Recognition.Starting": "正在返回主页",
-      "Node.Recognition.Succeeded": "成功识别到返回主页按钮",
-      "Node.Recognition.Failed": "未能识别到返回主页按钮",
-      "Node.Action.Starting": "开始点击返回主页按钮",
-      "Node.Action.Succeeded": "成功点击返回主页按钮",
-      "Node.Action.Failed": "点击返回主页按钮失败"
+      "type": "DoNothing"
     },
     "next": [
-      "通用_判断是否在主页"
+      "通用_判断是否在主页",
+      {
+        "jump_back": true,
+        "name": "通用_返回主页_点击"
+      }
     ],
     "recognition": {
       "param": {
@@ -130,7 +94,42 @@
       },
       "type": "TemplateMatch"
     },
-    "repeat": 2,
     "timeout": 1000
+  },
+  "通用_返回主页_点击": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Starting": "正在返回主页"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          0,
+          0,
+          1280,
+          94
+        ],
+        "template": [
+          "home.png",
+          "chat_shutdown.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_加载等待": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "post_delay": 1000,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
   }
 }
