@@ -146,7 +146,7 @@
       "Node.Action.Succeeded": "成功点击基础试炼按钮",
       "Node.Action.Failed": "点击基础试炼按钮失败"
     },
-    "post_delay": 1500,
+    "post_delay": 2000,
     "next": [
       "战斗_试炼出发"
     ],
@@ -174,7 +174,7 @@
       "Node.Action.Failed": "试炼子菜单操作执行失败"
     },
     "next": [
-      "[JumpBack]战斗_试炼出发"
+      "战斗_试炼出发"
     ],
     "recognition": {
       "param": {
