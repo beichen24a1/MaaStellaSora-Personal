@@ -827,6 +827,7 @@
                     "name": "1号",
                     "pipeline_type": "string",
                     "default": "希娅",
+                    "verify": "^(?!\\s*$).+",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
                 },
@@ -834,6 +835,7 @@
                     "name": "2号",
                     "pipeline_type": "string",
                     "default": "千都世",
+                    "verify": "^(?!\\s*$).+",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
                 },
@@ -841,6 +843,7 @@
                     "name": "3号",
                     "pipeline_type": "string",
                     "default": "雾语",
+                    "verify": "^(?!\\s*$).+",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
                 },
@@ -848,6 +851,7 @@
                     "name": "4号",
                     "pipeline_type": "string",
                     "default": "赤霞",
+                    "verify": "^(?!\\s*$).+",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
                 },
@@ -855,6 +859,7 @@
                     "name": "5号",
                     "pipeline_type": "string",
                     "default": "冬香",
+                    "verify": "^(?!\\s*$).+",
                     "pattern_msg": "请输入旅人名字，如希娅",
                     "description": "请输入旅人名字，如希娅"
                 }
