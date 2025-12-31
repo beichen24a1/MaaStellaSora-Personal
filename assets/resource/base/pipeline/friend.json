@@ -8,6 +8,7 @@
       "Node.Recognition.Failed": "没有找到一键获取按钮",
       "Node.Action.Succeeded": "一键获取完毕"
     },
+    "post_delay": 500,
     "next": [
       {
         "jump_back": true,

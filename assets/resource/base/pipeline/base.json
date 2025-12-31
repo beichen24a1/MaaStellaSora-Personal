@@ -67,6 +67,21 @@
       "type": "OCR"
     }
   },
+  "通用_换算快速作战次数": {
+    "action": {
+      "param": {
+        "custom_action": "utool_calc_repeat"
+      },
+      "type": "Custom"
+    },
+    "next": [
+      "活动_添加战斗次数"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
   "通用_返回主页": {
     "action": {
       "param": {},
