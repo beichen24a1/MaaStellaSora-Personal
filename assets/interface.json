@@ -1,913 +1,948 @@
 {
-  "interface_version": 2,
-  "name": "StellaSora Auto Helper",
-  "description": "星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动",
-  "contact": "QQ交流群：1063132902  密码：星塔旅人",
-  "license": "MIT",
-  "welcome": "首次使用！欢迎使用 StellaSora Auto Helper",
-  "github": "https://github.com/SodaCodeSave/StellaSora-Auto-Helper",
-  "version": "v0.6.3",
-  "custom_title": "星塔助手v0.6.3",
-  "mirrorchyan_rid": "SSAH",
-  "mirrorchyan_multiplatform": true,
-  "agent": {
-    "child_exec": "./python/python.exe",
-    "child_args": [
-      "-u",
-      "./agent/main.py"
+    "interface_version": 2,
+    "name": "StellaSora Auto Helper",
+    "description": "星塔旅人自动助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动",
+    "contact": "QQ交流群：1063132902  密码：星塔旅人",
+    "license": "MIT",
+    "welcome": "首次使用！欢迎使用 StellaSora Auto Helper",
+    "github": "https://github.com/SodaCodeSave/StellaSora-Auto-Helper",
+    "version": "0.5.12",
+    "custom_title": "StellaSora Auto Helper",
+    "mirrorchyan_rid": "SSAH",
+    "mirrorchyan_multiplatform": true,
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "-u",
+            "./../agent/main.py"
+        ],
+        "timeout": -1
+    },
+    "controller": [
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "xtlr|StellaSora",
+                "screencap": "FramePool",
+                "mouse": "SendMessageWithCursorPos",
+                "keyboard": "SendMessageWithCursorPos"
+            }
+        },
+        {
+            "name": "安卓端",
+            "type": "Adb",
+            "display_short_side": 720
+        }
     ],
-    "timeout": -1
-  },
-  "controller": [
-    {
-      "name": "桌面端",
-      "type": "Win32",
-      "win32": {
-        "class_regex": ".*",
-        "window_regex": "xtlr|StellaSora",
-        "screencap": "FramePool",
-        "mouse": "SendMessageWithCursorPos",
-        "keyboard": "SendMessageWithCursorPos"
-      }
-    },
-    {
-      "name": "安卓端",
-      "type": "Adb",
-      "display_short_side": 720
+    "resource": [
+        {
+            "name": "官服",
+            "path": [
+                "{PROJECT_DIR}/resource/base"
+            ]
+        },
+        {
+            "name": "台服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/tw"
+            ]
+        },
+        {
+            "name": "国际服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/en"
+            ]
+        },
+        {
+            "name": "日服",
+            "path": [
+              "{PROJECT_DIR}/resource/base",
+              "{PROJECT_DIR}/resource/jp"
+            ]
+        }
+    ],
+    "task": [
+        {
+            "name": "登录游戏",
+            "entry": "登录_登录",
+            "description": "自动登录游戏，并且关闭活动弹窗以及签到弹窗"
+        },
+        {
+            "name": "领取每日奖励",
+            "entry": "采购_前往采购",
+            "description": "自动领取采购中的每日奖励"
+        },
+        {
+            "name": "心链送礼",
+            "entry": "心链_入口",
+            "description": "自动打开心链页面，并且为心链顶置旅人赠送礼物"
+        },
+        {
+            "name": "邀约",
+            "entry": "邀约_入口",
+            "description": "自动邀约",
+            "pipeline_override": {
+                "心链_打开心链": {
+                    "next": [
+                        "邀约_前往邀约"
+                    ]
+                }
+            },
+            "option": [
+                "邀约旅人"
+            ]
+        },
+        {
+            "name": "活动快速战斗",
+            "entry": "活动_入口",
+            "description": "自动打开活动页面，并且对活动第一关进行快速战斗",
+            "repeatable": true,
+            "repeat_count": 1,
+            "option": [
+                "作战关卡",
+                "自定义快速作战次数"
+            ]
+        },
+        {
+            "name": "悬赏试炼快速战斗",
+            "entry": "战斗_入口",
+            "description": "自动前往悬赏试炼页面，并且对指定关卡进行快速战斗",
+            "repeatable": true,
+            "repeat_count": 1,
+            "option": [
+                "悬赏试炼关卡",
+                "选择悬赏试炼难度",
+                "自定义快速作战次数"
+            ]
+        },
+        {
+            "name": "领取并重新派遣委托",
+            "entry": "委托_入口",
+            "description": "自动领取并重新派遣委托"
+        },
+        {
+            "name": "领取与赠送干劲",
+            "entry": "好友_入口",
+            "description": "自动前往好友页面，并且领取与赠送好友干劲"
+        },
+        {
+            "name": "领取任务奖励",
+            "entry": "任务_领取任务",
+            "description": "自动前往任务页面，并且领取任务奖励"
+        },
+        {
+            "name": "领取邮箱奖励",
+            "entry": "邮箱_入口",
+            "description": "自动打开邮箱页面，并且领取邮箱奖励"
+        },
+        {
+            "name": "爬塔",
+            "entry": "星塔_入口",
+            "repeatable": true,
+            "repeat_count": 1,
+            "option": [
+                "属性塔",
+                "音符购买"
+            ]
+        },
+        {
+            "name": "自定义爬塔",
+            "entry": "星塔_入口",
+            "description": "自定义爬塔 Beta 不保证可用",
+            "option": [
+                "是否开启自定义爬塔",
+                "自定义卡牌优先级"
+            ]
+        }
+    ],
+    "option": {
+        "是否开启自定义爬塔": {
+            "type": "select",
+            "label": "是否开启自定义爬塔",
+            "description": "是否开启自定义爬塔",
+            "default_case": "关闭",
+            "cases": [
+                {
+                    "name": "开启",
+                    "label": "开启",
+                    "description": "开启自定义爬塔",
+                    "pipeline_override": {
+                        "星塔_爬塔流程": {
+                            "next": [
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_点击空白处关闭"
+                                },
+                                "星塔_保存记录",
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_默契提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_结束爬塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_等级提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_选择buff_推荐_自定义"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_最终商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话选项"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话忽略"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "关闭",
+                    "label": "关闭",
+                    "description": "关闭自定义爬塔",
+                    "pipeline_override": {
+                        "星塔_爬塔流程": {
+                            "next": [
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_点击空白处关闭"
+                                },
+                                "星塔_保存记录",
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_默契提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_结束爬塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_等级提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_选择buff_推荐"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_最终商店"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话选项"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话忽略"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "作战关卡": {
+            "type": "select",
+            "label": "选择活动关卡",
+            "description": "选择要快速战斗的活动关卡",
+            "default_case": "1.雪愿夜的奇境冒险I",
+            "cases": [
+                {
+                    "name": "1.雪愿夜的奇境冒险I",
+                    "label": "1.雪愿夜的奇境冒险I",
+                    "description": "12-23更新 活动普通第一关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_1.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "2.雪愿夜的奇境冒险II",
+                    "label": "2.雪愿夜的奇境冒险II",
+                    "description": "12-23更新 活动普通第二关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_2.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "3.雪愿夜的奇境冒险III",
+                    "label": "3.雪愿夜的奇境冒险III",
+                    "description": "12-23更新 活动普通第三关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_3.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "4.出逃的礼物车I",
+                    "label": "4.出逃的礼物车I",
+                    "description": "12-23更新 活动普通第四关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_4.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "5.雪愿夜的奇境冒险IV",
+                    "label": "5.雪愿夜的奇境冒险IV",
+                    "description": "12-23更新 活动普通第五关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_5.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "6.雪愿夜的奇境冒险V",
+                    "label": "6.雪愿夜的奇境冒险V",
+                    "description": "12-23更新 活动普通第六关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_6.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "7.雪愿夜的奇境冒险VI",
+                    "label": "7.雪愿夜的奇境冒险VI",
+                    "description": "12-23更新 活动普通第七关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_7.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "8.雪夜颂歌与怪诞暖炉I",
+                    "label": "8.雪夜颂歌与怪诞暖炉I",
+                    "description": "12-23更新 活动普通第八关",
+                    "pipeline_override": {
+                        "活动_选择活动关卡": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "activity_fight_8.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "悬赏试炼关卡": {
+            "type": "select",
+            "label": "选择悬赏试炼类型",
+            "description": "选择要快速战斗的悬赏试炼关卡",
+            "default_case": "基础试炼",
+            "cases": [
+                {
+                    "name": "基础试炼",
+                    "label": "基础试炼",
+                    "description": "获取经验素材及朵拉",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/basic_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-怪诞舞者",
+                    "label": "晋升试炼-怪诞舞者",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial_1.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-终宵萤辉",
+                    "label": "晋升试炼-终宵萤辉",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial_2.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "晋升试炼-热嘟噜噗男爵",
+                    "label": "晋升试炼-热嘟噜噗男爵",
+                    "description": "获取素材突破旅人及密纹等级，升级旅人能力",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/tier_up_trial_3.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-节奏游戏卡带",
+                    "label": "技巧试炼-节奏游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                     "template": [
+                                        "fight/skill_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/skill_trial_1.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-射击游戏卡带",
+                    "label": "技巧试炼-射击游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/skill_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/skill_trial_2.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "技巧试炼-格斗游戏卡带",
+                    "label": "技巧试炼-格斗游戏卡带",
+                    "description": "获得提升技能的卡带",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/skill_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/skill_trial_3.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-好市民点数",
+                    "label": "纹章试炼-好市民点数",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial_1.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-协会贡献证",
+                    "label": "纹章试炼-协会贡献证",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial_2.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "纹章试炼-恩赐消费券",
+                    "label": "纹章试炼-恩赐消费券",
+                    "description": "获得纹章激活素材",
+                    "pipeline_override": {
+                        "战斗_选择试炼": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        },
+                        "战斗_选择试炼子菜单": {
+                            "enabled": true,
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "fight/emblem_trial_3.png"
+                                    ]
+                                },
+                                "type": "TemplateMatch"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "自定义快速作战次数": {
+            "type": "input",
+            "label": "自定义快速作战次数",
+            "inputs": [
+                {
+                    "name": "次数",
+                    "label": "次数",
+                    "description": "快速作战次数，实际作战次数应为输入值 + 1",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "verify": "^\\d+$"
+                }
+            ],
+            "pipeline_override": {
+                "活动_添加战斗次数": {
+                    "repeat": "{次数}"
+                }
+            }
+        },
+        "属性塔": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "光土",
+                    "label": "光土",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_光土__387_137_124_45__337_87_224_145.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "水风",
+                    "label": "水风",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_水风__384_271_129_39__334_221_229_139.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "火暗",
+                    "label": "火暗",
+                    "pipeline_override": {
+                        "星塔_属性塔选择": {
+                            "recognition": {
+                                "param": {
+                                    "template": [
+                                        "ClimbTower/爬塔_火暗__381_404_129_39__331_354_229_139.png"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "音符购买": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "激活协奏且折扣",
+                    "label": "激活协奏且折扣",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "激活协奏",
+                    "label": "激活协奏",
+                    "pipeline_override": {
+                        "星塔_节点_商店_购物_格子_音符_激活": {
+                            "next": [
+                                "星塔_节点_商店_购物_格子_购买"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "自定义卡牌优先级": {
+            "type": "input",
+            "label": "自定义卡牌优先级（Nightly）",
+            "description": "抄作业.png",
+            "inputs": [
+                {
+                    "name": "作业",
+                    "label": "作业",
+                    "description": "作业字典，格式为{\"优先级\": [\"卡牌名称\"]}",
+                    "default": "",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "星塔_节点_选择buff_推荐": {
+                    "recognition": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_recognition": "auto_tower",
+                            "custom_recognition_param": "{作业}"
+                        }
+                    }
+                }
+            }
+        },
+        "邀约旅人": {
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "1号",
+                    "pipeline_type": "string",
+                    "default": "希娅",
+                    "pattern_msg": "请输入旅人名字，如希娅",
+                    "description": "请输入旅人名字，如希娅"
+                },
+                {
+                    "name": "2号",
+                    "pipeline_type": "string",
+                    "default": "千都世",
+                    "pattern_msg": "请输入旅人名字，如希娅",
+                    "description": "请输入旅人名字，如希娅"
+                },
+                {
+                    "name": "3号",
+                    "pipeline_type": "string",
+                    "default": "雾语",
+                    "pattern_msg": "请输入旅人名字，如希娅",
+                    "description": "请输入旅人名字，如希娅"
+                },
+                {
+                    "name": "4号",
+                    "pipeline_type": "string",
+                    "default": "赤霞",
+                    "pattern_msg": "请输入旅人名字，如希娅",
+                    "description": "请输入旅人名字，如希娅"
+                },
+                {
+                    "name": "5号",
+                    "pipeline_type": "string",
+                    "default": "冬香",
+                    "pattern_msg": "请输入旅人名字，如希娅",
+                    "description": "请输入旅人名字，如希娅"
+                }
+            ],
+            "pipeline_override": {
+                "邀约_1号": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{1号}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试邀约_{1号}"
+                    }
+                },
+                "邀约_2号": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{2号}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试邀约_{2号}"
+                    }
+                },
+                "邀约_3号": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{3号}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试邀约_{3号}"
+                    }
+                },
+                "邀约_4号": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{4号}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试邀约_{4号}"
+                    }
+                },
+                "邀约_5号": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{5号}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试邀约_{5号}"
+                    }
+                }
+            }
+        },
+        "选择悬赏试炼难度": {
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "难度",
+                    "pipeline_type": "int",
+                    "default": "1",
+                    "pattern_msg": "请输入难度",
+                    "description": "请输入难度"
+                }
+            ],
+            "pipeline_override": {
+                "战斗_选择难度": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "难度 {难度}"
+                            ]
+                        }
+                    },
+                    "focus": {
+                        "Node.Recognition.Starting": "尝试选择难度_{难度}"
+                    }
+                }
+            }
+        }
     }
-  ],
-  "resource": [
-    {
-      "name": "官服",
-      "path": [
-        "{PROJECT_DIR}/resource/base"
-      ]
-    },
-    {
-      "name": "台服",
-      "path": [
-        "{PROJECT_DIR}/resource/base",
-        "{PROJECT_DIR}/resource/tw"
-      ]
-    },
-    {
-      "name": "日服",
-      "path": [
-        "{PROJECT_DIR}/resource/base",
-        "{PROJECT_DIR}/resource/jp"
-      ]
-    }
-  ],
-
-  "task": [
-    {
-      "name": "登录游戏",
-      "entry": "登录_登录",
-      "description": "自动登录游戏，并且关闭活动弹窗以及签到弹窗"
-    },
-    {
-      "name": "领取每日奖励",
-      "entry": "采购_前往采购",
-      "description": "自动领取采购中的每日奖励"
-    },
-    {
-      "name": "心链送礼",
-      "entry": "心链_入口",
-      "description": "自动打开心链页面，并且为心链顶置旅人赠送礼物"
-    },
-    {
-      "name": "邀约",
-      "entry": "邀约_入口",
-      "description": "自动邀约",
-      "pipeline_override": {
-        "心链_打开心链": {
-          "next": [
-            "邀约_前往邀约"
-          ]
-        }
-      },
-      "option": [
-        "邀约旅人"
-      ]
-    },
-    {
-      "name": "活动快速战斗",
-      "entry": "活动_入口",
-      "description": "自动打开活动页面，并且对活动第一关进行快速战斗",
-      "repeatable": true,
-      "repeat_count": 1,
-      "option": [
-        "作战关卡",
-        "自定义快速作战次数"
-      ]
-    },
-    {
-      "name": "快速战斗指定关卡",
-      "entry": "战斗_出发",
-      "description": "自动前往悬赏试炼页面，并且对指定关卡进行快速战斗",
-      "repeatable": true,
-      "repeat_count": 1,
-      "option": [
-        "悬赏试炼关卡",
-        "自定义快速作战次数"
-      ]
-    },
-    {
-      "name": "领取并重新派遣委托",
-      "entry": "委托_前往委托",
-      "description": "自动领取并重新派遣委托"
-    },
-    {
-      "name": "领取与赠送干劲",
-      "entry": "好友_前往好友页",
-      "description": "自动前往好友页面，并且领取与赠送好友干劲"
-    },
-    {
-      "name": "领取任务奖励",
-      "entry": "任务_一键领取",
-      "description": "自动前往任务页面，并且领取任务奖励"
-    },
-    {
-      "name": "领取邮箱奖励",
-      "entry": "邮箱_打开邮箱",
-      "description": "自动打开邮箱页面，并且领取邮箱奖励"
-    },
-    {
-      "name": "爬塔",
-      "entry": "星塔_入口",
-      "option": [
-        "属性塔",
-        "音符购买"
-      ]
-    },
-    {
-      "name": "自定义爬塔",
-      "entry": "星塔_入口",
-      "description": "自定义爬塔 Beta 不保证可用",
-      "option": [
-        "是否开启自定义爬塔",
-        "自定义卡牌优先级"
-      ]
-    }
-  ],
-  "option": {
-    "是否开启自定义爬塔": {
-      "type": "select",
-      "label": "是否开启自定义爬塔",
-      "description": "是否开启自定义爬塔",
-      "default_case": "关闭",
-      "cases": [
-        {
-          "name": "开启",
-          "label": "开启",
-          "description": "开启自定义爬塔",
-          "pipeline_override": {
-            "星塔_爬塔流程": {
-              "next": [
-                {
-                  "jump_back": true,
-                  "name": "星塔_点击空白处关闭"
-                },
-                "星塔_保存记录",
-                {
-                  "jump_back": true,
-                  "name": "星塔_默契提升"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_结束爬塔"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_离开星塔"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_等级提升"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_选择buff_推荐_自定义"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_商店"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_最终商店"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话选项"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话忽略"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "关闭",
-          "label": "关闭",
-          "description": "关闭自定义爬塔",
-          "pipeline_override": {
-            "星塔_爬塔流程": {
-              "next": [
-                {
-                  "jump_back": true,
-                  "name": "星塔_点击空白处关闭"
-                },
-                "星塔_保存记录",
-                {
-                  "jump_back": true,
-                  "name": "星塔_默契提升"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_结束爬塔"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_离开星塔"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_等级提升"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_选择buff_推荐"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_商店"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_最终商店"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话选项"
-                },
-                {
-                  "jump_back": true,
-                  "name": "星塔_节点_对话忽略"
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "作战关卡": {
-      "type": "select",
-      "label": "选择活动关卡",
-      "description": "选择要快速战斗的活动关卡",
-      "default_case": "1.雪愿夜的奇境冒险I",
-      "cases": [
-        {
-          "name": "1.雪愿夜的奇境冒险I",
-          "label": "1.雪愿夜的奇境冒险I",
-          "description": "12-23更新 活动普通第一关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_1.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "2.雪愿夜的奇境冒险II",
-          "label": "2.雪愿夜的奇境冒险II",
-          "description": "12-23更新 活动普通第二关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_2.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "3.雪愿夜的奇境冒险III",
-          "label": "3.雪愿夜的奇境冒险III",
-          "description": "12-23更新 活动普通第三关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_3.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "4.出逃的礼物车I",
-          "label": "4.出逃的礼物车I",
-          "description": "12-23更新 活动普通第四关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_4.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "5.雪愿夜的奇境冒险IV",
-          "label": "5.雪愿夜的奇境冒险IV",
-          "description": "12-23更新 活动普通第五关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_5.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "6.雪愿夜的奇境冒险V",
-          "label": "6.雪愿夜的奇境冒险V",
-          "description": "12-23更新 活动普通第六关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_6.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "7.雪愿夜的奇境冒险VI",
-          "label": "7.雪愿夜的奇境冒险VI",
-          "description": "12-23更新 活动普通第七关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_7.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "8.雪夜颂歌与怪诞暖炉I",
-          "label": "8.雪夜颂歌与怪诞暖炉I",
-          "description": "12-23更新 活动普通第八关",
-          "pipeline_override": {
-            "活动_选择活动关卡": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "activity_fight_8.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "悬赏试炼关卡": {
-      "type": "select",
-      "label": "选择悬赏试炼类型",
-      "description": "选择要快速战斗的悬赏试炼关卡",
-      "default_case": "基础试炼",
-      "cases": [
-        {
-          "name": "基础试炼",
-          "label": "基础试炼",
-          "description": "获取经验素材及朵拉",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/basic_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "晋升试炼-怪诞舞者",
-          "label": "晋升试炼-怪诞舞者",
-          "description": "获取素材突破旅人及密纹等级，升级旅人能力",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial_1.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "晋升试炼-终宵萤辉",
-          "label": "晋升试炼-终宵萤辉",
-          "description": "获取素材突破旅人及密纹等级，升级旅人能力",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial_2.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "晋升试炼-热嘟噜噗男爵",
-          "label": "晋升试炼-热嘟噜噗男爵",
-          "description": "获取素材突破旅人及密纹等级，升级旅人能力",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/tier_up_trial_3.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "技巧试炼-节奏游戏卡带",
-          "label": "技巧试炼-节奏游戏卡带",
-          "description": "获得提升技能的卡带",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial_1.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "技巧试炼-射击游戏卡带",
-          "label": "技巧试炼-射击游戏卡带",
-          "description": "获得提升技能的卡带",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial_2.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "技巧试炼-格斗游戏卡带",
-          "label": "技巧试炼-格斗游戏卡带",
-          "description": "获得提升技能的卡带",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/skill_trial_3.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "纹章试炼-好市民点数",
-          "label": "纹章试炼-好市民点数",
-          "description": "获得纹章激活素材",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial_1.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "纹章试炼-协会贡献证",
-          "label": "纹章试炼-协会贡献证",
-          "description": "获得纹章激活素材",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial_2.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        },
-        {
-          "name": "纹章试炼-恩赐消费券",
-          "label": "纹章试炼-恩赐消费券",
-          "description": "获得纹章激活素材",
-          "pipeline_override": {
-            "战斗_选择试炼": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            },
-            "战斗_选择试炼子菜单": {
-              "enabled": true,
-              "recognition": {
-                "param": {
-                  "template": [
-                    "fight/emblem_trial_3.png"
-                  ]
-                },
-                "type": "TemplateMatch"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "自定义快速作战次数": {
-      "type": "input",
-      "label": "自定义快速作战次数",
-      "inputs": [
-        {
-          "name": "次数",
-          "label": "次数",
-          "description": "快速作战次数，实际作战次数应为输入值 + 1",
-          "default": "0",
-          "pipeline_type": "int",
-          "verify": "^\\d+$"
-        }
-      ],
-      "pipeline_override": {
-        "活动_添加战斗次数": {
-          "repeat": "{次数}"
-        }
-      }
-    },
-    "属性塔": {
-      "type": "select",
-      "cases": [
-        {
-          "name": "光土",
-          "label": "光土",
-          "pipeline_override": {
-            "星塔_属性塔选择": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "ClimbTower/爬塔_光土__387_137_124_45__337_87_224_145.png"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "水风",
-          "label": "水风",
-          "pipeline_override": {
-            "星塔_属性塔选择": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "ClimbTower/爬塔_水风__384_271_129_39__334_221_229_139.png"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "火暗",
-          "label": "火暗",
-          "pipeline_override": {
-            "星塔_属性塔选择": {
-              "recognition": {
-                "param": {
-                  "template": [
-                    "ClimbTower/爬塔_火暗__381_404_129_39__331_354_229_139.png"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "音符购买": {
-      "type": "select",
-      "cases": [
-        {
-          "name": "激活协奏且折扣",
-          "label": "激活协奏且折扣",
-          "pipeline_override": {}
-        },
-        {
-          "name": "激活协奏",
-          "label": "激活协奏",
-          "pipeline_override": {
-            "星塔_节点_商店_购物_格子_音符_激活": {
-              "next": [
-                "星塔_节点_商店_购物_格子_购买"
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "自定义卡牌优先级": {
-      "type": "input",
-      "label": "自定义卡牌优先级（Nightly）",
-      "description": "抄作业.png",
-      "inputs": [
-        {
-          "name": "作业",
-          "label": "作业",
-          "description": "作业字典，格式为{\"优先级\": [\"卡牌名称\"]}",
-          "default": "",
-          "pipeline_type": "string"
-        }
-      ],
-      "pipeline_override": {
-        "星塔_节点_选择buff_推荐": {
-          "recognition": {
-            "type": "Custom",
-            "param": {
-              "custom_recognition": "auto_tower",
-              "custom_recognition_param": "{作业}"
-            }
-          }
-        }
-      }
-    },
-    "邀约旅人": {
-      "type": "input",
-      "inputs": [
-        {
-          "name": "1号",
-          "pipeline_type": "string",
-          "default": "希娅",
-          "pattern_msg": "请输入旅人名字，如希娅",
-          "description": "请输入旅人名字，如希娅"
-        },
-        {
-          "name": "2号",
-          "pipeline_type": "string",
-          "default": "千都世",
-          "pattern_msg": "请输入旅人名字，如希娅",
-          "description": "请输入旅人名字，如希娅"
-        },
-        {
-          "name": "3号",
-          "pipeline_type": "string",
-          "default": "雾语",
-          "pattern_msg": "请输入旅人名字，如希娅",
-          "description": "请输入旅人名字，如希娅"
-        },
-        {
-          "name": "4号",
-          "pipeline_type": "string",
-          "default": "赤霞",
-          "pattern_msg": "请输入旅人名字，如希娅",
-          "description": "请输入旅人名字，如希娅"
-        },
-        {
-          "name": "5号",
-          "pipeline_type": "string",
-          "default": "冬香",
-          "pattern_msg": "请输入旅人名字，如希娅",
-          "description": "请输入旅人名字，如希娅"
-        }
-      ],
-      "pipeline_override": {
-        "邀约_1号": {
-          "recognition": {
-            "param": {
-              "expected": [
-                "{1号}"
-              ]
-            }
-          },
-          "focus": {
-            "Node.Recognition.Starting": "尝试邀约_{1号}"
-          }
-        },
-        "邀约_2号": {
-          "recognition": {
-            "param": {
-              "expected": [
-                "{2号}"
-              ]
-            }
-          },
-          "focus": {
-            "Node.Recognition.Starting": "尝试邀约_{2号}"
-          }
-        },
-        "邀约_3号": {
-          "recognition": {
-            "param": {
-              "expected": [
-                "{3号}"
-              ]
-            }
-          },
-          "focus": {
-            "Node.Recognition.Starting": "尝试邀约_{3号}"
-          }
-        },
-        "邀约_4号": {
-          "recognition": {
-            "param": {
-              "expected": [
-                "{4号}"
-              ]
-            }
-          },
-          "focus": {
-            "Node.Recognition.Starting": "尝试邀约_{4号}"
-          }
-        },
-        "邀约_5号": {
-          "recognition": {
-            "param": {
-              "expected": [
-                "{5号}"
-              ]
-            }
-          },
-          "focus": {
-            "Node.Recognition.Starting": "尝试邀约_{5号}"
-          }
-        }
-      }
-    }
-  }
 }
