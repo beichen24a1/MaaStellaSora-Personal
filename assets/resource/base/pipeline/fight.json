@@ -146,16 +146,17 @@
       "Node.Action.Succeeded": "成功点击基础试炼按钮",
       "Node.Action.Failed": "点击基础试炼按钮失败"
     },
+    "post_delay": 2000,
     "next": [
       "战斗_试炼出发"
     ],
     "recognition": {
       "param": {
-        "expected": [
-          "基础试炼"
+        "template": [
+          "fight/basic_trial.png"
         ]
       },
-      "type": "OCR"
+      "type": "TemplateMatch"
     }
   },
   "战斗_选择试炼子菜单": {
@@ -172,6 +173,9 @@
       "Node.Action.Succeeded": "试炼子菜单操作执行成功",
       "Node.Action.Failed": "试炼子菜单操作执行失败"
     },
+    "next": [
+      "战斗_试炼出发"
+    ],
     "recognition": {
       "param": {
         "expected": [
@@ -200,7 +204,7 @@
     "recognition": {
       "param": {
         "expected": [
-          "难度 1"
+          "(难度|難度|難易度|Difficulty)\\s*1(?!\\d)"
         ]
       },
       "type": "OCR"

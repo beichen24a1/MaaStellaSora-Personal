@@ -56,6 +56,13 @@
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/en"
             ]
+        },
+        {
+            "name": "日服",
+            "path": [
+              "{PROJECT_DIR}/resource/base",
+              "{PROJECT_DIR}/resource/jp"
+            ]
         }
     ],
     "task": [
@@ -431,11 +438,11 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "基础试炼"
+                                    "template": [
+                                        "fight/basic_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -448,22 +455,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "晋升试炼"
+                                    "template": [
+                                        "fight/tier_up_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "怪诞舞者"
+                                    "template": [
+                                        "fight/tier_up_trial_1.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -476,22 +483,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "晋升试炼"
+                                    "template": [
+                                        "fight/tier_up_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "终宵萤辉"
+                                    "template": [
+                                        "fight/tier_up_trial_2.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -504,22 +511,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "晋升试炼"
+                                    "template": [
+                                        "fight/tier_up_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "热嘟噜噗男爵"
+                                    "template": [
+                                        "fight/tier_up_trial_3.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -532,22 +539,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "技巧试炼"
+                                     "template": [
+                                        "fight/skill_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "节奏游戏卡带"
+                                    "template": [
+                                        "fight/skill_trial_1.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -560,22 +567,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "技巧试炼"
+                                    "template": [
+                                        "fight/skill_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "射击游戏卡带"
+                                    "template": [
+                                        "fight/skill_trial_2.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -588,22 +595,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "技巧试炼"
+                                    "template": [
+                                        "fight/skill_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "格斗游戏卡带"
+                                    "template": [
+                                        "fight/skill_trial_3.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -616,22 +623,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "纹章试炼"
+                                    "template": [
+                                        "fight/emblem_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "好市民点数"
+                                    "template": [
+                                        "fight/emblem_trial_1.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -644,22 +651,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "纹章试炼"
+                                    "template": [
+                                        "fight/emblem_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "协会贡献证"
+                                    "template": [
+                                        "fight/emblem_trial_2.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -672,22 +679,22 @@
                         "战斗_选择试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "纹章试炼"
+                                    "template": [
+                                        "fight/emblem_trial.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         },
                         "战斗_选择试炼子菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": [
-                                        "恩赐消费券"
+                                    "template": [
+                                        "fight/emblem_trial_3.png"
                                     ]
                                 },
-                                "type": "OCR"
+                                "type": "TemplateMatch"
                             }
                         }
                     }
@@ -927,7 +934,7 @@
                     "recognition": {
                         "param": {
                             "expected": [
-                                "难度 {难度}"
+                                "(难度|難度|難易度|Difficulty)\\s*{难度}(?!\\d)"
                             ]
                         }
                     },

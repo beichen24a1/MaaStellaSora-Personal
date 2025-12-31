@@ -1,0 +1,20 @@
+{
+    "采购_判断是否已领取": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "受取済み"
+                ]
+            }
+        }
+    },
+    "采购_领取每日赠礼": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "デイリーギフト"
+                ]
+            }
+        }
+    }
+}
