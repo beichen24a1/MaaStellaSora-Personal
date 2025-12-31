@@ -5,12 +5,7 @@
             "type": "Click"
         },
         "focus": {
-            "Node.Recognition.Starting": "正在判断每日赠礼是否已领取",
-            "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过",
-            "Node.Recognition.Failed": "未能检测到每日赠礼状态",
-            "Node.Action.Starting": "开始点击已领取状态",
-            "Node.Action.Succeeded": "成功点击已领取状态",
-            "Node.Action.Failed": "点击已领取状态失败"
+            "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过"
         },
         "next": [
             {
@@ -37,12 +32,7 @@
             "前往采购"
         ],
         "focus": {
-            "Node.Recognition.Starting": "正在前往采购",
-            "Node.Recognition.Succeeded": "成功识别到采购入口",
-            "Node.Recognition.Failed": "未能识别到采购入口",
-            "Node.Action.Starting": "开始点击采购入口",
-            "Node.Action.Succeeded": "成功点击采购入口",
-            "Node.Action.Failed": "点击采购入口失败"
+            "Node.Action.Starting": "正在前往采购"
         },
         "next": [
             "采购_领取每日赠礼",
@@ -63,12 +53,7 @@
             "type": "Click"
         },
         "focus": {
-            "Node.Recognition.Starting": "正在领取每日赠礼",
-            "Node.Recognition.Succeeded": "成功识别到每日赠礼按钮",
-            "Node.Recognition.Failed": "未能识别到每日赠礼按钮",
-            "Node.Action.Starting": "开始点击每日赠礼按钮",
-            "Node.Action.Succeeded": "成功点击每日赠礼按钮",
-            "Node.Action.Failed": "点击每日赠礼按钮失败"
+            "Node.Action.Starting": "正在领取每日赠礼"
         },
         "next": [
             {

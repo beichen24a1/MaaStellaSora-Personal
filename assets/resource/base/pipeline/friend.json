@@ -5,14 +5,14 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试点击一键获取",
-      "Node.Recognition.Succeeded": "成功识别到一键获取按钮",
       "Node.Recognition.Failed": "没有找到一键获取按钮",
-      "Node.Action.Starting": "开始点击一键获取按钮",
-      "Node.Action.Succeeded": "成功点击一键获取按钮",
-      "Node.Action.Failed": "点击一键获取按钮失败"
+      "Node.Action.Succeeded": "一键获取完毕"
     },
     "next": [
+      {
+        "jump_back": true,
+        "name": "通用_点击空白处继续"
+      },
       "通用_返回主页"
     ],
     "recognition": {
@@ -30,12 +30,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在尝试点击一键赠送",
-      "Node.Recognition.Succeeded": "成功识别到一键赠送按钮",
       "Node.Recognition.Failed": "没有找到一键赠送按钮",
-      "Node.Action.Starting": "开始点击一键赠送按钮",
-      "Node.Action.Succeeded": "成功点击一键赠送按钮",
-      "Node.Action.Failed": "点击一键赠送按钮失败"
+      "Node.Action.Succeeded": "一键赠送完毕"
     },
     "next": [
       "好友_一键获取"
@@ -54,14 +50,6 @@
       "param": {},
       "type": "DoNothing"
     },
-    "focus": {
-      "Node.Recognition.Starting": "开始执行好友入口逻辑",
-      "Node.Recognition.Succeeded": "好友入口逻辑执行成功",
-      "Node.Recognition.Failed": "好友入口逻辑执行失败",
-      "Node.Action.Starting": "开始执行好友入口动作",
-      "Node.Action.Succeeded": "好友入口动作执行成功",
-      "Node.Action.Failed": "好友入口动作执行失败"
-    },
     "next": [
       "好友_前往好友页",
       "通用_返回主页"
@@ -79,12 +67,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在前往好友页",
-      "Node.Recognition.Succeeded": "成功识别到好友页入口",
-      "Node.Recognition.Failed": "未能识别到好友页入口",
-      "Node.Action.Starting": "开始点击好友页入口",
-      "Node.Action.Succeeded": "成功点击好友页入口",
-      "Node.Action.Failed": "点击好友页入口失败"
+      "Node.Action.Starting": "正在前往好友页"
     },
     "next": [
       "好友_好友列表"
@@ -104,12 +87,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在前往好友列表",
-      "Node.Recognition.Succeeded": "成功识别到好友列表",
-      "Node.Recognition.Failed": "未能识别到好友列表",
-      "Node.Action.Starting": "开始点击好友列表",
-      "Node.Action.Succeeded": "成功点击好友列表",
-      "Node.Action.Failed": "点击好友列表失败"
+      "Node.Action.Starting": "正在前往好友列表"
     },
     "next": [
       "好友_一键赠送"

@@ -4,14 +4,6 @@
             "param": {},
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Starting": "正在识别公告关闭按钮",
-            "Node.Recognition.Succeeded": "成功识别到公告关闭按钮",
-            "Node.Recognition.Failed": "未能识别到公告关闭按钮",
-            "Node.Action.Starting": "开始点击公告关闭按钮",
-            "Node.Action.Succeeded": "成功点击公告关闭按钮",
-            "Node.Action.Failed": "点击公告关闭按钮失败"
-        },
         "recognition": {
             "param": {
                 "template": [
@@ -25,14 +17,6 @@
         "action": {
             "param": {},
             "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在识别每日签到关闭按钮",
-            "Node.Recognition.Succeeded": "成功识别到每日签到关闭按钮",
-            "Node.Recognition.Failed": "未能识别到每日签到关闭按钮",
-            "Node.Action.Starting": "开始点击每日签到关闭按钮",
-            "Node.Action.Succeeded": "成功点击每日签到关闭按钮",
-            "Node.Action.Failed": "点击每日签到关闭按钮失败"
         },
         "next": [
             "通用_判断是否在主页"
@@ -51,14 +35,6 @@
         "action": {
             "param": {},
             "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在识别活动关闭按钮",
-            "Node.Recognition.Succeeded": "成功识别到活动关闭按钮",
-            "Node.Recognition.Failed": "未能识别到活动关闭按钮",
-            "Node.Action.Starting": "开始点击活动关闭按钮",
-            "Node.Action.Succeeded": "成功点击活动关闭按钮",
-            "Node.Action.Failed": "点击活动关闭按钮失败"
         },
         "next": [
             "通用_判断是否在主页"
@@ -81,12 +57,7 @@
             "type": "Click"
         },
         "focus": {
-            "Node.Recognition.Starting": "正在尝试进入游戏",
-            "Node.Recognition.Succeeded": "成功识别到点击任意区域进入游戏提示",
-            "Node.Recognition.Failed": "未能识别到点击任意区域进入游戏提示",
-            "Node.Action.Starting": "开始点击任意区域进入游戏",
-            "Node.Action.Succeeded": "成功点击任意区域进入游戏",
-            "Node.Action.Failed": "点击任意区域进入游戏失败"
+            "Node.Action.Starting": "正在尝试进入游戏"
         },
         "recognition": {
             "param": {
@@ -100,11 +71,6 @@
         "action": {
             "param": {},
             "type": "DoNothing"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在执行登录流程",
-            "Node.Recognition.Succeeded": "成功进入登录流程",
-            "Node.Recognition.Failed": "未能进入登录流程"
         },
         "next": [
             "通用_判断是否在主页",
@@ -123,6 +89,10 @@
             {
                 "jump_back": true,
                 "name": "登录_签到"
+            },
+            {
+                "jump_back": true,
+                "name": "通用_加载等待"
             }
         ],
         "post_delay": 0,
@@ -138,17 +108,13 @@
             "type": "Click"
         },
         "focus": {
-            "Node.Recognition.Starting": "正在尝试登录悠星账号",
-            "Node.Recognition.Succeeded": "成功识别到悠星账号登录按钮",
-            "Node.Recognition.Failed": "未能识别到悠星账号登录按钮",
-            "Node.Action.Starting": "开始点击悠星账号登录按钮",
-            "Node.Action.Succeeded": "已登录账号",
-            "Node.Action.Failed": "点击悠星账号登录按钮失败"
+            "Node.Action.Starting": "正在尝试登录悠星账号"
         },
         "recognition": {
             "param": {
                 "template": [
-                    "login.png"
+                    "login.png",
+                    "login_2.png"
                 ]
             },
             "type": "TemplateMatch"
@@ -160,19 +126,11 @@
             "param": {},
             "type": "Click"
         },
-        "focus": {
-            "Node.Recognition.Starting": "正在识别签到按钮",
-            "Node.Recognition.Succeeded": "成功识别到签到按钮",
-            "Node.Recognition.Failed": "未能识别到签到按钮",
-            "Node.Action.Starting": "开始点击签到按钮",
-            "Node.Action.Succeeded": "成功点击签到按钮",
-            "Node.Action.Failed": "点击签到按钮失败"
-        },
         "next": [
             "登录_关闭每日签到",
             "登录_关闭活动",
-            "通用_点击空白处继续",
-            "登录_签到_2"
+            "登录_签到_2",
+            "通用_点击空白处继续"
         ],
         "recognition": {
             "param": {
@@ -190,14 +148,6 @@
                 "contact": 0
             },
             "type": "Click"
-        },
-        "focus": {
-            "Node.Recognition.Starting": "正在识别获得道具提示",
-            "Node.Recognition.Succeeded": "成功识别到获得道具提示",
-            "Node.Recognition.Failed": "未能识别到获得道具提示",
-            "Node.Action.Starting": "开始点击获得道具提示",
-            "Node.Action.Succeeded": "成功点击获得道具提示",
-            "Node.Action.Failed": "点击获得道具提示失败"
         },
         "next": [
             "通用_点击空白处继续"
