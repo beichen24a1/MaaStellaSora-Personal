@@ -849,7 +849,7 @@
                         }
                     },
                     "focus": {
-                        "Node.Recognition.Starting": "尝试邀约_{1号}"
+                        "Node.Recognition.Succeeded": "尝试邀约_{1号}"
                     }
                 },
                 "邀约_2号": {
@@ -861,7 +861,7 @@
                         }
                     },
                     "focus": {
-                        "Node.Recognition.Starting": "尝试邀约_{2号}"
+                        "Node.Recognition.Succeeded": "尝试邀约_{2号}"
                     }
                 },
                 "邀约_3号": {
@@ -873,7 +873,7 @@
                         }
                     },
                     "focus": {
-                        "Node.Recognition.Starting": "尝试邀约_{3号}"
+                        "Node.Recognition.Succeeded": "尝试邀约_{3号}"
                     }
                 },
                 "邀约_4号": {
@@ -885,7 +885,7 @@
                         }
                     },
                     "focus": {
-                        "Node.Recognition.Starting": "尝试邀约_{4号}"
+                        "Node.Recognition.Succeeded": "尝试邀约_{4号}"
                     }
                 },
                 "邀约_5号": {
@@ -897,7 +897,7 @@
                         }
                     },
                     "focus": {
-                        "Node.Recognition.Starting": "尝试邀约_{5号}"
+                        "Node.Recognition.Succeeded": "尝试邀约_{5号}"
                     }
                 }
             }

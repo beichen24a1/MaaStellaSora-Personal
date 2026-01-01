@@ -5,11 +5,8 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "开始邀约"
+      "Node.Recognition.Succeeded": "开始邀约"
     },
-    "next": [
-      "邀约_点击确认按钮"
-    ],
     "recognition": {
       "param": {
         "roi": [
@@ -26,12 +23,8 @@
     }
   },
   "未邀约": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "focus": {
-      "Node.Recognition.Starting": "未邀约"
+      "Node.Recognition.Succeeded": "未邀约"
     },
     "next": [
       "邀约流程"
@@ -157,12 +150,8 @@
     }
   },
   "邀约_主界面": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "focus": {
-      "Node.Recognition.Starting": "邀约_主界面"
+      "Node.Recognition.Succeeded": "邀约_主界面"
     },
     "next": [
       "邀约_总循环"
@@ -183,12 +172,8 @@
     }
   },
   "邀约_入口": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "focus": {
-      "Node.Recognition.Starting": "执行邀约"
+      "Node.Recognition.Succeeded": "执行邀约"
     },
     "next": [
       "心链_打开心链",
@@ -196,11 +181,7 @@
         "jump_back": true,
         "name": "通用_返回主页"
       }
-    ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
+    ]
   },
   "邀约_前往邀约": {
     "action": {
@@ -208,7 +189,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_前往邀约"
+      "Node.Recognition.Succeeded": "邀约_前往邀约"
     },
     "next": [
       "邀约_主界面"
@@ -234,7 +215,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_地点"
+      "Node.Recognition.Succeeded": "邀约_地点"
     },
     "recognition": {
       "param": {
@@ -252,9 +233,8 @@
     }
   },
   "邀约_总循环": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
+    "focus": {
+      "Node.Recognition.Failed": "邀约_总循环错误,确保设置五个不一样的旅人"
     },
     "next": [
       "邀约_达上限",
@@ -291,10 +271,7 @@
         "name": "邀约_5号"
       }
     ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
+    "timeout": 3000
   },
   "邀约_点击确认按钮": {
     "action": {
@@ -302,7 +279,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Action.Starting": "点击邀约确认按钮"
+      "Node.Action.Succeeded": "点击邀约确认按钮"
     },
     "recognition": {
       "param": {
@@ -346,7 +323,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在跳过邀约"
+      "Node.Recognition.Succeeded": "跳过邀约"
     },
     "recognition": {
       "param": {
@@ -364,12 +341,8 @@
     }
   },
   "邀约_达上限": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "focus": {
-      "Node.Recognition.Starting": "邀约_达上限"
+      "Node.Recognition.Succeeded": "邀约_达上限"
     },
     "next": [
       {
@@ -399,7 +372,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "还是算了"
+      "Node.Recognition.Succeeded": "还是算了"
     },
     "recognition": {
       "param": {
@@ -422,7 +395,7 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "邀约_送出礼物"
+      "Node.Recognition.Succeeded": "邀约_送出礼物"
     },
     "recognition": {
       "param": {
@@ -445,10 +418,11 @@
       "type": "Click"
     },
     "focus": {
-      "Node.Recognition.Starting": "正在送礼"
+      "Node.Recognition.Succeeded": "正在送礼"
     },
     "next": [
-      "邀约_送礼流程"
+      "邀约_送礼流程",
+      "邀约_送礼"
     ],
     "recognition": {
       "param": {
@@ -466,13 +440,20 @@
     }
   },
   "邀约_送礼流程": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "focus": {
-      "Node.Recognition.Failed": "没有找到礼物图标 可能是没有礼物 将跳过",
-      "Node.Recognition.Starting": "正在选择礼物"
+    "recognition": {
+      "param": {
+        "expected": [
+          "约会",
+          "赠礼"
+        ],
+        "roi": [
+          767,
+          123,
+          104,
+          81
+        ]
+      },
+      "type": "OCR"
     },
     "next": [
       "邀约_选择礼物成功",
@@ -483,11 +464,7 @@
     ],
     "on_error": [
       "邀约_还是算了"
-    ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
+    ]
   },
   "邀约_选择礼物": {
     "action": {
@@ -510,10 +487,6 @@
     }
   },
   "邀约_选择礼物成功": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "next": [
       "邀约_送出礼物"
     ],
@@ -554,15 +527,15 @@
     }
   },
   "邀约流程": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
     "next": [
       "邀约_点击空白",
       {
         "jump_back": true,
         "name": "开始邀约"
+      },
+      {
+        "jump_back": true,
+        "name": "邀约_点击确认按钮"
       },
       {
         "jump_back": true,
@@ -576,10 +549,6 @@
         "jump_back": true,
         "name": "邀约_送礼"
       }
-    ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
+    ]
   }
 }
