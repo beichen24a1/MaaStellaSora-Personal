@@ -5,5 +5,21 @@
                 "expected": "TAP TO START"
             }
         }
+    },
+    "登录_签到": {
+        "recognition": {
+            "param": {
+                "expected": "受取可能"
+            }
+        }
+    },
+    "登录_签到_2": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "獲得", "アイテム"
+                ]
+            }
+        }
     }
 }
