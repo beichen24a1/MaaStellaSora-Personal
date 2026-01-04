@@ -9,6 +9,14 @@
             },
             {
                 "jump_back": true,
+                "name": "星塔_保存记录_确认"
+            },
+            {
+                "jump_back": true,
+                "name": "星塔_保存记录"
+            },
+            {
+                "jump_back": true,
                 "name": "通用_返回主页"
             }
         ]
@@ -517,8 +525,8 @@
     "星塔_保存记录_确认": {
         "recognition": {
             "param": {
-                "expected": [
-                    "确认"
+                "template": [
+                    "ClimbTower/爬塔_记录保存确认按钮.png"
                 ],
                 "roi": [
                     571,
@@ -527,7 +535,7 @@
                     43
                 ]
             },
-            "type": "OCR"
+            "type": "TemplateMatch"
         },
         "action": {
             "type": "Click"
@@ -560,7 +568,8 @@
             "param": {
                 "expected": [
                     "点击空白",
-                    "处继续"
+                    "处继续",
+                    "处关闭"
                 ],
                 "roi": [
                     471,

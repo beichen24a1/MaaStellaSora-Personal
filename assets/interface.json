@@ -144,7 +144,8 @@
             "repeat_count": 1,
             "option": [
                 "属性塔",
-                "音符购买"
+                "音符购买",
+                "速刷"
             ]
         },
         {
@@ -789,6 +790,71 @@
                         "星塔_节点_商店_购物_格子_音符_激活": {
                             "next": [
                                 "星塔_节点_商店_购物_格子_购买"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "速刷": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "正常",
+                    "label": "正常",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "不点商店和强化",
+                    "label": "不点商店和强化",
+                    "pipeline_override": {
+                        "星塔_爬塔流程": {
+                            "next": [
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_点击空白处关闭"
+                                },
+                                "星塔_保存记录",
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_默契提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_结束爬塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_等级提升"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_选择buff_推荐"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_商店_下一层"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_最终商店_离开星塔"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话选项"
+                                },
+                                {
+                                    "jump_back": true,
+                                    "name": "星塔_节点_对话忽略"
+                                }
                             ]
                         }
                     }

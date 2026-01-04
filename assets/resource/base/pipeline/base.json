@@ -104,7 +104,8 @@
         ],
         "template": [
           "home.png",
-          "chat_shutdown.png"
+          "chat_shutdown.png",
+          "通用_返回主页按钮.png"
         ]
       },
       "type": "TemplateMatch"
@@ -129,7 +130,8 @@
         ],
         "template": [
           "home.png",
-          "chat_shutdown.png"
+          "chat_shutdown.png",
+          "通用_返回主页按钮.png"
         ]
       },
       "type": "TemplateMatch"
