@@ -112,41 +112,122 @@
     },
     "timeout": 1000
   },
-  "通用_返回主页_点击": {
+  "通用_返回主页1": {
+    "focus": {
+      "Node.Recognition.Succeeded": "正在返回主页"
+    },
+    "next": [
+      "通用_主页标记",
+      {
+        "jump_back": true,
+        "name": "通用_返回主页按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_返回主页按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_返回按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_关闭心链按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_点击空白处"
+      },
+      {
+        "jump_back": true,
+        "name": "通用_关闭公告按钮"
+      }
+    ]
+  },
+  "通用_主页标记": {
+    "recognition": {
+      "param": {
+        "template": [
+          "menu.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "通用_返回按钮": {
     "action": {
       "param": {},
       "type": "Click"
     },
-    "focus": {
-      "Node.Action.Starting": "正在返回主页"
-    },
     "recognition": {
       "param": {
-        "roi": [
-          0,
-          0,
-          1280,
-          94
-        ],
         "template": [
-          "home.png",
-          "chat_shutdown.png",
-          "通用_返回主页按钮.png"
+          "Base/通用_返回按钮.png"
         ]
       },
       "type": "TemplateMatch"
     },
     "timeout": 1000
   },
-  "通用_加载等待": {
+  "通用_返回主页按钮": {
     "action": {
       "param": {},
-      "type": "DoNothing"
+      "type": "Click"
     },
-    "post_delay": 1000,
     "recognition": {
+      "param": {
+        "template": [
+          "home.png",
+          "Base/通用_返回主页按钮2.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_关闭公告按钮": {
+    "action": {
       "param": {},
-      "type": "DirectHit"
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "Base/通用_关闭公告按钮.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_关闭心链按钮": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "chat_shutdown.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_点击空白处": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "点击空白处继续",
+          "点击空白处关闭"
+        ]
+      },
+      "type": "OCR"
     }
   }
 }
