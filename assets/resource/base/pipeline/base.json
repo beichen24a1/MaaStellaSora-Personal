@@ -91,7 +91,7 @@
       "通用_判断是否在主页",
       {
         "jump_back": true,
-        "name": "通用_返回主页_点击"
+        "name": "通用_返回主页1"
       }
     ],
     "recognition": {
