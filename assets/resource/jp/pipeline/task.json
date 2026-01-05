@@ -18,10 +18,21 @@
     }
   },
   "任务_领取任务": {
-    "recognition": {
+    "action": {
       "param": {
-        "expected": [
-          "任務"
+        "target_offset": [
+          0,
+          -15,
+          0,
+          0
+        ]
+      }
+    },
+    "recognition": {
+      "type": "TemplateMatch",
+      "param": {
+        "template": [
+          "task/task.png"
         ]
       }
     }
