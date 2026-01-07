@@ -89,11 +89,11 @@
             {
                 "jump_back": true,
                 "name": "登录_签到"
-            },
-            {
-                "jump_back": true,
-                "name": "通用_加载等待"
             }
+            // {
+            //     "jump_back": true,
+            //     "name": "通用_加载等待"
+            // }
         ],
         "post_delay": 0,
         "pre_delay": 0,
