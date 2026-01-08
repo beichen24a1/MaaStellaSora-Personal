@@ -248,7 +248,7 @@
       "Node.Recognition.Starting": "正在关闭弹窗"
     },
     "next": [
-      "心链_关闭心链"
+      "通用_返回主页"
     ],
     "pre_wait_freezes": 1000,
     "recognition": {
