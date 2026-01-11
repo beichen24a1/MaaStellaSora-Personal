@@ -82,40 +82,37 @@
       "type": "DirectHit"
     }
   },
+  // "通用_返回主页": {
+  //   "action": {
+  //     "param": {},
+  //     "type": "DoNothing"
+  //   },
+  //   "next": [
+  //     "通用_判断是否在主页",
+  //     {
+  //       "jump_back": true,
+  //       "name": "通用_返回主页1"
+  //     }
+  //   ],
+  //   "recognition": {
+  //     "param": {
+  //       "roi": [
+  //         0,
+  //         0,
+  //         1280,
+  //         94
+  //       ],
+  //       "template": [
+  //         "home.png",
+  //         "chat_shutdown.png",
+  //         "通用_返回主页按钮.png"
+  //       ]
+  //     },
+  //     "type": "TemplateMatch"
+  //   },
+  //   "timeout": 1000
+  // },
   "通用_返回主页": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "next": [
-      "通用_判断是否在主页",
-      {
-        "jump_back": true,
-        "name": "通用_返回主页1"
-      }
-    ],
-    "recognition": {
-      "param": {
-        "roi": [
-          0,
-          0,
-          1280,
-          94
-        ],
-        "template": [
-          "home.png",
-          "chat_shutdown.png",
-          "通用_返回主页按钮.png"
-        ]
-      },
-      "type": "TemplateMatch"
-    },
-    "timeout": 1000
-  },
-  "通用_返回主页1": {
-    "focus": {
-      "Node.Recognition.Succeeded": "正在返回主页"
-    },
     "next": [
       "通用_主页标记",
       {
@@ -141,6 +138,14 @@
       {
         "jump_back": true,
         "name": "通用_关闭公告按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "签到_关闭按钮"
+      },
+      {
+        "jump_back": true,
+        "name": "月卡_领取"
       }
     ]
   },
@@ -225,6 +230,42 @@
         "expected": [
           "点击空白处继续",
           "点击空白处关闭"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "签到_关闭按钮": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "Base/签到_关闭按钮.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "月卡_领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          431,
+          60,
+          425,
+          602
+        ],
+        "expected": [
+          "点击任意",
+          "位置领取",
+          "星愿"
         ]
       },
       "type": "OCR"

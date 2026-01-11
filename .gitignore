@@ -456,4 +456,6 @@ debug
 .nicegui/
 .vscode/
 
+/develop/
+
 merge_json_correct.py

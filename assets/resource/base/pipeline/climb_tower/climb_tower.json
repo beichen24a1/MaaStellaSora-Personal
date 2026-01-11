@@ -270,6 +270,10 @@
             },
             {
                 "jump_back": true,
+                "name": "星塔_节点_商店_主界面"
+            },
+            {
+                "jump_back": true,
                 "name": "星塔_节点_对话忽略"
             }
         ]

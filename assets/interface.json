@@ -149,6 +149,34 @@
             ]
         },
         {
+            "name": "爬塔_agent",
+            "entry": "星塔_入口",
+            "repeatable": true,
+            "repeat_count": 1,
+            "pipeline_override": {
+                "星塔_节点_商店": {
+                    "next": [
+                        "星塔_节点_商店_购物流程_agent"
+                    ]
+                },
+                "星塔_节点_最终商店": {
+                    "next": [
+                        "星塔_节点_最终商店_购物流程_agent"
+                    ]
+                },
+                "星塔_节点_商店_主界面": {
+                    "next": [
+                        "星塔_节点_商店_购物流程_agent"
+                    ]
+                }
+            },
+            "option": [
+                "属性塔",
+                "音符购买_agent",
+                "速刷"
+            ]
+        },
+        {
             "name": "自定义爬塔",
             "entry": "星塔_入口",
             "description": "自定义爬塔 Beta 不保证可用",
@@ -790,6 +818,27 @@
                         "星塔_节点_商店_购物_格子_音符_激活": {
                             "next": [
                                 "星塔_节点_商店_购物_格子_购买"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "音符购买_agent": {
+            "type": "select",
+            "cases": [
+                {
+                    "name": "激活协奏且折扣",
+                    "label": "激活协奏且折扣",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "激活协奏",
+                    "label": "激活协奏",
+                    "pipeline_override": {
+                        "星塔_节点_商店_购物_格子_优惠_agent": {
+                            "expected": [
+                                ""
                             ]
                         }
                     }

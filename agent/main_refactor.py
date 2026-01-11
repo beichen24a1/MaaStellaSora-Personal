@@ -1,12 +1,22 @@
 import json
 import sys
+import os
 from typing import Any, Dict, Iterable, List, Tuple
+
+# 将agent目录添加到Python搜索路径，以便直接导入custom模块
+current_file_path = os.path.abspath(__file__)
+current_script_dir = os.path.dirname(current_file_path)  # agent目录
+if current_script_dir not in sys.path:
+    sys.path.insert(0, current_script_dir)
 
 from maa.agent.agent_server import AgentServer
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.custom_recognition import CustomRecognition
 from maa.toolkit import Toolkit
+
+# 导入自定义识别器和动作器
+from custom import ShopRecognition, ShopAction
 
 _FALLBACK_TEMPLATE = (
     "ClimbTower/爬塔_buff推荐图标1__146_389_43_44__96_339_143_144.png"
