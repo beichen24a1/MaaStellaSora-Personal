@@ -321,7 +321,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "深入温室的调查I"
+                                        "深入温室的调查I",
+                                        "温室の潜入調査I"
                                     ]
                                 },
                                 "type": "OCR"
@@ -337,7 +338,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "深入温室的调查II"
+                                        "深入温室的调查II",
+                                        "温室の潜入調査II"
                                     ]
                                 },
                                 "type": "OCR"
@@ -353,7 +355,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "深入温室的调查III"
+                                        "深入温室的调查III",
+                                        "温室の潜入調査III"
                                     ]
                                 },
                                 "type": "OCR"
@@ -369,7 +372,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "秘密的果实I"
+                                        "秘密的果实I",
+                                        "禁断の果実I"
                                     ]
                                 },
                                 "type": "OCR"
@@ -385,7 +389,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "秘密的果实II"
+                                        "秘密的果实II",
+                                        "禁断の果実II"
                                     ]
                                 },
                                 "type": "OCR"
@@ -401,7 +406,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "秘密的果实III"
+                                        "秘密的果实III",
+                                        "禁断の果実III"
                                     ]
                                 },
                                 "type": "OCR"
@@ -417,7 +423,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "秘密的果实IV"
+                                        "秘密的果实IV",
+                                        "禁断の果実IV"
                                     ]
                                 },
                                 "type": "OCR"
@@ -433,7 +440,8 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "致命魔术I"
+                                        "致命魔术I",
+                                        "転送トラブルI"
                                     ]
                                 },
                                 "type": "OCR"
