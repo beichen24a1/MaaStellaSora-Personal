@@ -138,6 +138,11 @@
             "description": "自动打开邮箱页面，并且领取邮箱奖励"
         },
         {
+            "name": "领取基金奖励",
+            "entry": "基金_入口",
+            "description": "自动打开基金页面，并且领取基金奖励"
+        },
+        {
             "name": "爬塔",
             "entry": "星塔_入口",
             "repeatable": true,

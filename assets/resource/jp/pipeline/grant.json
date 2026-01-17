@@ -1,0 +1,56 @@
+{
+    "基金_打开基金": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "事業支援"
+                ]
+            }
+        }
+    },
+    "基金_营业目标全部领取": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "括受取"
+                ]
+            }
+        }
+    },
+    "基金_基金等级提升": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "事業"
+                ]
+            }
+        }
+    },
+    "基金_进入基金补贴": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "補助物資"
+                ]
+            }
+        }
+    },
+    "基金_已进入基金补贴": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "スタンダ"
+                ]
+            }
+        }
+    },
+    "基金_基金补贴全部领取": {
+        "recognition": {
+            "param": {
+                "expected": [
+                    "括受取"
+                ]
+            }
+        }
+    }
+}
