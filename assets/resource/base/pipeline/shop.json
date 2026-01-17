@@ -8,10 +8,7 @@
             "Node.Recognition.Succeeded": "检测到每日赠礼已领取 将跳过"
         },
         "next": [
-            {
-                "jump_back": true,
-                "name": "通用_返回主页"
-            }
+            "通用_返回主页"
         ],
         "recognition": {
             "param": {
@@ -56,10 +53,7 @@
             "Node.Action.Starting": "正在领取每日赠礼"
         },
         "next": [
-            {
-                "jump_back": true,
-                "name": "通用_返回主页"
-            },
+            "通用_返回主页",
             {
                 "jump_back": true,
                 "name": "通用_点击空白处继续"
