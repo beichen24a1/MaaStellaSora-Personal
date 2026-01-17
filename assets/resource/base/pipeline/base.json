@@ -270,5 +270,23 @@
       },
       "type": "OCR"
     }
+  },
+  "通用_消耗所有干劲": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_开始战斗"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "max.png"
+        ],
+        "threshold": 0.9
+      },
+      "type": "TemplateMatch"
+    }
   }
 }
