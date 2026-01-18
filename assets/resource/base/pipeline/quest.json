@@ -6,7 +6,10 @@
     },
     "next": [
       "委托_前往委托",
-      "通用_返回主页"
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
     ],
     "post_delay": 0,
     "pre_delay": 0,
