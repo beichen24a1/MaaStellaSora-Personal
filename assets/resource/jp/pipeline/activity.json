@@ -26,6 +26,15 @@
       }
     }
   },
+  "活动_选择活动难度": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "マル"
+        ]
+      }
+    }
+  },
   "活动_确认": {
     "recognition": {
       "param": {
