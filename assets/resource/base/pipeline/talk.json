@@ -5,12 +5,11 @@
       "type": "DoNothing"
     },
     "next": [
+      "心链_打开心链",
       {
         "jump_back": true,
-        "name": "心链_打开心链"
-      },
-      "心链_点击邮寄",
-      "通用_返回主页"
+        "name": "通用_返回主页"
+      }
     ],
     "post_delay": 0,
     "pre_delay": 0,
@@ -27,6 +26,9 @@
     "focus": {
       "Node.Action.Starting": "正在打开心链"
     },
+    "next": [
+      "心链_点击邮寄"
+    ],
     "post_wait_freezes": 2000,
     "recognition": {
       "param": {
