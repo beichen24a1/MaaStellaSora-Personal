@@ -10,15 +10,7 @@
               "jump_back": true,
               "name": "通用_返回主页"
             }
-        ],
-        "recognition": {
-            "param": {
-                "template": [
-                    "procurement.png"
-                ]
-            },
-            "type": "TemplateMatch"
-        }
+        ]
     },
     "采购_判断是否已领取": {
         "action": {
