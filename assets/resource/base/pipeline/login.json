@@ -1,4 +1,22 @@
 {
+    "登录_第一次进入主页": {
+        "action": {
+            "param": {},
+            "type": "DoNothing"
+        },
+        "recognition": {
+            "param": {
+                "template": [
+                  "menu.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        },
+      "next": [
+        "通用_判断是否在主页"
+      ],
+        "post_delay": 2000
+    },
     "登录_关闭公告": {
         "action": {
             "param": {},
@@ -18,9 +36,6 @@
             "param": {},
             "type": "Click"
         },
-        "next": [
-            "通用_判断是否在主页"
-        ],
         "recognition": {
             "param": {
                 "template": [
@@ -36,9 +51,6 @@
             "param": {},
             "type": "Click"
         },
-        "next": [
-            "通用_判断是否在主页"
-        ],
         "recognition": {
             "param": {
                 "template": [
@@ -73,7 +85,7 @@
             "type": "DoNothing"
         },
         "next": [
-            "通用_判断是否在主页",
+            "登录_第一次进入主页",
             {
                 "jump_back": true,
                 "name": "登录_登录悠星账号"
@@ -89,12 +101,33 @@
             {
                 "jump_back": true,
                 "name": "登录_签到"
+            },
+            {
+                "jump_back": true,
+                "name": "登录_签到_2"
+            },
+            {
+                "jump_back": true,
+                "name": "登录_关闭每日签到"
+            },
+            {
+                "jump_back": true,
+                "name": "登录_关闭活动"
+            },
+            {
+                "jump_back": true,
+                "name": "通用_点击空白处继续"
+            },
+            {
+                "jump_back": true,
+                "name": "登录_确认下载资源"
             }
             // {
             //     "jump_back": true,
             //     "name": "通用_加载等待"
             // }
         ],
+        "timeout": 30000,
         "post_delay": 0,
         "pre_delay": 0,
         "recognition": {
@@ -126,12 +159,6 @@
             "param": {},
             "type": "Click"
         },
-        "next": [
-            "登录_关闭每日签到",
-            "登录_关闭活动",
-            "登录_签到_2",
-            "通用_点击空白处继续"
-        ],
         "recognition": {
             "param": {
                 "expected": "可领取"
@@ -149,9 +176,6 @@
             },
             "type": "Click"
         },
-        "next": [
-            "通用_点击空白处继续"
-        ],
         "recognition": {
             "param": {
                 "expected": [
@@ -161,5 +185,19 @@
             "type": "OCR"
         },
         "timeout": 2000
+    },
+    "登录_确认下载资源": {
+        "action": {
+            "param": {},
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "template": [
+                    "ok.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
     }
 }

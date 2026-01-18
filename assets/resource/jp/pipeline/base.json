@@ -1,9 +1,35 @@
 {
+  "通用_一键领取": {
+    "recognition": {
+      "param": {
+        "threshold": 0.9
+      }
+    }
+  },
   "通用_点击空白处继续": {
     "recognition": {
       "param": {
         "expected": [
           "タップして続ける"
+        ]
+      }
+    }
+  },
+  "通用_点击空白处": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "タップして"
+        ]
+      }
+    }
+  },
+  "月卡_领取": {
+    "recognition": {
+      "param": {
+        "expected": [
+          "タップして",
+          "続ける"
         ]
       }
     }

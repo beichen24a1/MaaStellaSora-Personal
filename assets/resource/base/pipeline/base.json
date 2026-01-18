@@ -145,6 +145,10 @@
       },
       {
         "jump_back": true,
+        "name": "通用_关闭活动公告按钮"
+      },
+      {
+        "jump_back": true,
         "name": "月卡_领取"
       }
     ]
@@ -199,6 +203,21 @@
       "param": {
         "template": [
           "Base/通用_关闭公告按钮.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_关闭活动公告按钮": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "close_variant_2.png"
         ]
       },
       "type": "TemplateMatch"
@@ -269,6 +288,24 @@
         ]
       },
       "type": "OCR"
+    }
+  },
+  "通用_消耗所有干劲": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "活动_开始战斗"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "max.png"
+        ],
+        "threshold": 0.9
+      },
+      "type": "TemplateMatch"
     }
   }
 }

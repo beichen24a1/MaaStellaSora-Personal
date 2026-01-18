@@ -1,4 +1,17 @@
 {
+  "任务_入口": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "任务_领取任务",
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
+    ]
+  },
   "任务_一键领取": {
     "action": {
       "param": {},
