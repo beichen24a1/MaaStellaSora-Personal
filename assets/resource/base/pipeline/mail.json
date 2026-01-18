@@ -5,11 +5,11 @@
       "type": "DoNothing"
     },
     "next": [
+      "邮箱_打开邮箱",
       {
         "jump_back": true,
-        "name": "邮箱_打开邮箱"
-      },
-      "通用_返回主页"
+        "name": "通用_返回主页"
+      }
     ],
     "post_delay": 0,
     "pre_delay": 0,
@@ -27,7 +27,7 @@
       "Node.Action.Starting": "正在打开邮箱"
     },
     "next": [
-      "通用_一键领取"
+      "邮箱_一键领取"
     ],
     "recognition": {
       "param": {
@@ -37,5 +37,26 @@
       },
       "type": "TemplateMatch"
     }
+  },
+  "邮箱_一键领取": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Starting": "正在尝试一键领取"
+    },
+    "next": [
+      "通用_返回主页"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "quick_claim.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 2000
   }
 }
