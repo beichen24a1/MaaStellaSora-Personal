@@ -53,7 +53,10 @@
     },
     "next": [
       "好友_前往好友页",
-      "通用_返回主页"
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
     ],
     "post_delay": 0,
     "pre_delay": 0,
