@@ -1,4 +1,25 @@
 {
+    "采购_入口": {
+        "action": {
+            "param": {},
+            "type": "DoNothing"
+        },
+        "next": [
+            "采购_前往采购",
+            {
+              "jump_back": true,
+              "name": "通用_返回主页"
+            }
+        ],
+        "recognition": {
+            "param": {
+                "template": [
+                    "procurement.png"
+                ]
+            },
+            "type": "TemplateMatch"
+        }
+    },
     "采购_判断是否已领取": {
         "action": {
             "param": {},
