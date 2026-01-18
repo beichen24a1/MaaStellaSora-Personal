@@ -6,7 +6,10 @@
     },
     "next": [
       "活动_打开活动",
-      "通用_返回主页"
+      {
+        "jump_back": true,
+        "name": "通用_返回主页"
+      }
     ],
     "recognition": {
       "param": {},
