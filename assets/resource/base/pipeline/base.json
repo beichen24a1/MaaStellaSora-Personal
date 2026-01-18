@@ -145,6 +145,10 @@
       },
       {
         "jump_back": true,
+        "name": "通用_关闭活动公告按钮"
+      },
+      {
+        "jump_back": true,
         "name": "月卡_领取"
       }
     ]
@@ -199,6 +203,21 @@
       "param": {
         "template": [
           "Base/通用_关闭公告按钮.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "timeout": 1000
+  },
+  "通用_关闭活动公告按钮": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "template": [
+          "close_variant_2.png"
         ]
       },
       "type": "TemplateMatch"
