@@ -18,10 +18,8 @@
             "type": "Click"
         },
         "next": [
-            "基金_营业目标全部领取"
-        ],
-        "on_error": [
-            "通用_返回主页"
+            "基金_核实是否处于营业目标",
+            "基金_核实是否处于基金补贴"
         ],
         "recognition": {
             "param": {
@@ -30,8 +28,24 @@
                 ]
             },
             "type": "OCR"
+        }
+    },
+    "基金_核实是否处于营业目标": {
+        "next": [
+            "基金_营业目标全部领取"
+        ],
+        "on_error": [
+            "通用_返回主页"
+        ],
+        "recognition": {
+            "param": {
+                "expected": [
+                    "今日目标"
+                ]
+            },
+            "type": "OCR"
         },
-        "timeout": 10000
+        "timeout": 5000
     },
     "基金_营业目标全部领取": {
         "action": {
@@ -39,18 +53,14 @@
             "type": "Click"
         },
         "next": [
-            "基金_已进入基金补贴",
-            {
-                "jump_back": true,
-                "name": "基金_进入基金补贴"
-            },
+            "基金_核实是否处于基金补贴",
             {
                 "jump_back": true,
                 "name": "基金_基金等级提升"
             },
             {
                 "jump_back": true,
-                "name": "通用_点击空白处继续"
+                "name": "基金_进入基金补贴"
             }
         ],
         "recognition": {
@@ -60,17 +70,23 @@
                 ]
             },
             "type": "OCR"
-        }
+        },
+        "post_delay": 2000
     },
     "基金_基金等级提升": {
         "action": {
-            "param": {},
+            "param": {
+                "target": [
+                    5,
+                    5
+                ]
+            },
             "type": "Click"
         },
         "recognition": {
             "param": {
                 "expected": [
-                    "基金"
+                    "等级"
                 ]
             },
             "type": "OCR"
@@ -90,7 +106,7 @@
             "type": "OCR"
         }
     },
-    "基金_已进入基金补贴": {
+    "基金_核实是否处于基金补贴": {
         "next": [
             "基金_基金补贴全部领取"
         ],
@@ -105,7 +121,7 @@
             },
             "type": "OCR"
         },
-        "timeout": 10000
+        "timeout": 5000
     },
     "基金_基金补贴全部领取": {
         "action": {
@@ -113,7 +129,11 @@
             "type": "Click"
         },
         "next": [
-                "通用_返回主页"
+                "通用_返回主页",
+                {
+                    "jump_back": true,
+                    "name": "通用_点击空白处继续"
+                }
         ],
         "recognition": {
             "param": {
