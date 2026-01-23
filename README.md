@@ -2,8 +2,8 @@
 
 <div align="center">
     <img src="assets/logo.png" alt="StellaSora-Auto-Helper" width="200" />
-    <h1>StellaSora-Auto-Helper</h1>
-    <p>星塔助手（StellaSora-Auto-Helper）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动</p>
+    <h1>MaaStellaSora</h1>
+    <p>星塔助手（MaaStellaSora）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动</p>
 </div>
 
 遇到问题请去Issues反馈，或前往QQ交流群进行反馈
@@ -31,7 +31,7 @@ QQ交流群：**1063132902**  密码：**星塔旅人**
 > 星塔助手目前只对比例为16:9的游戏客户端提供支持，如果你的游戏客户端比例不为16:9请自行寻找改分辨率方法或是使用模拟器
 
 1. 请选择带有Latest标签的版本 也可以选择带有rc、beta后缀的版本 不要选择带有Nightly、Alpha等后缀的版本
-2. 前往 [Github Release](https://github.com/SodaCodeSave/StellaSora-Auto-Helper/releases) 下载对应系统的压缩包 如果不知道是什么就选 SSAH-win-x86_64-vx.x.x.zip
+2. 前往 [Github Release](https://github.com/SodaCodeSave/StellaSora-Auto-Helper/releases) 下载对应系统的压缩包 如果不知道是什么就选 MaaStellaSora-win-x86_64-vx.x.x.zip
 3. 解压压缩包到任意目录，并且运行依赖库安装.bat
 4. 如果需要操控Windows版星塔旅人，使用管理员权限运行 `MFAAvalonia.exe`（使用ADB的话直接启动即可）
 

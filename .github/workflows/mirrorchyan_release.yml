@@ -22,7 +22,7 @@ jobs:
       - uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: ${{ format('SSAH-{0}-{1}-*', matrix.os, matrix.arch) }}
+          filename: ${{ format('MaaStellaSora-{0}-{1}-*', matrix.os, matrix.arch) }}
           mirrorchyan_rid: SSAH
           tag: ${{ inputs.tag }}
 

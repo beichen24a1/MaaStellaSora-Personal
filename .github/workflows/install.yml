@@ -146,7 +146,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: SSAH-win-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
+          name: MaaStellaSora-win-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   linux:
@@ -228,7 +228,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: SSAH-linux-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
+          name: MaaStellaSora-linux-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   macos:
@@ -325,7 +325,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: SSAH-macos-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
+          name: MaaStellaSora-macos-${{ matrix.arch }}-${{ needs.meta.outputs.tag }}
           path: "install"
 
   changelog:
