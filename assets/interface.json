@@ -328,6 +328,7 @@
                                     "expected": [
                                         "新岁开门阵I",
                                         "新歲開門陣I",
+										"New Year's Opening I",
                                         "開門の陣I"
                                     ]
                                 },
@@ -346,6 +347,7 @@
                                     "expected": [
                                         "新岁开门阵II",
                                         "新歲開門陣II",
+                                        "New Year's Opening II",
                                         "開門の陣II"
                                     ]
                                 },
@@ -364,7 +366,8 @@
                                     "expected": [
                                         "新岁开门阵III",
                                         "新歲開門陣III",
-                                        "開門の陣III"
+                                        "New Year's Opening III",
+                                        "開門の陣Ⅲ"
                                     ]
                                 },
                                 "type": "OCR"
@@ -382,6 +385,7 @@
                                     "expected": [
                                         "汪旺巡逻队I",
                                         "汪旺巡邏隊I",
+                                        "Dog Patrol Squad I",
                                         "巡回隊I"
                                     ]
                                 },
@@ -400,6 +404,7 @@
                                     "expected": [
                                         "守岁保卫战I",
                                         "守歲保衛戰I",
+                                        "Evelong Defense I",
                                         "蒼梧城攻防戦I"
                                     ]
                                 },
@@ -418,6 +423,7 @@
                                     "expected": [
                                         "守岁保卫战II",
                                         "守歲保衛戰II",
+                                        "Evelong Defense II",
                                         "蒼梧城攻防戦II"
                                     ]
                                 },
@@ -436,6 +442,7 @@
                                     "expected": [
                                         "汪旺巡逻队II",
                                         "汪旺巡邏隊II",
+                                        "Dog Patrol Squad II",
                                         "巡回隊II"
                                     ]
                                 },
@@ -454,6 +461,7 @@
                                     "expected": [
                                         "福到闹团圆I",
                                         "福到鬧團圓I",
+                                        "Blessings Abound I",
                                         "笑門来福大乱闘I"
                                     ]
                                 },
