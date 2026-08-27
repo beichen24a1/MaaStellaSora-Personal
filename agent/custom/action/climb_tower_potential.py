@@ -978,11 +978,24 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
                 old = potential.old_level
                 new = potential.new_level
                 logger.info(f"[潜能识别] {potential.name} | 等级 {old}→{new} | 排名 {print_rank}")
+            # debug 阶段：OCR 名字完全没命中任何预设规则时高亮报错，方便核对/修正名字
+            if potential.rank < 0:
+                logger.error(
+                    f"[潜能识别][未命中预设] 潜能 '{potential.name}' 未匹配到任何 priority_list 规则。"
+                    "请核对游戏内简体名是否与预设一致，或补充到预设清单中。"
+                )
 
         # 选择排名最高的潜能
         best_potential = self.best_potential
         if best_potential:
             logger.info(f"[潜能选择] {best_potential.name}")
+        else:
+            # 三个潜能全部未命中规则时，汇总打印所有 OCR 名，方便批量修正
+            all_names = [p.name for p in self.data.potentials]
+            logger.error(
+                f"[潜能识别][全未命中] 本次可选潜能全部未匹配到任何预设规则：{all_names}。"
+                "兜底将选系统推荐；若这些名字本应被预设抓到，请修正 priority_list 中的简体名。"
+            )
 
         return best_potential
 
