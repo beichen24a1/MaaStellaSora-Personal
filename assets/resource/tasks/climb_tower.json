@@ -812,25 +812,23 @@
         "预设爬塔_队伍": {
             "type": "select",
             "label": "预设队伍",
-            "default_case": "水队_千苍薇",
+            "default_case": "水队_千多薇",
             "description": "选择队伍后严格按预设抓取潜能(handler=json)",
             "cases": [
                 {
-                    "name": "水队_千苍薇",
-                    "label": "水队(千都世/苍兰/沐夏薇洛)",
+                    "name": "水队_千多薇",
+                    "label": "水队(千都世/多娜/薇洛)",
                     "description": "分享码:AAAAkAAAAIIAAACgMAZLZADNgEBsADAGwGwG",
                     "pipeline_override": {
                         "星塔_节点_选择潜能_agent": {
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "千都世", "potential": ["腾蛇凌波", "镜影流锋", "逐浪幻鳞", "亭亭翩舞", "碧浪霖身"]},
-                                    {"trekker": "苍兰", "potential": ["局部降雪", "寒冬预报", "溯时复胜", "凛冬之咬"]},
-                                    {"trekker": "沐夏薇洛", "potential": ["浪响震耳", "音浪荡漾", "异色水泡", "风和浪暖", "海风执纪", "巨浪吞城", "潮音渐歇"]},
-                                    {"trekker": "千都世", "potential": ["激浪落振", "坚鳞微体"]},
-                                    {"trekker": "苍兰", "potential": ["守缠之心"]},
+                                    {"trekker": "千都世", "potential": ["腾蛇泼波", "镜影流锋", "逐浪幻鳞", "亭亭翩舞", "激浪落振"]},
+                                    {"trekker": "多娜", "potential": ["离弦之箭", "残矢清屏", "箭矢追击", "百步穿杨", "凝霜前寒"]},
+                                    {"trekker": "薇洛", "potential": ["音浪荡漾", "浪响震耳", "异色水泡", "巨浪吞城", "潮音渐歇", "海风执纪"]},
                                     {"trekker": "千都世", "potential": "镜水归潮", "max_level": 1},
-                                    {"trekker": "苍兰", "potential": ["冰蚀漩涡", "信仰庇佑"], "max_level": 1}
+                                    {"trekker": "多娜", "potential": ["流矢放逐", "水行攻涨"], "max_level": 1}
                                 ]
                             }
                         }
@@ -886,15 +884,12 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "冬香", "potential": ["喵喵拳", "多段弹", "终结打击", "精准刺", "巅峰状态"]},
-                                    {"trekker": "圣诞菈露", "potential": ["火雨砸盘", "特别装载", "盛宴共振", "明日初火", "往日之焰", "玖肆璀璨"]},
-                                    {"trekker": "紫槿", "potential": ["零目闪", "傲然挺立", "完美鳞"]},
-                                    {"trekker": "冬香", "potential": ["喵喵反击"]},
-                                    {"trekker": "圣诞菈露", "potential": ["蓄势决策", "玩风独奏"]},
-                                    {"trekker": "冬香", "potential": ["快准猛打", "勇猛殊威", "猛熊出击"]},
-                                    {"trekker": "圣诞菈露", "potential": ["棒棒勇歌", "火焰凤凰"], "max_level": 1},
-                                    {"trekker": "紫槿", "potential": ["塔来同", "御风龟纹"]},
-                                    {"trekker": "紫槿", "potential": "推竿叠鳞", "max_level": 1}
+                                    {"trekker": "冬香", "potential": ["喵喵拳", "多发弹", "爆裂追击", "快拳速打", "铁拳蓄势"]},
+                                    {"trekker": "圣诞菈露", "potential": ["火雨倾盆", "特别装药", "礼炮双响", "振奋炮击", "初尝甜蜜", "红心赦令", "红心祝祷"]},
+                                    {"trekker": "紫槿", "potential": ["明日·薪火", "薪火的再燃", "完美接续", "伏笔验证", "群演效应", "往日·余烬"]},
+                                    {"trekker": "冬香", "potential": ["终结打击", "回旋反击", "巅峰状态"]},
+                                    {"trekker": "圣诞菈露", "potential": ["并变时刻", "授勋仪式"], "max_level": 1},
+                                    {"trekker": "紫槿", "potential": ["余烬的火箭", "印象强化"], "max_level": 1}
                                 ]
                             }
                         }
