@@ -23,6 +23,14 @@
                 "新版爬塔_商店_最大强化金额",
                 "新版爬塔_商店_初始强化金额"
             ]
+        },
+        {
+            "name": "预设爬塔",
+            "entry": "星塔_入口_agent",
+            "description": "严格按队伍预设抓取潜能(需手动导入对应队伍分享码)。<br><b>分享码：</b><br>水队(千/苍/薇洛) AAAAkAAAAIIAAACgMAZLZADNgEBsADAGwGwG<br>暗队(花/乙/珂) AAAAnQAAAJEAAACOzbALADDNkBsAAGyAwAww<br>光队(希/火/缇) AAAAmwAAAHMAAABrzbAABYIwBsNsAMwWAGAG<br>火队(冬/菈/紫) AAAAhgAAAJ4AAAB+MAbDADbCABgMBsw2GAGA",
+            "option": [
+                "预设爬塔_队伍"
+            ]
         }
     ],
     "option": {
@@ -946,6 +954,99 @@
                     }
                 }
             }
+        },
+        "预设爬塔_队伍": {
+            "type": "select",
+            "label": "预设队伍",
+            "default_case": "水队_千苍薇",
+            "description": "选择队伍后严格按预设抓取潜能(handler=json)",
+            "cases": [
+                {
+                    "name": "水队_千苍薇",
+                    "label": "水队(千都世/苍兰/沐夏薇洛)",
+                    "description": "分享码:AAAAkAAAAIIAAACgMAZLZADNgEBsADAGwGwG",
+                    "pipeline_override": {
+                        "星塔_节点_选择潜能_agent": {
+                            "attach": {
+                                "handler": "json",
+                                "priority_list": [
+                                    {"trekker": "千都世", "potential": ["腾蛇凌波", "镜影流锋", "逐浪幻鳞", "亭亭翩舞", "碧浪霖身"]},
+                                    {"trekker": "苍兰", "potential": ["局部降雪", "寒冬预报", "溯时复胜", "凛冬之咬"]},
+                                    {"trekker": "沐夏薇洛", "potential": ["浪响震耳", "音浪荡漾", "异色水泡", "风和浪暖", "海风执纪", "巨浪吞城", "潮音渐歇"]},
+                                    {"trekker": "千都世", "potential": ["激浪落振", "坚鳞微体"]},
+                                    {"trekker": "苍兰", "potential": ["守缠之心"]},
+                                    {"trekker": "千都世", "potential": "镜水归潮", "max_level": 1},
+                                    {"trekker": "苍兰", "potential": ["冰蚀漩涡", "信仰庇佑"], "max_level": 1}
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "暗队_花乙珂",
+                    "label": "暗队(花铃/乙叶/珂赛特)",
+                    "description": "分享码:AAAAnQAAAJEAAACOzbALADDNkBsAAGyAwAww",
+                    "pipeline_override": {
+                        "星塔_节点_选择潜能_agent": {
+                            "attach": {
+                                "handler": "json",
+                                "priority_list": [
+                                    {"trekker": "花铃", "potential": ["蜃影潜袭", "霸群滔浪", "滔天巨浪", "共鸣气场", "双影狩猎", "追影指示"]},
+                                    {"trekker": "乙叶", "potential": ["暗夜行路", "寂影成双", "孤灯摇曳", "暗色蚕食", "须臾无踪"]},
+                                    {"trekker": "珂赛特", "potential": ["无光落印", "残影印记", "黑暗之赐", "幽冥烈焰", "暗余晖", "暗魔痕"]},
+                                    {"trekker": "乙叶", "potential": ["湮灭低鸣"]},
+                                    {"trekker": "花铃", "potential": ["信心倍增", "绝海的斗争"]},
+                                    {"trekker": "乙叶", "potential": "空阶之上", "max_level": 1},
+                                    {"trekker": "珂赛特", "potential": ["暗迷幻", "暗蜃影"], "max_level": 1}
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "光队_希火缇",
+                    "label": "光队(希娅/火垂/缇莉娅)",
+                    "description": "分享码:AAAAmwAAAHMAAABrzbAABYIwBsNsAMwWAGAG",
+                    "pipeline_override": {
+                        "星塔_节点_选择潜能_agent": {
+                            "attach": {
+                                "handler": "json",
+                                "priority_list": [
+                                    {"trekker": "希娅", "potential": ["幻光谱光", "凛雪化刃", "雪域压制", "穿雪破空", "暴雪怒心"]},
+                                    {"trekker": "火垂", "potential": ["峰岭斩绝", "峰岭怒刃", "折光随境", "重剑迅影", "光涟扩散"]},
+                                    {"trekker": "缇莉娅", "potential": ["巧抢奇才"]},
+                                    {"trekker": "希娅", "potential": ["兔影追踪", "巨浪镜华", "障雪逐影", "兔光镜华", "兔影穿雪"]},
+                                    {"trekker": "火垂", "potential": ["天地同鸣", "光浪传锋"]},
+                                    {"trekker": "缇莉娅", "potential": ["新裁荡尽刻", "纷乱接力", "骑士圣印"]}
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "火队_冬菈紫",
+                    "label": "火队(冬香/圣诞菈露/紫槿)",
+                    "description": "分享码:AAAAhgAAAJ4AAAB+MAbDADbCABgMBsw2GAGA",
+                    "pipeline_override": {
+                        "星塔_节点_选择潜能_agent": {
+                            "attach": {
+                                "handler": "json",
+                                "priority_list": [
+                                    {"trekker": "冬香", "potential": ["喵喵拳", "多段弹", "终结打击", "精准刺", "巅峰状态"]},
+                                    {"trekker": "圣诞菈露", "potential": ["火雨砸盘", "特别装载", "盛宴共振", "明日初火", "往日之焰", "玖肆璀璨"]},
+                                    {"trekker": "紫槿", "potential": ["零目闪", "傲然挺立", "完美鳞"]},
+                                    {"trekker": "冬香", "potential": ["喵喵反击"]},
+                                    {"trekker": "圣诞菈露", "potential": ["蓄势决策", "玩风独奏"]},
+                                    {"trekker": "冬香", "potential": ["快准猛打", "勇猛殊威", "猛熊出击"]},
+                                    {"trekker": "圣诞菈露", "potential": ["棒棒勇歌", "火焰凤凰"], "max_level": 1},
+                                    {"trekker": "紫槿", "potential": ["塔来同", "御风龟纹"]},
+                                    {"trekker": "紫槿", "potential": "推竿叠鳞", "max_level": 1}
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
         }
     }
 }
