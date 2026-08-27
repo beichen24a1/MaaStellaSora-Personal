@@ -845,13 +845,13 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "花铃", "potential": ["蜃影潜袭", "霸群滔浪", "滔天巨浪", "共鸣气场", "双影狩猎", "追影指示"]},
+                                    {"trekker": "花铃", "potential": ["猎群涡流", "蜃影潜袭", "滔天巨浪", "共鸣气场", "双影狩猎", "追影指示"]},
                                     {"trekker": "乙叶", "potential": ["暗夜行路", "寂影成双", "孤灯摇曳", "暗色蚕食", "须臾无踪"]},
-                                    {"trekker": "珂赛特", "potential": ["无光落印", "残影印记", "黑暗之赐", "幽冥烈焰", "暗余晖", "暗魔痕"]},
+                                    {"trekker": "珂赛特", "potential": ["无光落印", "残影印记", "黑暗之赐", "幽冥烈焰", "暗·余晖", "暗·魔痕"]},
                                     {"trekker": "乙叶", "potential": ["湮灭低鸣"]},
                                     {"trekker": "花铃", "potential": ["信心倍增", "绝海的斗争"]},
                                     {"trekker": "乙叶", "potential": "空阶之上", "max_level": 1},
-                                    {"trekker": "珂赛特", "potential": ["暗迷幻", "暗蜃影"], "max_level": 1}
+                                    {"trekker": "珂赛特", "potential": ["暗·迷幻", "暗·蜃影"], "max_level": 1}
                                 ]
                             }
                         }
