@@ -978,12 +978,8 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
                 old = potential.old_level
                 new = potential.new_level
                 logger.info(f"[潜能识别] {potential.name} | 等级 {old}→{new} | 排名 {print_rank}")
-            # debug 阶段：OCR 名字完全没命中任何预设规则时高亮报错，方便核对/修正名字
-            if potential.rank < 0:
-                logger.error(
-                    f"[潜能识别][未命中预设] 潜能 '{potential.name}' 未匹配到任何 priority_list 规则。"
-                    "请核对游戏内简体名是否与预设一致，或补充到预设清单中。"
-                )
+        # 注意：单个潜能未命中预设(rank<0)是清单外/故意不抓的潜能，安静忽略，不逐条报错刷屏。
+        # 只有三个潜能全部未命中时，才在下方汇总提示一次（这种情况才是真需要修预设名）。
 
         # 选择排名最高的潜能
         best_potential = self.best_potential
