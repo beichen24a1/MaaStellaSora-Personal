@@ -864,12 +864,12 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "希娅", "potential": ["幻光谱光", "凛雪化刃", "雪域压制", "穿雪破空", "暴雪怒心"]},
-                                    {"trekker": "火垂", "potential": ["峰岭斩绝", "峰岭怒刃", "折光随境", "重剑迅影", "光涟扩散"]},
-                                    {"trekker": "缇莉娅", "potential": ["巧抢奇才"]},
-                                    {"trekker": "希娅", "potential": ["兔影追踪", "巨浪镜华", "障雪逐影", "兔光镜华", "兔影穿雪"]},
-                                    {"trekker": "火垂", "potential": ["天地同鸣", "光浪传锋"]},
-                                    {"trekker": "缇莉娅", "potential": ["新裁荡尽刻", "纷乱接力", "骑士圣印"]}
+                                    {"trekker": "希娅", "potential": ["幻步临光", "凛雪化刃", "雪域压制", "穿雪破空", "凝雪融心"]},
+                                    {"trekker": "火垂", "potential": ["辉剑·重影", "辉剑·燃火", "积光成刃", "星芒坠落", "归刃散华"]},
+                                    {"trekker": "缇莉娅", "potential": ["圣洁的铭刻", "再续的光谱", "顽敌克制", "强光致盲", "骑士圣印"]},
+                                    {"trekker": "希娅", "potential": ["兔影穿风", "兔影追踪", "兔影聚焦"], "max_level": 1},
+                                    {"trekker": "火垂", "potential": ["辉剑·锋刃", "重剑迅影", "光湮扩散"], "max_level": 1},
+                                    {"trekker": "缇莉娅", "potential": ["绝妙接力", "奇招馈能"], "max_level": 1}
                                 ]
                             }
                         }
