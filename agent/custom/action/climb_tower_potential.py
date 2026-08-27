@@ -242,6 +242,12 @@ class Parameters:
                 "no_upgrade": raw.get("no_upgrade", False),
                 # 强化时不选择/不强化该潜能
                 "no_enhance": raw.get("no_enhance", False),
+                # 特殊机制标记：暗·蜃影/礼炮双响/镜水归潮，只在特定跨度/刷新时抓，抓满后不抓
+                "special": raw.get("special"),
+                # 特殊机制：抓满后降级不抓的等级上限
+                "special_cap_level": raw.get("special_cap_level"),
+                # 特殊机制：只强化到该等级
+                "special_enhance_cap": raw.get("special_enhance_cap"),
             })
 
         return valid_entries
@@ -1065,6 +1071,13 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
             else:
                 actual_priority = entry["priority"] - (level_span - 1)
 
+            # 3.5 特殊机制：只在特定等级跨度/刷新次数时抓，抓满后降为低优先(不抓)
+            special = entry.get("special")
+            if special:
+                special_ok = self._check_special_rule(special, entry, potential)
+                if not special_ok:
+                    continue  # 不满足特殊条件，跳过这条规则(不参与选择)
+
             # 4. 取实际优先级最小(最优先)的规则
             if best_entry is None or actual_priority < best_priority:
                 best_entry = entry
@@ -1110,6 +1123,36 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
         cleaned_rule = cleaned_rule.translate(table)
 
         return cleaned_ocr in cleaned_rule
+
+    def _check_special_rule(self, special: str, entry: dict, potential: Potential) -> bool:
+        """特殊机制：只在特定等级跨度/刷新次数时抓，抓满 cap 级后不再抓。
+
+        Args:
+            special: 特殊标记(dark_afterimage/salute_double/mirror_current)
+            entry: 当前规则
+            potential: 待选潜能
+
+        Returns:
+            bool: True 表示满足特殊条件(可参与选择)；False 表示不满足(跳过)
+        """
+        old = potential.old_level
+        new = potential.new_level
+        span = potential.level_span
+        cap = entry.get("special_cap_level")
+        # 已抓到 cap 级(或以上)，不再抓
+        if cap is not None and old >= cap:
+            return False
+
+        if special == "dark_afterimage":
+            # 暗·蜃影：跨度 0→1 时抓，或刷新次数 > 3 时抓
+            return (old == 0 and span == 1) or self.data.refresh_count > 3
+        if special == "salute_double":
+            # 礼炮双响：跨度 0→1 时抓
+            return old == 0 and span == 1
+        if special == "mirror_current":
+            # 镜水归潮：跨度 0→2 时抓
+            return old == 0 and span <= 2
+        return True
 
     def _is_entry_valid(self, entry: dict, potential: Potential) -> bool:
         """业务规则过滤器：方便未来随意扩展判定条件"""
