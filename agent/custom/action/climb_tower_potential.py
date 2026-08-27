@@ -1117,6 +1117,10 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
         if self.data.core_potential:
             return True
 
+        # 强化时：标了 no_enhance(不强化) 的潜能跳过，不参与强化选择
+        if self.data.params.trigger_type == "enhance" and entry.get("no_enhance"):
+            return False
+
         # 普通潜能，组合匹配规则
         checks = [
             potential.old_level < entry["max_level"],
