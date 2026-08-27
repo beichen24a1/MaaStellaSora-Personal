@@ -824,11 +824,28 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "千都世", "potential": ["腾蛇泼波", "镜影流锋", "逐浪幻鳞", "亭亭翩舞", "激浪落振"]},
-                                    {"trekker": "多娜", "potential": ["离弦之箭", "残矢清屏", "箭矢追击", "百步穿杨", "凝霜前寒"]},
-                                    {"trekker": "薇洛", "potential": ["音浪荡漾", "浪响震耳", "异色水泡", "巨浪吞城", "潮音渐歇", "海风执纪"]},
-                                    {"trekker": "千都世", "potential": "镜水归潮", "max_level": 1},
-                                    {"trekker": "多娜", "potential": ["流矢放逐", "水行攻涨"], "max_level": 1}
+                                    {"trekker": "千都世", "potential": "断空泷斩", "priority": 0},
+                                    {"trekker": "千都世", "potential": "溯流泷闪", "priority": 0},
+                                    {"trekker": "多娜", "potential": "离弦之箭", "priority": 0},
+                                    {"trekker": "多娜", "potential": "残矢清算", "priority": 0},
+                                    {"trekker": "薇洛", "potential": "音浪荡漾", "priority": 0},
+                                    {"trekker": "薇洛", "potential": "浪鸣震耳", "priority": 0},
+                                    {"trekker": "千都世", "potential": "涟汐环行", "priority": 1},
+                                    {"trekker": "千都世", "potential": "潮影环蛇", "priority": 1},
+                                    {"trekker": "多娜", "potential": "箭矢追击", "priority": 1},
+                                    {"trekker": "多娜", "potential": "凝霜前寒", "priority": 1},
+                                    {"trekker": "薇洛", "potential": "风和浪暖", "priority": 1},
+                                    {"trekker": "薇洛", "potential": "异色水泡", "priority": 1},
+                                    {"trekker": "千都世", "potential": "碧浪霖身", "priority": 2},
+                                    {"trekker": "多娜", "potential": "波纹涟漪", "priority": 2},
+                                    {"trekker": "薇洛", "potential": "巨浪吞城", "priority": 2},
+                                    {"trekker": "薇洛", "potential": "潮音渐歇", "priority": 2},
+                                    {"trekker": "薇洛", "potential": "海风执纪", "priority": 2},
+                                    {"trekker": "千都世", "potential": "坚鳞护体", "priority": 3},
+                                    {"trekker": "千都世", "potential": "流波幻舞", "priority": 3},
+                                    {"trekker": "多娜", "potential": "寒潮起势", "priority": 3},
+                                    {"trekker": "多娜", "potential": "水行攻涨", "priority": 3, "no_upgrade": true},
+                                    {"trekker": "千都世", "potential": "镜水归潮", "priority": 1, "special": "mirror_current", "special_cap_level": 2, "special_enhance_cap": 2, "no_enhance": true}
                                 ]
                             }
                         }
@@ -843,13 +860,28 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "花铃", "potential": ["猎群涡流", "蜃影潜袭", "滔天巨浪", "共鸣气场", "双影狩猎", "追影指示"]},
-                                    {"trekker": "乙叶", "potential": ["暗夜行路", "寂影成双", "孤灯摇曳", "暗色蚕食", "须臾无踪"]},
-                                    {"trekker": "珂赛特", "potential": ["无光落印", "残影印记", "黑暗之赐", "幽冥烈焰", "暗·余晖", "暗·魔痕"]},
-                                    {"trekker": "乙叶", "potential": ["湮灭低鸣"]},
-                                    {"trekker": "花铃", "potential": ["信心倍增", "绝海的斗争"]},
-                                    {"trekker": "乙叶", "potential": "空阶之上", "max_level": 1},
-                                    {"trekker": "珂赛特", "potential": ["暗·迷幻", "暗·蜃影"], "max_level": 1}
+                                    {"trekker": "花铃", "potential": "鲨影潜袭", "priority": 0},
+                                    {"trekker": "乙叶", "potential": "暗夜行路", "priority": 0},
+                                    {"trekker": "珂赛特", "potential": "无光落印", "priority": 0},
+                                    {"trekker": "花铃", "potential": "猎群涡流", "priority": 0},
+                                    {"trekker": "乙叶", "potential": "寂影成双", "priority": 0},
+                                    {"trekker": "珂赛特", "potential": "残影印记", "priority": 0},
+                                    {"trekker": "花铃", "potential": "滔天巨浪", "priority": 1},
+                                    {"trekker": "乙叶", "potential": "孤灯摇曳", "priority": 1},
+                                    {"trekker": "珂赛特", "potential": "黑暗之赐", "priority": 1},
+                                    {"trekker": "花铃", "potential": "共鸣气场", "priority": 1},
+                                    {"trekker": "乙叶", "potential": "暗色蚕食", "priority": 1},
+                                    {"trekker": "珂赛特", "potential": "幽冥烈焰", "priority": 2},
+                                    {"trekker": "珂赛特", "potential": "暗·余晖", "priority": 2},
+                                    {"trekker": "珂赛特", "potential": "暗·魔痕", "priority": 2},
+                                    {"trekker": "乙叶", "potential": "须臾无踪", "priority": 2},
+                                    {"trekker": "花铃", "potential": "双影狩猎", "priority": 2},
+                                    {"trekker": "花铃", "potential": "追影指示", "priority": 2},
+                                    {"trekker": "乙叶", "potential": "湮灭低鸣", "priority": 3},
+                                    {"trekker": "花铃", "potential": "绝海的斗争", "priority": 3},
+                                    {"trekker": "花铃", "potential": "信心倍增", "priority": 4, "no_upgrade": true, "no_enhance": true},
+                                    {"trekker": "乙叶", "potential": "空阶之上", "priority": 5, "no_upgrade": true, "no_enhance": true},
+                                    {"trekker": "珂赛特", "potential": "暗·蜃影", "priority": 1, "special": "dark_afterimage", "special_cap_level": 1, "no_enhance": true}
                                 ]
                             }
                         }
@@ -864,12 +896,27 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "希娅", "potential": ["幻步临光", "凛雪化刃", "雪域压制", "穿雪破空", "凝雪融心"]},
-                                    {"trekker": "火垂", "potential": ["辉剑·重影", "辉剑·燃火", "积光成刃", "星芒坠落", "归刃散华"]},
-                                    {"trekker": "缇莉娅", "potential": ["圣洁的铭刻", "再续的光谱", "顽敌克制", "强光致盲", "骑士圣印"]},
-                                    {"trekker": "希娅", "potential": ["兔影穿风", "兔影追踪", "兔影聚焦"], "max_level": 1},
-                                    {"trekker": "火垂", "potential": ["辉剑·锋刃", "重剑迅影", "光湮扩散"], "max_level": 1},
-                                    {"trekker": "缇莉娅", "potential": ["绝妙接力", "奇招馈能"], "max_level": 1}
+                                    {"trekker": "希娅", "potential": "幻步临光", "priority": 0},
+                                    {"trekker": "希娅", "potential": "霁雪化刃", "priority": 0},
+                                    {"trekker": "火垂", "potential": "辉剑·追斩", "priority": 0},
+                                    {"trekker": "火垂", "potential": "辉剑·煌刃", "priority": 0},
+                                    {"trekker": "缇莉娅", "potential": "再续的光谱", "priority": 0},
+                                    {"trekker": "缇莉娅", "potential": "圣洁的铭刻", "priority": 0},
+                                    {"trekker": "希娅", "potential": "雪域压制", "priority": 1},
+                                    {"trekker": "火垂", "potential": "纯洁领域", "priority": 1},
+                                    {"trekker": "缇莉娅", "potential": "顽敌克制", "priority": 1},
+                                    {"trekker": "希娅", "potential": "穿雪破空", "priority": 1},
+                                    {"trekker": "火垂", "potential": "重剑迅影", "priority": 1},
+                                    {"trekker": "希娅", "potential": "光涟扩散", "priority": 1},
+                                    {"trekker": "缇莉娅", "potential": "奇招馈能", "priority": 1},
+                                    {"trekker": "缇莉娅", "potential": "骑士圣印", "priority": 1},
+                                    {"trekker": "希娅", "potential": "兔光聚焦", "priority": 2},
+                                    {"trekker": "缇莉娅", "potential": "骑誓·战意鼓动", "priority": 2},
+                                    {"trekker": "希娅", "potential": "天地同辉", "priority": 3},
+                                    {"trekker": "火垂", "potential": "光流蓄锋", "priority": 3},
+                                    {"trekker": "缇莉娅", "potential": "绝妙接力", "priority": 4},
+                                    {"trekker": "希娅", "potential": "兔影追踪", "priority": 5, "no_upgrade": true, "no_enhance": true},
+                                    {"trekker": "希娅", "potential": "兔影穿风", "priority": 5, "no_upgrade": true, "no_enhance": true}
                                 ]
                             }
                         }
@@ -884,12 +931,27 @@
                             "attach": {
                                 "handler": "json",
                                 "priority_list": [
-                                    {"trekker": "冬香", "potential": ["喵喵拳", "多发弹", "爆裂追击", "快拳速打", "铁拳蓄势"]},
-                                    {"trekker": "圣诞菈露", "potential": ["火雨倾盆", "特别装药", "礼炮双响", "振奋炮击", "初尝甜蜜", "红心赦令", "红心祝祷"]},
-                                    {"trekker": "紫槿", "potential": ["明日·薪火", "薪火的再燃", "完美接续", "伏笔验证", "群演效应", "往日·余烬"]},
-                                    {"trekker": "冬香", "potential": ["终结打击", "回旋反击", "巅峰状态"]},
-                                    {"trekker": "圣诞菈露", "potential": ["并变时刻", "授勋仪式"], "max_level": 1},
-                                    {"trekker": "紫槿", "potential": ["余烬的火箭", "印象强化"], "max_level": 1}
+                                    {"trekker": "冬香", "potential": "喵喵拳", "priority": 0},
+                                    {"trekker": "冬香", "potential": "多发弹", "priority": 0},
+                                    {"trekker": "紫槿", "potential": "明日·薪火", "priority": 0},
+                                    {"trekker": "紫槿", "potential": "薪火的再燃", "priority": 0},
+                                    {"trekker": "圣诞菈露", "potential": "特别装药", "priority": 0},
+                                    {"trekker": "圣诞菈露", "potential": "火雨倾盆", "priority": 0},
+                                    {"trekker": "冬香", "potential": "快拳连打", "priority": 1},
+                                    {"trekker": "冬香", "potential": "巅峰状态", "priority": 1},
+                                    {"trekker": "冬香", "potential": "爆裂追击", "priority": 1},
+                                    {"trekker": "冬香", "potential": "终结打击", "priority": 1},
+                                    {"trekker": "紫槿", "potential": "伏笔验证", "priority": 1},
+                                    {"trekker": "紫槿", "potential": "客串回", "priority": 1},
+                                    {"trekker": "圣诞菈露", "potential": "童话法则", "priority": 1},
+                                    {"trekker": "圣诞菈露", "potential": "庆典再启", "priority": 1},
+                                    {"trekker": "冬香", "potential": "铁拳如风", "priority": 2},
+                                    {"trekker": "紫槿", "potential": "绝息热焰", "priority": 2},
+                                    {"trekker": "紫槿", "potential": "完美接戏", "priority": 2},
+                                    {"trekker": "圣诞菈露", "potential": "玩具军团", "priority": 2},
+                                    {"trekker": "冬香", "potential": "回旋反击", "priority": 3},
+                                    {"trekker": "紫槿", "potential": "视觉冲击", "priority": 3},
+                                    {"trekker": "圣诞菈露", "potential": "礼炮双响", "priority": 1, "special": "salute_double", "special_cap_level": 1, "no_enhance": true}
                                 ]
                             }
                         }
