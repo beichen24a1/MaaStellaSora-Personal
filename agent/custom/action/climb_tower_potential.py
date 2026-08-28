@@ -996,19 +996,16 @@ class AssistantPriorityHandler(ChoosePotentialHandler):
                 new = potential.new_level
                 logger.info(f"[潜能识别] {potential.name} | 等级 {old}→{new} | 优先级 {print_rank}")
         # 注意：单个潜能未命中预设(rank<0)是清单外/故意不抓的潜能，安静忽略，不逐条报错刷屏。
-        # 只有三个潜能全部未命中时，才在下方汇总提示一次（这种情况才是真需要修预设名）。
+        # 三个潜能全未命中 = 正常(会刷新继续刷)，只留 debug 日志便于排查，不报高亮错误。
 
         # 选择排名最高的潜能
         best_potential = self.best_potential
         if best_potential:
             logger.info(f"[潜能选择] {best_potential.name}")
         else:
-            # 三个潜能全部未命中规则时，汇总打印所有 OCR 名，方便批量修正
+            # 三个潜能全部未命中规则时，仅 debug 记录，不打扰
             all_names = [p.name for p in self.data.potentials]
-            logger.error(
-                f"[潜能识别][全未命中] 本次可选潜能全部未匹配到任何预设规则：{all_names}。"
-                "兜底将选系统推荐；若这些名字本应被预设抓到，请修正 priority_list 中的简体名。"
-            )
+            logger.debug(f"[潜能识别][全未命中] 本次可选潜能全部未匹配到任何预设规则：{all_names}")
 
         return best_potential
 
