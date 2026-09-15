@@ -42,3 +42,52 @@ def save_image(image: np.ndarray, comment: str) -> bool:
     # 保存截图
     img.save(file_path)
     return True
+
+
+# ===== 识别截图留档（不依赖 PIL，直接写 BMP）=====
+import os
+import struct
+import time as _time
+
+_rec_dir = Path(__file__).resolve().parents[2] / "debug" / "识别截图"
+_rec_dir.mkdir(parents=True, exist_ok=True)
+
+
+def _cleanup_old_snapshots(max_count: int = 100):
+    """保留最近 max_count 张识别截图，超出则删除最旧的。"""
+    try:
+        files = [f for f in _rec_dir.iterdir() if f.is_file() and f.suffix.lower() in (".bmp", ".png")]
+        if len(files) > max_count:
+            files.sort(key=lambda f: f.stat().st_mtime, reverse=False)
+            for f in files[:len(files) - max_count]:
+                try:
+                    f.unlink()
+                except Exception:
+                    pass
+    except Exception:
+        pass
+
+
+def save_rec_screenshot(image, tag: str = "") -> str:
+    """把识别用的截图保存到 debug/识别截图/，按 年月日时分秒 命名，BMP 格式（无需 PIL）。
+
+    Args:
+        image: MAA 截图（numpy, BGR）。
+        tag: 备注（如节点名），用于区分。
+
+    Returns:
+        str: 保存路径；失败返回说明。
+    """
+    try:
+        import numpy as np
+        from PIL import Image
+        _cleanup_old_snapshots()
+        ts = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
+        name = f"{ts}_{tag}.png" if tag else f"{ts}.png"
+        path = _rec_dir / name
+        # MAA 截图通常为 BGR，转 RGB 后存 PNG
+        img = Image.fromarray(image[:, :, :3][:, :, ::-1], mode="RGB")
+        img.save(path)
+        return str(path)
+    except Exception as exc:
+        return f"<save failed: {exc}>"
