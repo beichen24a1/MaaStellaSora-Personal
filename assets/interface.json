@@ -6,7 +6,7 @@
     "license": "MIT",
     "welcome": "欢迎使用星塔爬塔助手（个人版）",
     "github": "https://github.com/beichen24a1/MaaStellaSora-Personal",
-    "version": "1.2.2-personal.1",
+    "version": "1.2.2-personal.2",
     "custom_title": "星塔爬塔助手",
     "agent": {
         "child_exec": "python",
