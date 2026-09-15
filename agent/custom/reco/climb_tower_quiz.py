@@ -8,29 +8,6 @@ from utils import logger as logger_module
 logger = logger_module.get_logger("climb_tower_quiz")
 
 
-def _save_dialog_choice(image, text) -> bool:
-    """对话选择时把当前截图存到 debug/对话选择存档/，供后续择优分析。
-
-    - 命中清单词时，text 传命中的关键词（文件名便于识别）；否则传"未命中"。
-    - 无论命中与否都会存一张，确保覆盖所有题目，不漏题。
-    """
-    try:
-        from datetime import datetime
-        from pathlib import Path
-        import re
-        from PIL import Image as PILImage
-        save_dir = Path(__file__).resolve().parents[3] / "debug" / "对话选择存档"
-        save_dir.mkdir(parents=True, exist_ok=True)
-        safe = re.sub(r'[\\/:*?"<>|]', '_', str(text))
-        ts = datetime.now().strftime("%Y.%m.%d.%H.%M.%S.%f")[:-3]
-        PILImage.fromarray(image[:, :, :3][:, :, ::-1], mode="RGB").save(save_dir / f"{ts}_{safe}.png")
-        logger.info(f"[对话选择] 已截图存档：{text}")
-        return True
-    except Exception as exc:
-        logger.warning(f"[对话选择] 截图存档失败：{exc}")
-        return False
-
-
 @AgentServer.custom_recognition("quiz_recognition")
 class QuizRecognition(CustomRecognition):
     ROIS = {
@@ -51,9 +28,6 @@ class QuizRecognition(CustomRecognition):
         if reco_result and reco_result.hit:
             answer_count = len(reco_result.filtered_results)
             default_box = reco_result.best_result.box
-
-        # 每次进入对话选择都存一张截图（无论命中与否），确保覆盖所有题目
-        _save_dialog_choice(argv.image, f"选择_选项数{answer_count}")
 
         if answer_count == 1:
             # 有时候因为不够金币导致只有部分选项生效
@@ -109,7 +83,6 @@ class QuizRecognition(CustomRecognition):
             target_text = reco_result.best_result.text
             target_box = reco_result.best_result.box
             logger.info(f"[问题选择] 选择答案：{target_text}")
-            _save_dialog_choice(image, target_text)  # 命中清单词，也存一张带词名截图
             return target_box
 
         return None
