@@ -61,8 +61,15 @@ class QuizRecognition(CustomRecognition):
             return CustomRecognition.AnalyzeResult(box=default_box, detail={})
 
         if not answer_count or answer_count not in self.ROIS:
-            logger.error(f"[问题选择] 检测选项个数出现问题")
-            return CustomRecognition.AnalyzeResult(box=None, detail={})
+            logger.warning(f"[问题选择] 选项个数={answer_count} 异常，尝试兜底定位选项")
+            fallback = self._fallback_box(context, argv.image, reco_result)
+            if fallback:
+                logger.info(f"[问题选择] 兜底选择选项 box={fallback}")
+                return CustomRecognition.AnalyzeResult(box=fallback, detail={})
+            logger.error(f"[问题选择] 无法定位任何选项，返回默认 box={default_box}")
+            # 避免 box=None 导致点击失败：退回 default_box，无效则用对话框区域兜底
+            use_box = default_box if default_box != [0, 0, 0, 0] else [600, 250, 560, 400]
+            return CustomRecognition.AnalyzeResult(box=use_box, detail={})
 
         # 寻找最佳答案
         roi = self.ROIS[answer_count]
@@ -133,4 +140,21 @@ class QuizRecognition(CustomRecognition):
             fixed_box = [target_box[0], target_box[1]-55, target_box[2]-100, target_box[3]]
             return fixed_box
 
+        return None
+
+    @staticmethod
+    def _fallback_box(context: Context, image: np.ndarray, reco_result) -> list | None:
+        """选项个数识别异常时的兜底定位：依次尝试模板命中结果、对话OCR最佳结果。"""
+        # 1) 取"随便选择"模板的全部命中结果中的第一个
+        if reco_result and reco_result.all_results:
+            return reco_result.all_results[0].box
+        # 2) 用"进行对话选择"OCR 在较大的对话区域找文本，取最佳结果 box
+        override = {
+            "星塔_节点_进行对话选择_agent": {
+                "recognition": {"param": {"roi": [560, 200, 660, 420]}}
+            }
+        }
+        r2 = context.run_recognition("星塔_节点_进行对话选择_agent", image, override)
+        if r2 and r2.hit and r2.best_result:
+            return r2.best_result.box
         return None

@@ -82,6 +82,8 @@ class State:
     high_level_span_count: int = 0
     potential_count: int = 0
     owned_potentials: dict = {}
+    climb_count: int = 0   # 第几次爬塔（跨爬塔累计，不随 reset 清零）
+    melody_counts: dict = {}   # 音符名 -> 数量（进商店前从背包读取）
 
     @classmethod
     def reset(cls):
@@ -444,6 +446,12 @@ class ScreenDataProcessor:
                 self.image = self.context.tasker.controller.post_screencap().wait().get()
             image = self.image
 
+        # 识别截图留档（用于调试定位，按时间命名，24h 自动清理）
+        try:
+            save_rec_screenshot(image, node_name)
+        except Exception:
+            pass
+
         actual_max_try = max_try if max_try > 0 else self.max_try
 
         pipeline_override = {node_name: {"recognition": {"param": {"roi": roi}}}} if roi else {}
@@ -605,7 +613,16 @@ class ScreenDataProcessor:
         results = self._template(node_name, failed_return, image=image, max_try=max_try)
         if results == failed_return:
             logger.error("潜能数量识别失败，将默认为3个潜能")
-        return len(results)
+            return 3
+        count = len(results)
+        # 加固：卡数限制在 1~3，避免识别异常(>3 或 0)导致布局越界/无卡可用
+        if count > 3:
+            logger.warning(f"识别到 {count} 张潜能卡，超出上限，按 3 张处理")
+            count = 3
+        elif count < 1:
+            logger.warning("识别到 0 张潜能卡，按 1 张兜底")
+            count = 1
+        return count
 
     def get_recommended_potential(
             self,
@@ -810,7 +827,8 @@ class ChoosePotentialHandler:
         ]
 
         for rule in priority_rules:
-            candidates = [p for p in self.data.potentials if rule(p)]
+            # 只考虑"有效卡"（有名字或新等级>0），避免因为强化只剩2张/存在空卡而选到假卡
+            candidates = [p for p in self.data.potentials if rule(p) and (p.name or p.new_level > 0)]
             if candidates:
                 # 按照等级跨度降序、推荐等级降序、旧等级降序来排序，选择最优的潜能
                 return max(candidates, key=lambda p: (p.level_span, p.recommended_level, p.old_level), default=None)
@@ -824,7 +842,12 @@ class ChoosePotentialHandler:
 
     @property
     def _default_potential(self):
-        potential = next(p for p in self.data.potentials if p.selected)
+        potential = next((p for p in self.data.potentials if p.selected), None)
+        if potential is None:
+            # 优先选"有效卡"（有名字或新等级>0），避免只剩2张/存在空卡时选到假卡
+            potential = next((p for p in self.data.potentials if p.name or p.new_level > 0), None)
+        if potential is None and self.data.potentials:
+            potential = self.data.potentials[0]
         return potential
 
     @property
@@ -1227,7 +1250,21 @@ class ChoosePotentialAction(CustomAction):
         else: # default
             handler = ChoosePotentialHandler(screen, data)
 
+        # 序号化日志：记录本次爬塔的次数
+        logger.info(f"====== [潜能选择] 第 {State.climb_count + 1} 次爬塔 ======")
+        loop_start = time.monotonic()
+
         while True:
+            # 卡死守护：潜能选择长时间无结果时，保存现场并自动停止
+            if time.monotonic() - loop_start > 180:
+                logger.error("[卡死守护] 潜能选择超过180秒无结果，保存现场并自动停止")
+                try:
+                    save_image(screen.image, "卡死守护_潜能")
+                except Exception as exc:
+                    logger.warning(f"[卡死守护] 保存截图失败：{exc}")
+                context.tasker.post_stop()
+                return CustomAction.RunResult(success=False)
+
             # 获取潜能数据，并选择潜能
             if not handler._wait_for_item_list_gone():
                 logger.error("等待物品提示消失失败，终止本次潜能选择")
@@ -1248,6 +1285,11 @@ class ChoosePotentialAction(CustomAction):
         click_result = handler.pick(potential)
         if not click_result:
             logger.error(f"点击潜能失败")
+
+        logger.info(
+            f"[潜能选择] 第 {State.climb_count + 1} 次爬塔 => "
+            f"选择：{potential.name}（{potential.old_level}→{potential.new_level}）"
+        )
 
         # 回写参数
         if data.params.handler == "json":
