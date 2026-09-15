@@ -1,15 +1,13 @@
 {
     "interface_version": 2,
-    "name": "MaaStellaSora",
-    "description": "星塔助手（MaaStellaSora）提供对于游戏《星塔旅人》的自动签到、清理日常等功能，由 MaaFramework 强力驱动",
-    "contact": "QQ交流群：1063132902  密码：星塔旅人",
+    "name": "MaaStellaSora-Personal",
+    "description": "星塔旅人爬塔助手（个人版）：专注自动爬塔，支持潜能优先级预设、商店音符策略、对话选择存档，由 MaaFramework 强力驱动",
+    "contact": "",
     "license": "MIT",
-    "welcome": "首次使用！欢迎使用 MaaStellaSora",
-    "github": "https://github.com/MaaStellaSora/MaaStellaSora",
-    "version": "0.9.5",
-    "custom_title": "星塔助手",
-    "mirrorchyan_rid": "SSAH",
-    "mirrorchyan_multiplatform": true,
+    "welcome": "欢迎使用星塔爬塔助手（个人版）",
+    "github": "https://github.com/beichen24a1/MaaStellaSora-Personal",
+    "version": "1.2.2-personal.1",
+    "custom_title": "星塔爬塔助手",
     "agent": {
         "child_exec": "python",
         "child_args": [
@@ -29,10 +27,7 @@
                 "mouse": "SendMessageWithCursorPos",
                 "keyboard": "SendMessageWithCursorPos"
             },
-            "permission_required": true,
-            "attach_resource_path": [
-                "{PROJECT_DIR}/resource/windows"
-            ]
+            "permission_required": true
         },
         {
             "name": "安卓端",
@@ -73,47 +68,7 @@
         }
     ],
     "import": [
-		"resource/tasks/login.json",
-		"resource/tasks/shop.json",
-		"resource/tasks/talk.json",
-		"resource/tasks/invite.json",
-		"resource/tasks/activity.json",
-		"resource/tasks/activity_challenge.json",
-		"resource/tasks/fight.json",
-		"resource/tasks/quest.json",
-		"resource/tasks/friend.json",
-		"resource/tasks/task.json",
-		"resource/tasks/mail.json",
-		"resource/tasks/grant.json",
-        "resource/tasks/operation.json",
         "resource/tasks/climb_tower.json",
         "resource/tasks/climb_tower_presets.json"
-    ],
-    "option": {
-        "自定义快速作战次数": {
-            "type": "input",
-            "label": "自定义快速作战次数",
-            "inputs": [
-                {
-                    "name": "次数",
-                    "label": "次数",
-                    "description": "打几次就填几",
-                    "default": "1",
-                    "pipeline_type": "int",
-                    "verify": "^[1-9]\\d*$"
-                }
-            ],
-            "pipeline_override": {
-                "通用_换算快速作战次数": {
-                    "action": {
-                        "type": "Custom",
-                        "param": {
-                            "custom_action": "utool_calc_repeat",
-                            "custom_action_param": "{次数}"
-                        }
-                    }
-                }
-            }
-        }
-    }
+    ]
 }

@@ -20,21 +20,6 @@
     },
     "timeout": 1500
   },
-  "通用_换算快速作战次数": {
-    "action": {
-      "param": {
-        "custom_action": "utool_calc_repeat"
-      },
-      "type": "Custom"
-    },
-    "next": [
-      "活动快速战斗_添加战斗次数"
-    ],
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
   "通用_返回主页": {
     "next": [
       "通用_主页标记",
@@ -212,24 +197,6 @@
     "post_wait_freezes": {
       "time": 100,
       "timeout": 1500
-    }
-  },
-  "通用_消耗所有干劲": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "活动快速战斗_开始战斗"
-    ],
-    "recognition": {
-      "param": {
-        "template": [
-          "max.png"
-        ],
-        "threshold": 0.8
-      },
-      "type": "TemplateMatch"
     }
   },
   "通用_关闭升级界面": {
