@@ -1,7 +1,7 @@
 {
     "interface_version": 2,
     "name": "MaaStellaSora-Personal",
-    "description": "星塔旅人爬塔助手（个人版）：专注自动爬塔，支持潜能优先级预设、商店音符策略、对话选择存档，由 MaaFramework 强力驱动",
+    "description": "星塔旅人爬塔助手（个人版）：专注自动爬塔，支持潜能优先级自定义、潜能数/记录等级目标停止、商店音符数量目标，由 MaaFramework 强力驱动",
     "contact": "",
     "license": "MIT",
     "welcome": "欢迎使用星塔爬塔助手（个人版）",
