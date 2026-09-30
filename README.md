@@ -6,6 +6,9 @@
     <p>星塔助手（MaaStellaSora）提供自动签到、清理日常等功能，由 MaaFramework 强力驱动</p>
 </div>
 
+> **这是个人版（MaaStellaSora-Personal）**：基于[官方仓库](https://github.com/MaaStellaSora/MaaStellaSora)的叠加式增强版，
+> 持续跟随上游更新。使用中遇到问题请提到**本仓库的 Issues**，不要打扰上游；差异、增量约定与同步流程见 [PERSONAL.md](PERSONAL.md)。
+
 遇到问题请去Issues反馈，或前往QQ交流群进行反馈
 
 QQ交流群：**1063132902**  密码：**星塔旅人**
