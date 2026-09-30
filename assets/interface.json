@@ -1,15 +1,13 @@
 {
     "interface_version": 2,
-    "name": "MaaStellaSora",
-    "description": "星塔助手（MaaStellaSora）提供对于游戏《星塔旅人》的自动签到、清理日常等功能，由 MaaFramework 强力驱动",
-    "contact": "QQ交流群：1063132902  密码：星塔旅人",
+    "name": "MaaStellaSora-Personal",
+    "description": "星塔助手个人版（MaaStellaSora-Personal）：以上游 MaaStellaSora 为基线的叠加式增强版，与上游保持同步，由 MaaFramework 强力驱动",
+    "contact": "https://github.com/beichen24a1/MaaStellaSora-Personal/issues",
     "license": "MIT",
-    "welcome": "首次使用！欢迎使用 MaaStellaSora",
-    "github": "https://github.com/MaaStellaSora/MaaStellaSora",
+    "welcome": "欢迎使用星塔助手个人版（MaaStellaSora-Personal）",
+    "github": "https://github.com/beichen24a1/MaaStellaSora-Personal",
     "version": "0.9.5",
     "custom_title": "星塔助手",
-    "mirrorchyan_rid": "SSAH",
-    "mirrorchyan_multiplatform": true,
     "agent": {
         "child_exec": "python",
         "child_args": [
