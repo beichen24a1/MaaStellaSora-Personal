@@ -8,7 +8,7 @@
         },
         "next": [
             "灾变防线_出发",
-            "灾变防线_入口图标",
+            "灾变防线_入口文字",
             "灾变防线_主界面",
             "灾变防线_记录选择",
             "[JumpBack]通用_返回主页"
@@ -35,28 +35,28 @@
             }
         },
         "next": [
-            "灾变防线_入口图标"
+            "灾变防线_入口文字"
         ]
     },
-    "灾变防线_入口图标": {
+    "灾变防线_入口文字": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/entry_card.png"
+                "expected": [
+                    "灾变防线"
                 ],
                 "roi": [
                     860,
                     470,
                     320,
-                    180
-                ],
-                "threshold": 0.8
+                    190
+                ]
             }
         },
         "action": {
             "type": "Click"
         },
+        "post_wait_freezes": 300,
         "next": [
             "灾变防线_主界面",
             "灾变防线_记录选择"
@@ -114,18 +114,17 @@
     },
     "灾变防线_区域一选择纪录": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/record_slot.png"
+                "expected": [
+                    "选择纪录"
                 ],
                 "roi": [
                     180,
                     320,
                     300,
                     200
-                ],
-                "threshold": 0.8
+                ]
             }
         },
         "action": {
@@ -138,18 +137,17 @@
     },
     "灾变防线_区域二选择纪录": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/record_slot.png"
+                "expected": [
+                    "选择纪录"
                 ],
                 "roi": [
                     830,
                     320,
                     300,
                     200
-                ],
-                "threshold": 0.8
+                ]
             }
         },
         "action": {
@@ -199,18 +197,17 @@
     },
     "灾变防线_前往挑战": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/goto_challenge.png"
+                "expected": [
+                    "前往挑战"
                 ],
                 "roi": [
                     1040,
                     580,
                     230,
                     110
-                ],
-                "threshold": 0.8
+                ]
             }
         },
         "action": {
@@ -232,18 +229,17 @@
     },
     "灾变防线_命运卡片_拿走": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/take_card.png"
+                "expected": [
+                    "拿走"
                 ],
                 "roi": [
-                    200,
-                    520,
-                    260,
-                    100
-                ],
-                "threshold": 0.8
+                    190,
+                    510,
+                    280,
+                    120
+                ]
             }
         },
         "action": {
@@ -257,18 +253,17 @@
     },
     "灾变防线_命运卡片_选卡": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/card_title.png"
+                "expected": [
+                    "选择一张命运卡片"
                 ],
                 "roi": [
-                    440,
-                    20,
-                    440,
-                    70
-                ],
-                "threshold": 0.8
+                    430,
+                    15,
+                    460,
+                    80
+                ]
             }
         },
         "action": {
@@ -376,18 +371,17 @@
     },
     "灾变防线_一键领取": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
-                "template": [
-                    "personal/catastrophe_defense/claim.png"
+                "expected": [
+                    "一键领取"
                 ],
                 "roi": [
                     480,
                     520,
                     320,
                     110
-                ],
-                "threshold": 0.8
+                ]
             }
         },
         "action": {
