@@ -56,11 +56,11 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_主界面",
             "灾变防线_记录选择"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_主界面": {
         "recognition": {
@@ -86,17 +86,14 @@
                 ]
             }
         },
-        "post_wait_freezes": {
-            "time": 800,
-            "timeout": 8000
-        },
         "max_hit": 3,
         "next": [
             "灾变防线_记录选择"
         ],
         "focus": {
             "Node.Recognition.Succeeded": "灾变防线主界面：尝试点击关卡卡片进入记录选择"
-        }
+        },
+        "post_delay": 1500
     },
     "灾变防线_记录选择": {
         "recognition": {
@@ -137,10 +134,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_纪录管理"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_区域二选择纪录": {
         "recognition": {
@@ -160,10 +157,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_纪录管理"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_纪录管理": {
         "recognition": {
@@ -197,10 +194,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_记录选择"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_前往挑战": {
         "recognition": {
@@ -220,10 +217,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 500,
         "next": [
             "灾变防线_战斗循环"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_战斗循环": {
         "next": [
@@ -252,11 +249,11 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "通用_点击空白处继续",
             "灾变防线_战斗循环"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_命运卡片_选卡": {
         "recognition": {
@@ -282,10 +279,10 @@
                 ]
             }
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_命运卡片_拿走"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_走位": {
         "recognition": {
@@ -327,11 +324,11 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_首通奖励",
             "灾变防线_作战奖励"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_首通奖励": {
         "recognition": {
@@ -352,10 +349,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "灾变防线_作战奖励"
-        ]
+        ],
+        "post_delay": 1500
     },
     "灾变防线_作战奖励": {
         "recognition": {
@@ -394,10 +391,10 @@
         "action": {
             "type": "Click"
         },
-        "post_wait_freezes": 300,
         "next": [
             "通用_点击空白处继续",
             "[JumpBack]通用_返回主页"
-        ]
+        ],
+        "post_delay": 1500
     }
 }
