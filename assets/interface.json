@@ -89,7 +89,8 @@
         "interface/tasks/climb_tower.json",
         "interface/tasks/climb_tower_shop.json",
         "interface/tasks/climb_tower_shop_enhance.json",
-        "interface/tasks/climb_tower_target.json"
+        "interface/tasks/climb_tower_target.json",
+        "interface/tasks/personal_catastrophe_defense.json"
     ],
     "option": {
         "自定义快速作战次数": {

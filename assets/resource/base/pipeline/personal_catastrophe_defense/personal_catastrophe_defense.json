@@ -1,0 +1,402 @@
+{
+    "灾变防线_入口": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "catastrophe_defense_reset"
+            }
+        },
+        "next": [
+            "灾变防线_出发",
+            "灾变防线_入口图标",
+            "灾变防线_主界面",
+            "灾变防线_记录选择",
+            "[JumpBack]通用_返回主页"
+        ]
+    },
+    "灾变防线_出发": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "通用_主页_出发"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -20,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "灾变防线_入口图标"
+        ]
+    },
+    "灾变防线_入口图标": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/entry_card.png"
+                ],
+                "roi": [
+                    860,
+                    470,
+                    320,
+                    180
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "灾变防线_主界面",
+            "灾变防线_记录选择"
+        ]
+    },
+    "灾变防线_主界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "困难"
+                ],
+                "roi": [
+                    400,
+                    70,
+                    500,
+                    50
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    350
+                ]
+            }
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_记录选择"
+        ]
+    },
+    "灾变防线_记录选择": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "区域一"
+                ],
+                "roi": [
+                    130,
+                    120,
+                    220,
+                    60
+                ]
+            }
+        },
+        "next": [
+            "灾变防线_区域一选择纪录",
+            "灾变防线_区域二选择纪录",
+            "灾变防线_前往挑战"
+        ]
+    },
+    "灾变防线_区域一选择纪录": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/record_slot.png"
+                ],
+                "roi": [
+                    180,
+                    320,
+                    300,
+                    200
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_纪录管理"
+        ]
+    },
+    "灾变防线_区域二选择纪录": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/record_slot.png"
+                ],
+                "roi": [
+                    830,
+                    320,
+                    300,
+                    200
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_纪录管理"
+        ]
+    },
+    "灾变防线_纪录管理": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "纪录管理"
+                ],
+                "roi": [
+                    100,
+                    15,
+                    250,
+                    60
+                ]
+            }
+        },
+        "next": [
+            "灾变防线_选择首个纪录"
+        ]
+    },
+    "灾变防线_选择首个纪录": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "choose_record/record_position.png"
+                ],
+                "order_by": "Vertical"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_记录选择"
+        ]
+    },
+    "灾变防线_前往挑战": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/goto_challenge.png"
+                ],
+                "roi": [
+                    1040,
+                    580,
+                    230,
+                    110
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "灾变防线_战斗循环"
+        ]
+    },
+    "灾变防线_战斗循环": {
+        "next": [
+            "灾变防线_命运卡片_拿走",
+            "灾变防线_命运卡片_选卡",
+            "通用_点击空白处继续",
+            "灾变防线_走位",
+            "灾变防线_挑战成功"
+        ]
+    },
+    "灾变防线_命运卡片_拿走": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/take_card.png"
+                ],
+                "roi": [
+                    200,
+                    520,
+                    260,
+                    100
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "通用_点击空白处继续",
+            "灾变防线_战斗循环"
+        ]
+    },
+    "灾变防线_命运卡片_选卡": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/card_title.png"
+                ],
+                "roi": [
+                    440,
+                    20,
+                    440,
+                    70
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    300,
+                    360
+                ]
+            }
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_命运卡片_拿走"
+        ]
+    },
+    "灾变防线_走位": {
+        "recognition": {
+            "type": "DirectHit"
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "catastrophe_defense_move"
+            }
+        },
+        "attach": {
+            "first_wait": 150,
+            "retry_wait": 20,
+            "attempts": 8
+        },
+        "next": [
+            "灾变防线_战斗循环"
+        ],
+        "focus": {
+            "Node.Action.Starting": "灾变防线：开始试探走位进传送门"
+        }
+    },
+    "灾变防线_挑战成功": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "挑战成功"
+                ],
+                "roi": [
+                    430,
+                    210,
+                    420,
+                    100
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_首通奖励",
+            "灾变防线_作战奖励"
+        ]
+    },
+    "灾变防线_首通奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "首通奖励",
+                    "普通奖励"
+                ],
+                "roi": [
+                    20,
+                    440,
+                    150,
+                    100
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "灾变防线_作战奖励"
+        ]
+    },
+    "灾变防线_作战奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战奖励"
+                ],
+                "roi": [
+                    230,
+                    80,
+                    220,
+                    50
+                ]
+            }
+        },
+        "next": [
+            "灾变防线_一键领取"
+        ]
+    },
+    "灾变防线_一键领取": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "personal/catastrophe_defense/claim.png"
+                ],
+                "roi": [
+                    480,
+                    520,
+                    320,
+                    110
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 300,
+        "next": [
+            "通用_点击空白处继续",
+            "[JumpBack]通用_返回主页"
+        ]
+    }
+}

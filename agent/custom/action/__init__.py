@@ -5,6 +5,7 @@ from .climb_tower_record_scan import *
 from .invite import *
 from .fight import *
 from .activity import *
+from .personal_catastrophe_defense_move import *
 
 __all__ = [
     "ShopAction",
@@ -17,5 +18,7 @@ __all__ = [
     "SelectParty",
     "RecordScanAction",
     "ActivityChallengeBattleLoop",
-    "ActivityChallengeRandomStage"
+    "ActivityChallengeRandomStage",
+    "CatastropheDefenseReset",
+    "CatastropheDefenseMove"
 ]
