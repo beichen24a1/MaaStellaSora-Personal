@@ -112,10 +112,18 @@ class CatastropheDefenseMove(CustomAction):
         logger.info(
             f"灾变防线：等待 {first_wait:.0f} 秒后开始试探走位（上半约需 3~4 分钟）"
         )
-        time.sleep(first_wait)
+        ## 分段等待并打心跳日志 —— 一次性 sleep 会让外界以为任务卡死了
+        waited = 0.0
+        while waited < first_wait:
+            step = min(10.0, first_wait - waited)
+            time.sleep(step)
+            waited += step
+            logger.info(f"灾变防线：等待中 {waited:.0f}/{first_wait:.0f} 秒")
 
         for attempt in range(1, attempts + 1):
             logger.info(f"灾变防线：第 {attempt}/{attempts} 次试探走位")
+            remaining = attempts - attempt
+            logger.debug(f"灾变防线：本轮走位后剩余 {remaining} 次机会")
             if _hold(context, [KEY_W, KEY_A], WALK_LEFT_SECONDS, watch_black=True):
                 logger.info("灾变防线：按 W+A 途中已进入传送门")
                 _moved = True
