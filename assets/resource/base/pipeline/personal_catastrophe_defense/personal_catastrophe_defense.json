@@ -295,11 +295,14 @@
             }
         },
         "attach": {
-            "first_wait": 210,
+            "min_wait": 120,
+            "still_seconds": 8,
+            "still_ratio": 0.05,
+            "pixel_diff": 16,
+            "max_wait": 330,
             "left_seconds": 12,
             "portal_seconds": 5,
-            "attempts": 8,
-            "retry_wait": 20
+            "attempts": 8
         },
         "next": [
             "灾变防线_战斗循环"
