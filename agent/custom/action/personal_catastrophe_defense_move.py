@@ -19,10 +19,23 @@
 
 【键盘输入方式必须用真实输入，不能发消息】
 本项目的 Win32 控制器 keyboard 必须配 Seize（或 Interception / LegacyEvent）这类
-真实输入方式。SendMessage / SendMessageWithCursorPos 只是往窗口投递 WM_KEYDOWN，
+真实输入方式。SendMessage / PostMessage 只是往窗口投递 WM_KEYDOWN / WM_KEYUP，
 而 Unity 的键盘走按键状态 / 原始输入，根本不读这些消息 —— 表现就是「日志说按了、
-按键也确实发出去了，但角色纹丝不动」。鼠标点击可以继续用消息方式（Unity 处理
-WM_LBUTTONDOWN），两者在 interface.json 里是分开配置的。
+按键也确实发出去了，但角色纹丝不动」。实测：Seize 按下后画面变化率 0.59，而
+SendMessage / PostMessage / SendMessageWithCursorPos / PostMessageWithCursorPos /
+PostMessageWithWindowPos 全部 ≤0.018（等于噪音）。
+鼠标点击可以继续用消息方式（Unity 处理 WM_LBUTTONDOWN），两者在 interface.json
+里是分开配置的。
+
+【按键的「松开」不可靠：松两遍 + 松完自检】（实机踩过的坑）
+实机出现过「日志显示已改按 S+D，但角色还在往左上角走」——本游戏 W+A 与 S+D
+同时按住会互相抵消（表现为静止），所以那个现象说明 W+A 其实没松开。
+单独测试里 key_up 是有效的（按 2 秒松开后画面 1 秒内停下），但既然实机会粘住，
+这里就不赌运气：
+  - 每一段按键前后都调 _release_all：四个方向键全部松开，并且连发两遍；
+  - 松开后再做 _settle 自检：等 1.2 秒让松开生效，再采样 0.8 秒，
+    若画面还在明显变化就判定「没停住」，补发一遍松开并写进日志。
+下次再出问题，日志会直接说明是「没停住」还是「按键没送到」。
 
 【为什么调用必须快进快出（踩过的坑）】
 CustomAction.run() 执行期间，整条 pipeline 都在等它返回 —— 它跑多久，战斗循环就
@@ -56,6 +69,7 @@ KEY_W = 0x57
 KEY_A = 0x41
 KEY_S = 0x53
 KEY_D = 0x44
+ALL_KEYS = (KEY_W, KEY_A, KEY_S, KEY_D)
 
 ## 整屏平均亮度低于该值即认为进了加载（黑屏）
 BLACK_MEAN_THRESHOLD = 25.0
@@ -68,6 +82,10 @@ SAMPLE_STRIDE = 4
 
 ## 变化率心跳日志间隔（秒）—— 实机调 still_ratio 的依据
 RATIO_LOG_INTERVAL = 10.0
+
+## 松开按键后：先等这么久让松开生效（实测有约 1 秒延迟），再采样这么久判断停没停
+SETTLE_WAIT = 1.2
+SETTLE_SAMPLE = 0.8
 
 ## 走位阶段
 PHASE_WAIT = "wait"  ## 等画面静止 = 等上半场打完
@@ -106,6 +124,16 @@ def _grab(context: Context):
         return None
 
 
+def _drive(context: Context, seconds: float) -> None:
+    """用截图驱动等待（不 sleep），期间顺带响应停止。"""
+
+    deadline = time.time() + seconds
+    while time.time() < deadline:
+        if context.tasker.stopping:
+            return
+        _grab(context)
+
+
 def _to_gray(image):
     """抽点 + 转灰度，返回 int16 二维数组。"""
 
@@ -134,6 +162,42 @@ def _diff_ratio(before, after, pixel_diff: int) -> float:
     if ga.shape != gb.shape:
         return -1.0
     return float((np.abs(ga - gb) > pixel_diff).mean())
+
+
+def _release_all(context: Context) -> None:
+    """松开全部方向键，并且连发两遍。
+
+    单个 key_up 在实机上出现过「发了但角色还在走」的情况；四个键都发一遍还能
+    顺带清掉上一次运行 / 上一阶段遗留的按键状态（本游戏 W+A 与 S+D 同按会抵消，
+    残留一个键就会让后续的走位整个失灵）。
+    """
+
+    controller = context.tasker.controller
+    for _ in range(2):
+        for key in ALL_KEYS:
+            try:
+                controller.post_key_up(key).wait()
+            except Exception:  # noqa: BLE001 - 任务停止时按键任务可能已失效
+                pass
+
+
+def _settle(context: Context, still_ratio: float, pixel_diff: int) -> tuple[bool, float]:
+    """松开按键后确认角色真的停下了；没停就补发一遍松开。
+
+    Returns:
+        (是否确认停下, 观测到的画面变化率)
+    """
+
+    _drive(context, SETTLE_WAIT)
+    before = _grab(context)
+    _drive(context, SETTLE_SAMPLE)
+    after = _grab(context)
+    ratio = _diff_ratio(before, after, pixel_diff)
+    if ratio >= 0 and ratio >= still_ratio:
+        _release_all(context)
+        _drive(context, SETTLE_SAMPLE)
+        return False, ratio
+    return True, ratio
 
 
 def _update_stillness(image, now: float, still_seconds: float, still_ratio: float, pixel_diff: int) -> bool:
@@ -188,11 +252,14 @@ def _update_stillness(image, now: float, still_seconds: float, still_ratio: floa
 
 
 def _hold(context: Context, keys: tuple[int, ...], seconds: float) -> str:
-    """按住一组键 seconds 秒（用截图驱动等待），结束一定松开。
+    """按住一组键 seconds 秒（用截图驱动等待），结束一定把四个键都松开。
 
     Returns:
         str: "entered" 检测到黑屏；"stopped" 用户点了停止；"timeout" 按满时间没进门。
     """
+
+    ## 先清干净再按：避免上一阶段残留的键把这一次的走位抵消掉
+    _release_all(context)
 
     controller = context.tasker.controller
     for key in keys:
@@ -209,20 +276,17 @@ def _hold(context: Context, keys: tuple[int, ...], seconds: float) -> str:
                 outcome = "entered"
                 break
     finally:
-        for key in reversed(keys):
-            try:
-                controller.post_key_up(key).wait()
-            except Exception:  # noqa: BLE001 - 任务停止时按键任务可能已失效
-                pass
+        _release_all(context)
     return outcome
 
 
 @AgentServer.custom_action("catastrophe_defense_reset")
 class CatastropheDefenseReset(CustomAction):
-    """任务开始时清掉上一次运行留下的走位状态。"""
+    """任务开始时清掉上一次运行留下的走位状态和按键。"""
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
         _reset_state()
+        _release_all(context)
         logger.debug("灾变防线：已重置走位状态")
         return True
 
@@ -296,7 +360,6 @@ class CatastropheDefenseMove(CustomAction):
         outcome = _hold(context, keys, seconds)
         after = _grab(context)
 
-        ## 自检：画面几乎没变说明按键没送到游戏（比如 keyboard 输入方式不对）
         moved = _diff_ratio(before, after, pixel_diff)
         if moved >= 0:
             hint = "（画面几乎没变，按键可能没生效）" if moved < still_ratio else ""
@@ -307,6 +370,12 @@ class CatastropheDefenseMove(CustomAction):
 
         if outcome == "stopped":
             return True
+
+        ## 松开自检：确认角色真的停下了，没停就补发松开（实机出现过粘键）
+        if outcome != "entered":
+            stopped, tail = _settle(context, still_ratio, pixel_diff)
+            if not stopped:
+                logger.warning(f"灾变防线：松开 {label} 后角色仍在移动（变化率 {tail:.4f}），已补发松开")
 
         if outcome == "entered":
             _state["entered"] = True
