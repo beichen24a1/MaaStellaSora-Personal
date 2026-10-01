@@ -45,11 +45,11 @@
 3. 将压缩包完整解压到独立目录，运行包内的 MFAAvalonia 主程序。
 4. 如果需要操控 Windows 版《星塔旅人》，请使用管理员权限运行 GUI；使用 ADB 时可直接启动。
 
-## 参与开发或贡献
+## 反馈与文档
 
-选择[贡献方式](docs/CONTRIBUTING.md#贡献方式)，反馈问题时参考[调试截图与日志](docs/CONTRIBUTING.md#调试截图与日志)，完成修改后按[提交 PR](docs/CONTRIBUTING.md#提交-pr)准备说明与验证结果。
+本仓库是**个人版**，不接受外部贡献；遇到问题请提到本仓库的 Issues。
 
-参考文档：[项目结构](docs/zh_cn/项目结构.md) · [Pipeline 编写规范](docs/zh_cn/Pipeline编写规范.md) · [个人版说明](PERSONAL.md) · [AI 工具入口](AGENTS.md)
+参考文档：[项目结构](docs/zh_cn/项目结构.md) · [Pipeline 编写规范](docs/zh_cn/Pipeline编写规范.md) · [个人版说明](PERSONAL.md)
 
 ## 鸣谢
 
@@ -57,7 +57,7 @@
 
 本项目部分功能使用 **[MaaPipelineEditor](https://github.com/kqcoxn/MaaPipelineEditor)** 进行辅助编辑
 
-上游项目与贡献者：[MaaStellaSora](https://github.com/MaaStellaSora/MaaStellaSora)
+上游项目：[MaaStellaSora](https://github.com/MaaStellaSora/MaaStellaSora)
 
 ## 相关项目
 
