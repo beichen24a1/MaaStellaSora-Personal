@@ -25,7 +25,7 @@
                 "window_regex": "xtlr|星塔旅人|ステラソラ|StellaSora",
                 "screencap": "FramePool",
                 "mouse": "SendMessageWithCursorPos",
-                "keyboard": "SendMessageWithCursorPos"
+                "keyboard": "Seize"
             },
             "permission_required": true,
             "attach_resource_path": [

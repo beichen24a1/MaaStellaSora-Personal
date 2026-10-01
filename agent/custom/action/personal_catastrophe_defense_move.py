@@ -10,12 +10,19 @@
 「命运卡片_拿走 / 选卡 / 点击空白处继续 / 挑战成功」全都没命中 —— 也就是用户说的
 「不是命运卡选择、也不是点击空白处继续」，这两个条件由 pipeline 天然帮我们排除了。
 
-三重保险，任意一条成立就开始走位：
+三重保险，任意一条成立就开始尝试进入传送门：
   1. min_wait 秒之后，画面连续静止 still_seconds 秒（主判据）；
   2. max_wait 秒兜底强制开走（静止判据万一失灵也不至于干等）；
-  3. 一轮没进门就回到等待，画面再次静止后重试（上半场没结束的话画面会重新动起来）。
+  3. 一次没成功就回到等待，画面再次静止后重试（上半场没结束的话画面会重新动起来）。
 
 按键：先按住 W+A 约 12 秒走向左上角，再按住 S+D 走向中央传送门。
+
+【键盘输入方式必须用真实输入，不能发消息】
+本项目的 Win32 控制器 keyboard 必须配 Seize（或 Interception / LegacyEvent）这类
+真实输入方式。SendMessage / SendMessageWithCursorPos 只是往窗口投递 WM_KEYDOWN，
+而 Unity 的键盘走按键状态 / 原始输入，根本不读这些消息 —— 表现就是「日志说按了、
+按键也确实发出去了，但角色纹丝不动」。鼠标点击可以继续用消息方式（Unity 处理
+WM_LBUTTONDOWN），两者在 interface.json 里是分开配置的。
 
 【为什么调用必须快进快出（踩过的坑）】
 CustomAction.run() 执行期间，整条 pipeline 都在等它返回 —— 它跑多久，战斗循环就
@@ -99,14 +106,6 @@ def _grab(context: Context):
         return None
 
 
-def _is_black(image) -> bool:
-    """整屏平均亮度过低即认为在加载（黑屏）。"""
-
-    if image is None or getattr(image, "size", 0) == 0:
-        return False
-    return float(np.asarray(image)[::SAMPLE_STRIDE, ::SAMPLE_STRIDE].mean()) < BLACK_MEAN_THRESHOLD
-
-
 def _to_gray(image):
     """抽点 + 转灰度，返回 int16 二维数组。"""
 
@@ -116,11 +115,32 @@ def _to_gray(image):
     return small.astype(np.int16)
 
 
+def _is_black(image) -> bool:
+    """整屏平均亮度过低即认为在加载（黑屏）。"""
+
+    if image is None or getattr(image, "size", 0) == 0:
+        return False
+    return float(np.asarray(image)[::SAMPLE_STRIDE, ::SAMPLE_STRIDE].mean()) < BLACK_MEAN_THRESHOLD
+
+
+def _diff_ratio(before, after, pixel_diff: int) -> float:
+    """两帧的差异像素占比；拿不到图返回 -1。"""
+
+    if before is None or after is None:
+        return -1.0
+    if getattr(before, "size", 0) == 0 or getattr(after, "size", 0) == 0:
+        return -1.0
+    ga, gb = _to_gray(before), _to_gray(after)
+    if ga.shape != gb.shape:
+        return -1.0
+    return float((np.abs(ga - gb) > pixel_diff).mean())
+
+
 def _update_stillness(image, now: float, still_seconds: float, still_ratio: float, pixel_diff: int) -> bool:
     """把这一帧和上一帧比一比，判断画面是否已经连续静止 still_seconds 秒。
 
     Returns:
-        bool: True 表示画面够久了，可以开始走位。
+        bool: True 表示画面够久了，可以开始尝试进入传送门。
     """
 
     if image is None or getattr(image, "size", 0) == 0:
@@ -149,7 +169,10 @@ def _update_stillness(image, now: float, still_seconds: float, still_ratio: floa
             since = _state.get("still_since")
             if since is None:
                 _state["still_since"] = now
-                logger.info(f"灾变防线：画面已静止（变化率 {ratio:.4f}），持续 {still_seconds:.0f} 秒后开始试探走位")
+                logger.info(
+                    f"灾变防线：画面已静止（变化率 {ratio:.4f}），"
+                    f"持续 {still_seconds:.0f} 秒后尝试进入传送门"
+                )
             elif now - since >= still_seconds:
                 _state["last_gray"] = gray
                 _state["last_at"] = now
@@ -206,7 +229,7 @@ class CatastropheDefenseReset(CustomAction):
 
 @AgentServer.custom_action("catastrophe_defense_move")
 class CatastropheDefenseMove(CustomAction):
-    """试探式走位进传送门：等画面静止再走，等待阶段秒回。"""
+    """尝试进入传送门：等画面静止再走，等待阶段秒回。"""
 
     def run(self, context: Context, argv: CustomAction.RunArg) -> bool:
         if context.tasker.stopping or _state.get("entered"):
@@ -232,7 +255,7 @@ class CatastropheDefenseMove(CustomAction):
             _state["phase"] = PHASE_WAIT
             logger.info(
                 f"灾变防线：进入战斗循环，{min_wait:.0f} 秒后开始检测画面静止"
-                f"（静止 {still_seconds:.0f} 秒即走位，最长等 {max_wait:.0f} 秒）"
+                f"（静止 {still_seconds:.0f} 秒即尝试进入传送门，最长等 {max_wait:.0f} 秒）"
             )
             return True
 
@@ -248,27 +271,39 @@ class CatastropheDefenseMove(CustomAction):
                 _state["still_since"] = None
                 ready = False
 
-            ## 兜底：等太久了就强制开走一次；之后重新计一轮
+            ## 兜底：等太久了就强制试一次；之后重新计一轮
             if not ready and max_wait > 0 and now >= _state.get("force_at", 0.0):
                 _state["force_at"] = now + max_wait
                 ready = True
-                logger.warning(f"灾变防线：已等满 {max_wait:.0f} 秒画面仍未静止，强制开始试探走位")
+                logger.warning(f"灾变防线：已等满 {max_wait:.0f} 秒画面仍未静止，强制尝试进入传送门")
 
             if ready:
                 _state["phase"] = PHASE_LEFT
                 _state["attempt"] = _state.get("attempt", 0) + 1
-                logger.info(f"灾变防线：开始第 {_state['attempt']}/{attempts} 次试探走位")
+                logger.info(f"灾变防线：尝试进入传送门({_state['attempt']}/{attempts})")
             return True
 
         if phase == PHASE_LEFT:
-            keys, seconds = (KEY_W, KEY_A), left_seconds
+            keys, seconds, label = (KEY_W, KEY_A), left_seconds, "W+A"
         elif phase == PHASE_PORTAL:
-            keys, seconds = (KEY_S, KEY_D), portal_seconds
+            keys, seconds, label = (KEY_S, KEY_D), portal_seconds, "S+D"
         else:
             return True
 
+        attempt = _state.get("attempt", 1)
+        before = _grab(context)
         ## 连续按住方向键；期间每轮截图检查是否进了加载
         outcome = _hold(context, keys, seconds)
+        after = _grab(context)
+
+        ## 自检：画面几乎没变说明按键没送到游戏（比如 keyboard 输入方式不对）
+        moved = _diff_ratio(before, after, pixel_diff)
+        if moved >= 0:
+            hint = "（画面几乎没变，按键可能没生效）" if moved < still_ratio else ""
+            logger.info(
+                f"灾变防线：尝试进入传送门({attempt}/{attempts}) 按住 {label} {seconds:.0f} 秒，"
+                f"画面变化率 {moved:.4f}{hint}"
+            )
 
         if outcome == "stopped":
             return True
@@ -276,23 +311,22 @@ class CatastropheDefenseMove(CustomAction):
         if outcome == "entered":
             _state["entered"] = True
             _state["phase"] = PHASE_DONE
-            logger.info("灾变防线：检测到加载黑屏，已进入传送门")
+            logger.info("灾变防线：检测到加载黑屏，已进入传送门，下半场开始")
             return True
 
         if phase == PHASE_LEFT:
             _state["phase"] = PHASE_PORTAL
-            logger.info("灾变防线：左上角已走到，改按 S+D 走向中央传送门")
+            logger.info(f"灾变防线：尝试进入传送门({attempt}/{attempts}) 已走到左上角，改按 S+D")
             return True
 
         ## PHASE_PORTAL 按满仍未进门
-        attempt = _state.get("attempt", 1)
         if attempt >= attempts:
             _state["phase"] = PHASE_DONE
-            logger.warning("灾变防线：试探走位达到上限仍未进门，交回主循环")
+            logger.warning(f"灾变防线：尝试进入传送门已达上限({attempts} 次)仍未成功，交回主循环")
         else:
             ## 回到「等画面静止」：若上半场其实没结束，画面会重新动起来，就继续等
             _state["phase"] = PHASE_WAIT
             _state["still_since"] = None
             _state["last_gray"] = None
-            logger.info(f"灾变防线：第 {attempt}/{attempts} 次未进门，回到等待，画面再次静止后重试")
+            logger.info(f"灾变防线：尝试进入传送门({attempt}/{attempts}) 未检测到加载，回到等待重试")
         return True
