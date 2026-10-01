@@ -380,7 +380,8 @@
             "type": "OCR",
             "param": {
                 "expected": [
-                    "一键领取"
+                    "一键领取",
+                    "键领取"
                 ],
                 "roi": [
                     480,
@@ -395,6 +396,33 @@
         },
         "next": [
             "[JumpBack]通用_点击空白处继续",
+            "灾变防线_关闭作战奖励",
+            "[JumpBack]通用_返回主页"
+        ],
+        "post_delay": 1500
+    },
+    "灾变防线_关闭作战奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战奖励"
+                ],
+                "roi": [
+                    230,
+                    80,
+                    220,
+                    50
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        },
+        "next": [
             "[JumpBack]通用_返回主页"
         ],
         "post_delay": 1500
