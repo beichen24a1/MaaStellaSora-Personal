@@ -16,11 +16,29 @@
    - 身份字段（`name` / `github` / `description` / `welcome` 等）
    - `import` 数组追加个人任务文件
 2. **个人增量一律新增文件**，命名带 `personal` 标识：
-   - `agent/custom/action/climb_tower_personal_*.py`
-   - `agent/custom/reco/climb_tower_personal_*.py`
+   - `agent/custom/action/personal_*.py`（并在 `agent/custom/action/__init__.py` 注册）
+   - `agent/custom/reco/*_personal_*.py`
    - `assets/interface/tasks/personal_*.json`
-   - `assets/resource/base/pipeline/personal_*/…`
-3. **禁止**重命名或删除上游节点、任务与选项标识 —— 外部工具（如 AUTO-MAS）按 `entry` 与选项名对接，
+   - `assets/resource/base/pipeline/common/personal_*.json`
+   - `assets/resource/base/image/personal/*.png`
+3. **新增 pipeline 文件必须放在 `base/pipeline/common/`（或 `climb_tower/`）下**，不能自建顶层目录。
+   打开发行包时 `tools/ci/resource_layout.py` 会把 pipeline 重排成兼容既有客户端的布局：
+   相对路径命中 `PIPELINE_PATHS` 表的会被摊平到 pipeline 根，其余只有首层目录是 `common` 或
+   `climb_tower` 才放行，别的顶层目录会直接让整个构建失败：
+
+   ```
+   ValueError: unmapped pipeline file: assets/resource/base/pipeline/<你的目录>/xxx.json
+   ```
+
+   本地可以先这样验证，不用等 CI：
+
+   ```python
+   from pathlib import Path
+   import tempfile
+   from tools.ci.resource_layout import copy_resources
+   copy_resources(Path("assets/resource"), Path(tempfile.mkdtemp()))
+   ```
+4. **禁止**重命名或删除上游节点、任务与选项标识 —— 外部工具（如 AUTO-MAS）按 `entry` 与选项名对接，
    改名会连带失效。
 
 ## 同步上游
