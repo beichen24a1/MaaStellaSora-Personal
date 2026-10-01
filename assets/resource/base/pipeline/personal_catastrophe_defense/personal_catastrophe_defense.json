@@ -403,24 +403,21 @@
     },
     "灾变防线_关闭作战奖励": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
-                "expected": [
-                    "作战奖励"
+                "template": [
+                    "personal/灾变防线_关闭奖励按钮.png"
                 ],
                 "roi": [
-                    230,
-                    80,
-                    220,
-                    50
+                    980,
+                    50,
+                    160,
+                    110
                 ]
             }
         },
         "action": {
-            "type": "ClickKey",
-            "param": {
-                "key": 27
-            }
+            "type": "Click"
         },
         "next": [
             "[JumpBack]通用_返回主页"
