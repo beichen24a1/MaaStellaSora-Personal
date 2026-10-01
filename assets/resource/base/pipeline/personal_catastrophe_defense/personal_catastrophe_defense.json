@@ -187,12 +187,14 @@
             "param": {
                 "template": [
                     "choose_record/record_position.png"
-                ],
-                "order_by": "Vertical"
+                ]
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Custom",
+            "param": {
+                "custom_action": "catastrophe_defense_pick_record"
+            }
         },
         "next": [
             "灾变防线_记录选择"
@@ -406,7 +408,7 @@
         "next": [
             "[JumpBack]通用_点击空白处继续",
             "灾变防线_关闭作战奖励",
-            "[JumpBack]通用_返回主页"
+            "通用_返回主页"
         ],
         "post_delay": 1500
     },
@@ -429,7 +431,7 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]通用_返回主页"
+            "通用_返回主页"
         ],
         "post_delay": 1500
     }
