@@ -2,7 +2,7 @@ name: mirror-to-org
 
 # 把本仓库（个人仓库）的 main 分支与全部 tags 镜像到组织 fork：
 # https://github.com/NekoHome-Studio/MaaStellaSora-Personal
-# 组织 fork 不带任何自带提交，永远与本仓库 main 一字不差。
+# 组织 fork 里不带任何自带提交，因此永远与本仓库 main 一字不差。
 
 on:
   push:
@@ -26,14 +26,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # 关键：不要把 GITHUB_TOKEN 写进 http.extraheader，
+          # 否则它会盖掉 org remote URL 里携带的凭据，导致 403 (github-actions[bot])
+          persist-credentials: false
 
       - name: Mirror main and tags to org fork
         env:
           SYNC_TOKEN: ${{ secrets.ORG_MIRROR_TOKEN }}
         run: |
           set -euo pipefail
+          git config --global --unset-all "http.https://github.com/.extraheader" || true
           git remote add org "https://x-access-token:${SYNC_TOKEN}@github.com/NekoHome-Studio/MaaStellaSora-Personal.git"
-          git fetch --tags --force origin
           if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
             echo "::group::push main"
             git push --force org HEAD:refs/heads/main
