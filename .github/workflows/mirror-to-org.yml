@@ -1,0 +1,46 @@
+name: mirror-to-org
+
+# 把本仓库（个人仓库）的 main 分支与全部 tags 镜像到组织 fork：
+# https://github.com/NekoHome-Studio/MaaStellaSora-Personal
+# 组织 fork 不带任何自带提交，永远与本仓库 main 一字不差。
+
+on:
+  push:
+    branches: [main]
+    tags: ['*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror-to-org
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    # 只在个人仓库运行：fork 里没有该 secret，跑起来只会产生失败噪音
+    if: github.repository == 'beichen24a1/MaaStellaSora-Personal'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror main and tags to org fork
+        env:
+          SYNC_TOKEN: ${{ secrets.ORG_MIRROR_TOKEN }}
+        run: |
+          set -euo pipefail
+          git remote add org "https://x-access-token:${SYNC_TOKEN}@github.com/NekoHome-Studio/MaaStellaSora-Personal.git"
+          git fetch --tags --force origin
+          if [ "${GITHUB_REF}" = "refs/heads/main" ]; then
+            echo "::group::push main"
+            git push --force org HEAD:refs/heads/main
+            echo "::endgroup::"
+          else
+            echo "tag event (${GITHUB_REF}): 只同步 tags，不动 main"
+          fi
+          echo "::group::push tags"
+          git push --force org --tags
+          echo "::endgroup::"
