@@ -46,7 +46,7 @@ def rename_executable(install_dir: Path) -> Path | None:
         source.rename(target)
         print(f"[branding] rename {old_name} -> {new_name}")
         return target
-    print("[branding] warn: 没有找到 MFAAvalonia 可执行文件，跳过改名")
+    print("[branding] warn: MFAAvalonia executable not found, skip rename")
     return next(
         (
             install_dir / (APP_NAME + suffix)
@@ -62,7 +62,7 @@ def rewrite_custom_title(install_dir: Path, version: str) -> None:
 
     path = install_dir / "interface.json"
     if not path.is_file():
-        print("[branding] warn: 没有找到 interface.json，跳过改标题")
+        print("[branding] warn: interface.json not found, skip custom_title")
         return
     data = json.loads(path.read_text(encoding="utf-8"))
     data["custom_title"] = f"{APP_NAME} {version}"
@@ -81,7 +81,7 @@ def _load_ico(path: Path) -> list[dict]:
     data = path.read_bytes()
     _reserved, image_type, count = struct.unpack_from("<HHH", data, 0)
     if image_type != 1:
-        raise ValueError(f"不是图标文件: {path}")
+        raise ValueError(f"not an icon file: {path}")
     entries: list[dict] = []
     offset = 6
     for _ in range(count):
@@ -129,7 +129,7 @@ def set_windows_icon(exe: Path, ico: Path) -> None:
     """用 Win32 资源 API 把 exe 的文件图标换成 ico。"""
 
     if sys.platform != "win32":
-        print("[branding] 非 Windows，跳过 PE 图标")
+        print("[branding] not Windows, skip PE icon")
         return
 
     entries = _load_ico(ico)
@@ -206,18 +206,18 @@ def set_windows_icon(exe: Path, ico: Path) -> None:
         raise
     if not kernel32.EndUpdateResourceW(handle, False):
         raise ctypes.WinError(ctypes.get_last_error())
-    print(f"[branding] icon -> {exe.name} ({len(entries)} 个尺寸)")
+    print(f"[branding] icon -> {exe.name} ({len(entries)} size(s))")
 
 
 def main(argv: list[str]) -> None:
     """argv: <install_dir> <version>"""
 
     if len(argv) != 3:
-        raise SystemExit("用法: personal_branding.py <install_dir> <version>")
+        raise SystemExit("usage: personal_branding.py <install_dir> <version>")
     install_dir = Path(argv[1]).resolve()
     version = argv[2]
     if not install_dir.is_dir():
-        raise SystemExit(f"install_dir 不存在: {install_dir}")
+        raise SystemExit(f"install_dir does not exist: {install_dir}")
 
     executable = rename_executable(install_dir)
     rewrite_custom_title(install_dir, version)
